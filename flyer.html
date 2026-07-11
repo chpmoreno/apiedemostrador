@@ -1,0 +1,167 @@
+<meta charset="utf-8">
+<title>A pie de mostrador — Flyer</title>
+<style>
+  :root, :root[data-theme="dark"], :root[data-theme="light"] {
+    --paper: #faf6ee; --paper-2: #f2ecdd; --ink: #26251f; --ink-2: #5b584c; --ink-3: #8b8779;
+    --brand: #1e6b4f; --brand-soft: #e3ede6; --line: #e3dcc9; --slip: #fffdf6;
+    --c-ananda: #2e8b4a; --c-marenna: #3e63a8; --c-todalinda: #c4707e; --c-espiga: #0a86a8;
+    --c-ixeta: #6f8a1a; --c-meatboss: #c04141; --c-indo: #8a5510; --c-mostaza: #a1770a;
+    color-scheme: light only;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #e8e4d8; color: var(--ink);
+    font-family: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+    line-height: 1.45; -webkit-font-smoothing: antialiased;
+    display: flex; justify-content: center; padding: 24px 8px;
+  }
+  .page {
+    background: var(--paper); width: 794px; max-width: 100%; min-height: 1100px;
+    box-shadow: 0 4px 24px rgba(60,55,40,0.18); display: flex; flex-direction: column;
+  }
+  .awning { height: 14px; background: repeating-linear-gradient(90deg, var(--brand) 0 38px, var(--paper) 38px 76px); border-bottom: 1px solid var(--line); }
+  .inner { padding: 26px 40px 30px; display: flex; flex-direction: column; flex: 1; }
+
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .wordmark { font-family: Futura, "Avenir Next", "Trebuchet MS", sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--brand); }
+  .wordmark .tagline { color: var(--ink-3); font-weight: 500; }
+  .langs button {
+    font: inherit; font-size: 0.72rem; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--line); background: var(--paper); color: var(--ink-2);
+    border-radius: 999px; padding: 3px 10px;
+  }
+  .langs button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+  .en { display: none; }
+  body[data-lang="en"] .es { display: none; }
+  body[data-lang="en"] .en { display: inline; }
+  body[data-lang="en"] p.en, body[data-lang="en"] h1.en, body[data-lang="en"] h4.en, body[data-lang="en"] div.en { display: block; }
+  p.en, h1.en, h4.en, div.en { display: none; }
+
+  .eyebrow { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand); font-weight: 700; margin: 0 0 10px; }
+  h1 {
+    font-family: Futura, "Avenir Next", "Trebuchet MS", sans-serif;
+    font-size: 2.05rem; line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.015em; text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: var(--brand); }
+  .lede { font-size: 0.93rem; color: var(--ink-2); max-width: 40em; margin: 0 0 20px; }
+
+  .senales { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .senal {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--accent, var(--brand));
+    border-radius: 9px; padding: 11px 14px;
+  }
+  .senal h4 { margin: 0 0 3px; font-size: 0.9rem; font-family: Futura, "Avenir Next", "Trebuchet MS", sans-serif; line-height: 1.25; }
+  .senal p { margin: 0; font-size: 0.78rem; color: var(--ink-2); line-height: 1.4; }
+
+  .nota {
+    background: var(--paper-2); border: 1px dashed var(--ink-3); border-radius: 10px;
+    padding: 12px 16px; font-size: 0.78rem; color: var(--ink-2); margin-bottom: 18px;
+  }
+  .nota b { color: var(--ink); }
+
+  .bottom {
+    margin-top: auto; display: flex; gap: 22px; align-items: center;
+    background: var(--brand-soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px;
+  }
+  .qr { width: 108px; height: 108px; flex-shrink: 0; color: var(--ink); background: #fff; padding: 7px; border-radius: 8px; border: 1px solid var(--line); }
+  .qr svg { display: block; width: 100%; height: 100%; }
+  .cta h4 { margin: 0 0 4px; font-size: 1.05rem; font-family: Futura, "Avenir Next", "Trebuchet MS", sans-serif; }
+  .cta p { margin: 0 0 4px; font-size: 0.82rem; color: var(--ink-2); }
+  .cta .mail { font-weight: 600; color: var(--brand); font-size: 0.88rem; }
+  .cta .url { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.72rem; color: var(--ink-3); }
+
+  .footline { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 0.68rem; color: var(--ink-3); }
+  .dots { display: flex; gap: 5px; }
+  .dots span { width: 9px; height: 9px; border-radius: 50%; display: block; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: auto; min-height: auto; }
+    .langs { display: none; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+
+<div class="page">
+  <div class="awning" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="top">
+      <div class="wordmark">A pie de mostrador <span class="tagline">· <span class="es">primer vistazo</span><span class="en">a first look</span></span></div>
+      <div class="langs" role="group" aria-label="Idioma / Language">
+        <button type="button" data-setlang="es" aria-pressed="true">ES</button>
+        <button type="button" data-setlang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+    <p class="eyebrow"><span class="es">8 conversaciones · Barcelona · mayo – julio 2026</span><span class="en">8 conversations · Barcelona · May – July 2026</span></p>
+    <h1 class="es">¿Con qué están lidiando, <em>en serio</em>, los pequeños comercios?</h1>
+    <h1 class="en">What are small retailers <em>really</em> dealing with?</h1>
+    <p class="lede es">Escuchamos a 8 comercios de barrio: dietética, modista, estética, cervecera, granel, carnicería, café y artesanía. Sin pitch y sin encuesta. Seis cosas se repitieron. ¿Te suenan?</p>
+    <p class="lede en">We listened to 8 neighbourhood shops: health food, dressmaking, beauty, brewery, refill, butcher, café and craft. No pitch, no survey. Six things kept coming up. Sound familiar?</p>
+
+    <div class="senales">
+      <div class="senal" style="--accent: var(--c-ananda)">
+        <h4 class="es">01 · El negocio vive en tu cabeza</h4><h4 class="en">01 · The business lives in your head</h4>
+        <p class="es">Precios, clientes y criterio los llevas tú. Delegas tareas, no el juicio.</p>
+        <p class="en">Prices, customers and judgement travel with you. You delegate tasks, not judgement.</p>
+      </div>
+      <div class="senal" style="--accent: var(--c-espiga)">
+        <h4 class="es">02 · Datos tienes. Falta la conclusión</h4><h4 class="en">02 · You have data. The conclusion is missing</h4>
+        <p class="es">El TPV acumula cifras; nadie tiene una tarde para convertirlas en decisión.</p>
+        <p class="en">The till piles up numbers; nobody has an afternoon to turn them into a decision.</p>
+      </div>
+      <div class="senal" style="--accent: var(--c-indo)">
+        <h4 class="es">03 · A tus proveedores los persigues tú</h4><h4 class="en">03 · You are the one chasing suppliers</h4>
+        <p class="es">Pedidos por WhatsApp, facturas línea a línea, precios que cambian sin aviso.</p>
+        <p class="en">WhatsApp orders, line-by-line invoices, prices that change without notice.</p>
+      </div>
+      <div class="senal" style="--accent: var(--c-marenna)">
+        <h4 class="es">04 · Vuelven por ti. Y eso te ata</h4><h4 class="en">04 · They come back for you. And that ties you</h4>
+        <p class="es">La confianza es tu ventaja frente a cualquier gigante, y tu cadena al mostrador.</p>
+        <p class="en">Trust is your edge over any giant, and your chain to the counter.</p>
+      </div>
+      <div class="senal" style="--accent: var(--c-todalinda)">
+        <h4 class="es">05 · La tecnología se gana el sitio, o sobra</h4><h4 class="en">05 · Tech earns its place, or it's clutter</h4>
+        <p class="es">Pagáis sin quejaros por lo que ahorra trabajo hoy. Lo genérico, fuera.</p>
+        <p class="en">You gladly pay for what saves work today. Generic solutions are out.</p>
+      </div>
+      <div class="senal" style="--accent: var(--c-ixeta)">
+        <h4 class="es">06 · Hacienda ya está en la conversación</h4><h4 class="en">06 · The tax office is in the conversation</h4>
+        <p class="es">VeriFactu salió sin que preguntáramos. Nadie sabe aún a quién creerle.</p>
+        <p class="en">VeriFactu came up unprompted. Nobody knows yet who to believe.</p>
+      </div>
+    </div>
+
+    <div class="nota">
+      <span class="es"><b>Nota honesta:</b> esto no es una encuesta ni un diagnóstico del sector. Son ocho conversaciones abiertas, una mirada direccional. Son hipótesis, no conclusiones, y seguimos escuchando. Cada color de esta hoja es un guiño a una de las ocho tiendas.</span>
+      <span class="en"><b>Honest note:</b> this is not a survey or a sector diagnosis. It is eight open conversations, a directional first look. These are hypotheses, not conclusions, and we are still listening. Every colour on this sheet is a nod to one of the eight shops.</span>
+    </div>
+
+    <div class="bottom">
+      <div class="qr" aria-label="QR: apiedemostrador"><svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><path d="M0 0h7v1H0zM9 0h3v1H9zM18 0h1v1H18zM26 0h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM8 1h2v1H8zM13 1h2v1H13zM16 1h2v1H16zM21 1h2v1H21zM26 1h1v1H26zM32 1h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM10 2h2v1H10zM13 2h1v1H13zM15 2h1v1H15zM17 2h2v1H17zM20 2h1v1H20zM23 2h1v1H23zM26 2h1v1H26zM28 2h3v1H28zM32 2h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h2v1H8zM11 3h1v1H11zM23 3h2v1H23zM26 3h1v1H26zM28 3h3v1H28zM32 3h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM9 4h1v1H9zM11 4h1v1H11zM15 4h1v1H15zM17 4h2v1H17zM21 4h1v1H21zM24 4h1v1H24zM26 4h1v1H26zM28 4h3v1H28zM32 4h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM9 5h4v1H9zM16 5h1v1H16zM18 5h1v1H18zM20 5h2v1H20zM26 5h1v1H26zM32 5h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h7v1H26zM8 7h1v1H8zM11 7h1v1H11zM18 7h1v1H18zM23 7h1v1H23zM0 8h1v1H0zM6 8h1v1H6zM8 8h4v1H8zM13 8h3v1H13zM17 8h1v1H17zM20 8h1v1H20zM22 8h5v1H22zM29 8h3v1H29zM0 9h1v1H0zM2 9h2v1H2zM5 9h1v1H5zM7 9h6v1H7zM14 9h2v1H14zM19 9h1v1H19zM22 9h2v1H22zM28 9h3v1H28zM0 10h1v1H0zM2 10h1v1H2zM4 10h4v1H4zM10 10h1v1H10zM15 10h2v1H15zM18 10h1v1H18zM20 10h2v1H20zM28 10h1v1H28zM30 10h2v1H30zM1 11h1v1H1zM7 11h2v1H7zM11 11h1v1H11zM14 11h3v1H14zM22 11h1v1H22zM26 11h5v1H26zM0 12h2v1H0zM3 12h1v1H3zM6 12h5v1H6zM13 12h2v1H13zM16 12h3v1H16zM20 12h3v1H20zM24 12h1v1H24zM26 12h1v1H26zM32 12h1v1H32zM0 13h1v1H0zM5 13h1v1H5zM9 13h1v1H9zM11 13h4v1H11zM16 13h1v1H16zM20 13h1v1H20zM22 13h3v1H22zM26 13h2v1H26zM29 13h4v1H29zM1 14h2v1H1zM4 14h3v1H4zM8 14h2v1H8zM12 14h1v1H12zM19 14h1v1H19zM21 14h2v1H21zM24 14h4v1H24zM29 14h3v1H29zM1 15h1v1H1zM4 15h1v1H4zM9 15h5v1H9zM15 15h1v1H15zM19 15h1v1H19zM23 15h3v1H23zM27 15h4v1H27zM32 15h1v1H32zM0 16h1v1H0zM3 16h2v1H3zM6 16h2v1H6zM10 16h1v1H10zM12 16h2v1H12zM17 16h1v1H17zM19 16h1v1H19zM22 16h1v1H22zM24 16h2v1H24zM27 16h2v1H27zM32 16h1v1H32zM3 17h3v1H3zM8 17h1v1H8zM11 17h1v1H11zM15 17h1v1H15zM17 17h5v1H17zM23 17h1v1H23zM26 17h1v1H26zM29 17h2v1H29zM32 17h1v1H32zM0 18h1v1H0zM3 18h5v1H3zM12 18h2v1H12zM15 18h1v1H15zM19 18h1v1H19zM23 18h5v1H23zM29 18h2v1H29zM32 18h1v1H32zM13 19h1v1H13zM15 19h7v1H15zM24 19h2v1H24zM28 19h4v1H28zM4 20h4v1H4zM9 20h1v1H9zM11 20h1v1H11zM16 20h1v1H16zM20 20h3v1H20zM25 20h1v1H25zM28 20h2v1H28zM31 20h1v1H31zM0 21h3v1H0zM5 21h1v1H5zM8 21h1v1H8zM10 21h1v1H10zM13 21h1v1H13zM16 21h1v1H16zM18 21h1v1H18zM20 21h4v1H20zM27 21h3v1H27zM0 22h1v1H0zM3 22h4v1H3zM13 22h1v1H13zM15 22h4v1H15zM20 22h1v1H20zM22 22h1v1H22zM28 22h4v1H28zM0 23h1v1H0zM2 23h2v1H2zM9 23h2v1H9zM12 23h2v1H12zM18 23h1v1H18zM23 23h1v1H23zM25 23h2v1H25zM29 23h2v1H29zM0 24h3v1H0zM4 24h3v1H4zM8 24h1v1H8zM10 24h1v1H10zM12 24h1v1H12zM15 24h2v1H15zM18 24h3v1H18zM24 24h6v1H24zM8 25h4v1H8zM13 25h4v1H13zM18 25h3v1H18zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM32 25h1v1H32zM0 26h7v1H0zM9 26h3v1H9zM14 26h3v1H14zM18 26h1v1H18zM21 26h1v1H21zM23 26h2v1H23zM26 26h1v1H26zM28 26h1v1H28zM30 26h2v1H30zM0 27h1v1H0zM6 27h1v1H6zM9 27h1v1H9zM12 27h2v1H12zM16 27h1v1H16zM19 27h1v1H19zM23 27h2v1H23zM28 27h5v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM9 28h2v1H9zM12 28h3v1H12zM18 28h2v1H18zM21 28h1v1H21zM24 28h6v1H24zM32 28h1v1H32zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM12 29h2v1H12zM16 29h2v1H16zM20 29h3v1H20zM24 29h2v1H24zM27 29h3v1H27zM32 29h1v1H32zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h1v1H10zM14 30h1v1H14zM16 30h1v1H16zM20 30h1v1H20zM23 30h1v1H23zM25 30h1v1H25zM27 30h2v1H27zM31 30h2v1H31zM0 31h1v1H0zM6 31h1v1H6zM9 31h5v1H9zM15 31h2v1H15zM18 31h3v1H18zM22 31h1v1H22zM25 31h1v1H25zM27 31h4v1H27zM0 32h7v1H0zM8 32h1v1H8zM12 32h1v1H12zM17 32h1v1H17zM19 32h1v1H19zM23 32h2v1H23zM27 32h1v1H27zM29 32h1v1H29zM31 32h1v1H31z" fill="currentColor"/></svg></div>
+      <div class="cta">
+        <h4><span class="es">¿Tienes una tienda? Queremos escucharte</span><span class="en">Do you run a shop? We want to hear you</span></h4>
+        <p><span class="es">25 minutos, en tu tienda, sin pitch y sin compromiso. Si algo te sonó (o crees que tu caso lo contradice, mejor aún), escríbenos. El informe completo, con citas y matices, está en el QR.</span><span class="en">25 minutes, at your shop, no pitch, no strings. If something rang true (or you think your case contradicts it, even better), write to us. The full report, with quotes and nuance, is behind the QR.</span></p>
+        <div class="mail">chpmoreno@gmail.com</div>
+        <div class="url">chpmoreno.github.io/apiedemostrador</div>
+      </div>
+    </div>
+
+    <div class="footline">
+      <span><span class="es">A pie de mostrador · Edición 1 · n=8 · Julio 2026 · Investigación independiente</span><span class="en">A pie de mostrador · Edition 1 · n=8 · July 2026 · Independent research</span></span>
+      <div class="dots" aria-hidden="true">
+        <span style="background: var(--c-ananda)"></span><span style="background: var(--c-marenna)"></span><span style="background: var(--c-todalinda)"></span><span style="background: var(--c-espiga)"></span><span style="background: var(--c-ixeta)"></span><span style="background: var(--c-meatboss)"></span><span style="background: var(--c-indo)"></span><span style="background: var(--c-mostaza)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-setlang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.body.setAttribute("data-lang", b.getAttribute("data-setlang"));
+      document.querySelectorAll("[data-setlang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    });
+  });
+</script>
