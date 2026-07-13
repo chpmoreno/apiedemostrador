@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A pie de mostrador — ¿Con qué están lidiando, en serio, los pequeños comercios?</title>
-<meta name="description" content="Primer vistazo: 8 conversaciones con comercios de barrio en Barcelona. Seis señales que se repiten, contadas con sus propias palabras. ¿Te suenan?">
+<title>A pie de mostrador — ¿Con qué están lidiando, en serio, los comercios locales?</title>
+<meta name="description" content="Primer vistazo: 8 conversaciones con comercios locales en Barcelona. Seis señales que se repiten, contadas con sus propias palabras. ¿Te suenan?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A pie de mostrador — ¿Con qué están lidiando, en serio, los pequeños comercios?">
-<meta property="og:description" content="Primer vistazo: 8 conversaciones con comercios de barrio en Barcelona. Seis señales que se repiten, contadas con sus propias palabras. ¿Te suenan?">
+<meta property="og:title" content="A pie de mostrador — ¿Con qué están lidiando, en serio, los comercios locales?">
+<meta property="og:description" content="Primer vistazo: 8 conversaciones con comercios locales en Barcelona. Seis señales que se repiten, contadas con sus propias palabras. ¿Te suenan?">
 <meta property="og:url" content="https://chpmoreno.github.io/apiedemostrador/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary">
@@ -98,6 +98,13 @@
     text-wrap: balance; max-width: 15em;
   }
   h1 em { font-style: normal; color: var(--brand); }
+  .hero-q {
+    font-family: Futura, "Avenir Next", "Trebuchet MS", sans-serif;
+    font-size: clamp(1.35rem, 3.4vw, 1.95rem);
+    line-height: 1.25; margin: 0 0 18px; letter-spacing: -0.01em;
+    color: var(--ink); text-wrap: balance; max-width: 24em; font-weight: 600;
+  }
+  .hero-q em { font-style: normal; color: var(--brand); }
   .lede {
     font-size: 1.13rem; color: var(--ink-2); max-width: 34em; margin: 0 0 26px;
     text-wrap: pretty;
@@ -122,6 +129,10 @@
     color: var(--c-mostaza); font-weight: 700; margin: 0 0 8px;
   }
   .section-intro { color: var(--ink-2); max-width: 40em; margin: 0 0 26px; }
+  .marca-cta {
+    font-weight: 600; color: var(--ink);
+    box-shadow: inset 0 -0.5em 0 var(--brand-soft);
+  }
 
   /* ---------- SAMPLE ---------- */
   .shops { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
@@ -188,6 +199,21 @@
   .slip figcaption .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
   .slip + .slip { margin-top: 12px; }
 
+  /* two-column signal layout on wide screens: body left, quote slips right */
+  .signal-cols { display: block; }
+  @media (min-width: 760px) {
+    .signal-cols { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 8px 26px; align-items: stretch; }
+    .signal-main { min-width: 0; }
+    .signal-quotes { display: flex; flex-direction: column; justify-content: center; gap: 12px; min-width: 0; }
+    .signal-quotes .slip { max-width: none; }
+    .signal-quotes .slip + .slip { margin-top: 0; }
+  }
+
+  /* positive-opening highlights */
+  .orgullo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .orgullo .slip { max-width: none; }
+  .orgullo .slip + .slip { margin-top: 0; }
+
   /* mini-framework strips (from slide logic) */
   .chain { display: flex; gap: 8px; align-items: stretch; margin: 0 0 18px; flex-wrap: wrap; }
   .chain .step {
@@ -221,7 +247,7 @@
     display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--ink-3);
     text-transform: uppercase; letter-spacing: 0.1em; margin: 10px 2px 0;
   }
-  .fineprint { font-size: 0.8rem; color: var(--ink-3); margin-top: 14px; max-width: 42em; }
+  .fineprint { font-size: 0.8rem; color: var(--ink-3); margin-top: 14px; max-width: 58em; }
 
   /* ---------- TENSIONS ---------- */
   .tensions { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
@@ -297,8 +323,9 @@
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow"><span class="es">Primer vistazo · 8 conversaciones · Barcelona · mayo – julio 2026</span><span class="en">A first look · 8 conversations · Barcelona · May – July 2026</span></p>
-    <h1 class="es">¿Con qué están lidiando, <em>en serio</em>, los pequeños comercios?</h1>
-    <h1 class="en">What are small retailers <em>really</em> dealing with?</h1>
+    <h1>A pie de mostrador</h1>
+    <p class="hero-q es">¿Con qué están lidiando, <em>en serio</em>, los comercios locales?</p>
+    <p class="hero-q en">What are local shops <em>really</em> dealing with?</p>
     <p class="lede es">
       Nos sentamos a escuchar a <b>8 comercios de barrio</b>: una dietética, una modista,
       un salón de estética, una cervecera artesana, una tienda a granel, una carnicería,
@@ -315,7 +342,7 @@
     </p>
     <div class="hero-facts">
       <span class="fact"><span class="es"><b>8</b> entrevistas en profundidad</span><span class="en"><b>8</b> in-depth interviews</span></span>
-      <span class="fact"><span class="es"><b>6</b> barrios y ciudades</span><span class="en"><b>6</b> neighbourhoods and towns</span></span>
+      <span class="fact"><span class="es"><b>5</b> barrios de Barcelona + Santa Coloma de Gramenet</span><span class="en"><b>5</b> Barcelona neighbourhoods + Santa Coloma de Gramenet</span></span>
       <span class="fact"><span class="es">De <b>1 persona</b> a <b>~13 empleados</b></span><span class="en">From <b>1 person</b> to <b>~13 employees</b></span></span>
       <span class="fact"><span class="es"><b>6</b> señales que se repiten</span><span class="en"><b>6</b> recurring signals</span></span>
     </div>
@@ -329,11 +356,11 @@
     <h2 class="en">Eight shops, eight different worlds</h2>
     <p class="section-intro es">
       Para proteger la franqueza de las conversaciones, no ponemos nombres.
-      Pero cada una de estas tiendas existe, abre su persiana cada día, y nos regaló más de una hora de su tiempo.
+      Pero cada una de estas tiendas existe, abre su persiana cada día, y nos regaló una parte generosa de su tiempo.
     </p>
     <p class="section-intro en">
       To protect the honesty of the conversations, there are no names here.
-      But every one of these shops exists, opens its shutters every day, and gifted us more than an hour of its time.
+      But every one of these shops exists, opens its shutters every day, and gifted us a generous share of its time.
     </p>
     <div class="shops">
       <div class="shop" style="--accent: var(--c-ananda)"><span class="icon">🥬</span><span class="cat es">Alimentación saludable</span><span class="cat en">Health food</span><div class="size es">1 persona</div><div class="size en">1 person</div></div>
@@ -354,11 +381,56 @@
       <span class="dot" style="background: var(--c-meatboss)"></span>
       <span class="dot" style="background: var(--c-indo)"></span>
       <span class="dot" style="background: var(--c-mostaza)"></span>
-      <span class="note"><span class="es">Cada color de esta página pertenece a una de estas ocho tiendas: su fachada, su logo, su mundo. Sin nombres; ellas se reconocerán.</span><span class="en">Every colour on this page belongs to one of these eight shops: their storefront, their logo, their world. No names; they will recognise themselves.</span></span>
     </div>
     <p class="barrios">
       <b><span class="es">Dónde:</span><span class="en">Where:</span></b> Ciutat Vella · Gràcia · Eixample · Sagrada Família · El Born · Santa Coloma de Gramenet
     </p>
+  </div>
+</section>
+
+<section id="bueno">
+  <div class="wrap">
+    <p class="kicker"><span class="es">Primero, lo bueno</span><span class="en">First, the good part</span></p>
+    <h2 class="es">Estas tiendas no sobreviven de milagro</h2>
+    <h2 class="en">These shops are not surviving by accident</h2>
+    <p class="section-intro es">
+      Antes de entrar en los patrones duros, hay que decir lo que también escuchamos, porque
+      se escucha fuerte: orgullo por el oficio, clientas que cruzan la ciudad por una persona,
+      negocios reconstruidos desde cero más de una vez, comunidades enteras que giran alrededor
+      de un mostrador. Nada de esto salió de un manual: salió de años de hacerlo bien.
+    </p>
+    <p class="section-intro en">
+      Before getting into the harder patterns, we have to say what else we heard, because
+      it comes through loud: pride in the craft, customers who cross the city for one person,
+      businesses rebuilt from zero more than once, whole communities revolving around
+      a counter. None of this came from a manual: it came from years of doing it well.
+    </p>
+    <div class="orgullo">
+      <figure class="slip">
+        <blockquote class="es">«Tengo clientes que vienen desde Sant Antoni por el vínculo que tienen conmigo.»</blockquote>
+        <blockquote class="en">"I have customers who come all the way from Sant Antoni because of the bond they have with me." <small>(translated)</small></blockquote>
+        <figcaption class="es"><span class="dot" style="background: var(--c-ananda)"></span>Propietaria · tienda de alimentación</figcaption>
+        <figcaption class="en"><span class="dot" style="background: var(--c-ananda)"></span>Owner · health-food shop</figcaption>
+      </figure>
+      <figure class="slip">
+        <blockquote class="es">«El éxito del sueño es constancia y disciplina, perseverancia.»</blockquote>
+        <blockquote class="en">"The dream succeeds on consistency, discipline, perseverance." <small>(translated)</small></blockquote>
+        <figcaption class="es"><span class="dot" style="background: var(--c-todalinda)"></span>Propietaria · salón de estética, tras reconstruir el negocio desde cero</figcaption>
+        <figcaption class="en"><span class="dot" style="background: var(--c-todalinda)"></span>Owner · beauty salon, after rebuilding the business from zero</figcaption>
+      </figure>
+      <figure class="slip">
+        <blockquote class="es">«Nosotros no tenemos competencia, tenemos compañeros.»</blockquote>
+        <blockquote class="en">"We don't have competition, we have colleagues." <small>(translated)</small></blockquote>
+        <figcaption class="es"><span class="dot" style="background: var(--c-mostaza)"></span>Cofundadora · artesanía y diseño local</figcaption>
+        <figcaption class="en"><span class="dot" style="background: var(--c-mostaza)"></span>Co-founder · local craft &amp; design</figcaption>
+      </figure>
+      <figure class="slip">
+        <blockquote class="es">«La gente pasa, viene simplemente a veces a hablar, que está guay.»</blockquote>
+        <blockquote class="en">"People drop in, sometimes just to talk, and that's great." <small>(translated)</small></blockquote>
+        <figcaption class="es"><span class="dot" style="background: var(--c-marenna)"></span>Modista · taller de confección</figcaption>
+        <figcaption class="en"><span class="dot" style="background: var(--c-marenna)"></span>Dressmaker · alterations atelier</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -369,12 +441,12 @@
     <h2 class="en">Six signals from behind the counter</h2>
     <p class="section-intro es">
       No son estadísticas ni verdades del sector: son patrones que escuchamos una y otra vez,
-      en tiendas que no se parecen en nada entre sí. Léelas y marca las que te suenen.
+      en tiendas muy distintas entre sí. <span class="marca-cta">Léelas y marca las que te suenen.</span>
       Al final te decimos para qué.
     </p>
     <p class="section-intro en">
       These are not statistics or sector truths: they are patterns we heard again and again,
-      in shops that have nothing in common. Read them and tick the ones that sound familiar.
+      in very different shops. <span class="marca-cta">Read them and tick the ones that sound familiar.</span>
       At the end we tell you why.
     </p>
 
@@ -387,6 +459,8 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
         Precios, proveedores, clientes, criterio: todo lo llevas tú. Puedes delegar tareas,
         pero no el juicio. Y cuando una tienda cambia de manos, lo que se pierde no está en
@@ -397,6 +471,8 @@
         but not judgement. And when a shop changes hands, what gets lost is not in
         any system: it lived in the previous owner's head.
       </p>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
         <blockquote class="es">«Todo está en mi cabeza. No tengo nada de sistema.»</blockquote>
         <blockquote class="en">"It's all in my head. I have no system at all." <small>(translated)</small></blockquote>
@@ -409,6 +485,8 @@
         <figcaption class="es"><span class="dot" style="background: var(--c-ixeta)"></span>Nuevo propietario · tienda a granel, sobre el traspaso</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-ixeta)"></span>New owner · refill shop, on the handover</figcaption>
       </figure>
+      </div>
+      </div>
     </article>
 
     <article class="signal" data-signal style="--accent: var(--c-espiga)">
@@ -420,6 +498,8 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
         El TPV acumula números, pero nadie tiene una tarde libre para convertirlos en una
         decisión difícil. Algunos ni pueden mirar sus propios datos desde casa. El problema
@@ -437,6 +517,8 @@
         <span class="arrow">→</span>
         <div class="step"><b><span class="es">Acción</span><span class="en">Action</span></b><span class="es">Qué reponer, qué dejar, qué cambiar</span><span class="en">What to reorder, drop, or change</span></div>
       </div>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
         <blockquote class="es">«Aquí tienes un montón de información, pero hay que encontrar el tiempo de sacarla y de llegar a las conclusiones para tomar decisiones que son difíciles de tomar. Esa información la tienes que dar masticada.»</blockquote>
         <blockquote class="en">"Here you have a pile of information, but you have to find the time to pull it out and reach the conclusions to make decisions that are hard to make. That information has to come pre-chewed." <small>(translated)</small></blockquote>
@@ -449,6 +531,8 @@
         <figcaption class="es"><span class="dot" style="background: var(--c-meatboss)"></span>Socio · carnicería</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-meatboss)"></span>Partner · butcher shop</figcaption>
       </figure>
+      </div>
+      </div>
     </article>
 
     <article class="signal" data-signal style="--accent: var(--c-indo)">
@@ -460,6 +544,8 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
         Pedidos por WhatsApp, facturas que se revisan línea a línea (o no se revisan),
         precios que cambian sin aviso, inventario «a ojo». Cada tienda lo sufre por un canal
@@ -470,8 +556,10 @@
         prices that change without notice, stock managed "by eye". Every shop suffers it through a
         different channel, but the feeling is the same: visibility is something you build yourself, by hand.
       </p>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
-        <blockquote class="es">«Yo me entero seis meses después que me cambiaron el precio de la leche, yo la guardo, la paso y la pago.»</blockquote>
+        <blockquote class="es">«Me entero seis meses después de que me cambiaron el precio de la leche: yo la guardo, la paso y la pago.»</blockquote>
         <blockquote class="en">"I find out six months later that they changed the price of my milk; I just file the invoice, process it and pay it." <small>(translated)</small></blockquote>
         <figcaption class="es"><span class="dot" style="background: var(--c-indo)"></span>Propietaria · hostelería, citando a una colega</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-indo)"></span>Owner · hospitality, quoting a colleague</figcaption>
@@ -482,6 +570,8 @@
         <figcaption class="es"><span class="dot" style="background: var(--c-ixeta)"></span>Propietario · tienda a granel</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-ixeta)"></span>Owner · refill shop</figcaption>
       </figure>
+      </div>
+      </div>
     </article>
 
     <article class="signal" data-signal style="--accent: var(--c-marenna)">
@@ -493,6 +583,8 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
         La confianza y el trato personal son tu ventaja frente a cualquier gigante:
         nadie te compite en conocer a tu gente. Pero esa misma fuerza te encadena al mostrador.
@@ -503,6 +595,8 @@
         nobody can compete with you on knowing your people. But that same strength chains you to the counter.
         If the business is you, you can't get sick, or move, or open a second shop without cloning yourself.
       </p>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
         <blockquote class="es">«Lo que les gusta a la gente de algo local es que pueden hablar contigo y conocerte un poquito.»</blockquote>
         <blockquote class="en">"What people like about something local is that they can talk to you and get to know you a little." <small>(translated)</small></blockquote>
@@ -515,6 +609,8 @@
         <figcaption class="es"><span class="dot" style="background: var(--c-ananda)"></span>Propietaria · tienda de alimentación</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-ananda)"></span>Owner · health-food shop</figcaption>
       </figure>
+      </div>
+      </div>
     </article>
 
     <article class="signal" data-signal style="--accent: var(--c-todalinda)">
@@ -526,21 +622,29 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
         Nadie es «anti-tecnología»: pagan sin quejarse por herramientas que les ahorran trabajo visible,
         hoy. Lo que no perdonan es la complejidad, las promesas a seis meses y las soluciones
-        genéricas hechas para cumplir el expediente.
+        genéricas hechas para cumplir el expediente. La prueba de que sí se puede: WhatsApp,
+        la única herramienta que se ha ganado el sitio en casi todas las tiendas de la muestra,
+        con clientes y con más de un proveedor.
       </p>
       <p class="body en">
         Nobody is "anti-technology": they happily pay for tools that save visible work,
         today. What they don't forgive is complexity, six-month promises, and generic
-        solutions built to tick a box.
+        solutions built to tick a box. Proof that it can be done: WhatsApp,
+        the one tool that has earned its place in almost every shop in the sample,
+        with customers and with more than a few suppliers.
       </p>
       <div class="triage">
         <div class="cell keep"><b><span class="es">Se queda</span><span class="en">It stays</span></b><span class="es">Ahorro de tiempo claro · valor visible · encaja en el flujo real</span><span class="en">Clear time saving · visible value · fits the real workflow</span></div>
         <div class="cell doubt"><b><span class="es">En duda</span><span class="en">In doubt</span></b><span class="es">Cuota mensual · complejidad sin claridad · entregas genéricas</span><span class="en">Monthly fee · complexity without clarity · generic delivery</span></div>
         <div class="cell watch"><b><span class="es">En vigilancia</span><span class="en">On watch</span></b><span class="es">Normativa · compatibilidad · a quién creerle</span><span class="en">Regulation · compatibility · who to trust</span></div>
       </div>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
         <blockquote class="es">«Yo me ahorro mucho trabajo con eso, porque si no aquí estuviera yo, mira.»</blockquote>
         <blockquote class="en">"I save myself a lot of work with that; otherwise I'd be stuck here doing it, look." <small>(translated)</small></blockquote>
@@ -553,6 +657,8 @@
         <figcaption class="es"><span class="dot" style="background: var(--c-meatboss)"></span>Socio · carnicería</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-meatboss)"></span>Partner · butcher shop</figcaption>
       </figure>
+      </div>
+      </div>
     </article>
 
     <article class="signal" data-signal style="--accent: var(--c-ixeta)">
@@ -564,22 +670,36 @@
         </div>
         <button class="suena" type="button" aria-pressed="false"><span class="es">¿Te suena?</span><span class="en">Sound familiar?</span></button>
       </div>
+      <div class="signal-cols">
+      <div class="signal-main">
       <p class="body es">
-        VeriFactu salió en las entrevistas sin que preguntáramos. Para quien acaba de abrir,
-        es un requisito más que resolver; para quien construyó su propio sistema, una amenaza.
+        VeriFactu salió en las entrevistas sin que preguntáramos, y la inquietud recorre todo
+        el espectro: para quien acaba de abrir, es un requisito más que resolver; para la tienda
+        más digitalizada de la muestra, la que construyó su propio sistema, una amenaza.
         Nadie tiene claro todavía qué hacer ni a quién creerle.
       </p>
       <p class="body en">
-        VeriFactu (Spain's new invoicing regulation) came up in the interviews unprompted. For someone who just opened,
-        it's one more requirement to solve; for someone who built their own system, a threat.
+        VeriFactu (Spain's new invoicing regulation) came up in the interviews unprompted, and the worry
+        runs across the whole spectrum: for someone who just opened, it's one more requirement to solve;
+        for the most digital shop in the sample, the one that built its own system, a threat.
         Nobody is sure yet what to do or who to believe.
       </p>
+      </div>
+      <div class="signal-quotes">
       <figure class="slip">
         <blockquote class="es">«Nos toca conseguir un sistema que sea avalado por Hacienda.»</blockquote>
         <blockquote class="en">"We have to get a system that's approved by the tax office." <small>(translated)</small></blockquote>
         <figcaption class="es"><span class="dot" style="background: var(--c-ixeta)"></span>Propietaria · tienda a granel</figcaption>
         <figcaption class="en"><span class="dot" style="background: var(--c-ixeta)"></span>Owner · refill shop</figcaption>
       </figure>
+      <figure class="slip">
+        <blockquote class="es">«Con el VeriFactu yo no me atrevo a hacerle nada porque, como haya cualquier error, la multa que le cae al desarrollador se caga.»</blockquote>
+        <blockquote class="en">"With VeriFactu I don't dare touch it at all, because one single error and the fine that lands on the developer is terrifying." <small>(translated)</small></blockquote>
+        <figcaption class="es"><span class="dot" style="background: var(--c-mostaza)"></span>Cofundadora · artesanía y diseño local, sobre su sistema a medida</figcaption>
+        <figcaption class="en"><span class="dot" style="background: var(--c-mostaza)"></span>Co-founder · local craft &amp; design, on their bespoke system</figcaption>
+      </figure>
+      </div>
+      </div>
     </article>
   </div>
 </section>
@@ -591,20 +711,24 @@
     <h2 class="en">There are no "digital" shops and "analogue" shops</h2>
     <p class="section-intro es">
       Las ocho tiendas se reparten por todo el espectro, y la posición no predice quién
-      toma mejores decisiones. Vimos una tienda rica en datos que no logra usarlos, y una
-      libreta de papel detrás de un negocio que funciona muy bien.
+      toma mejores decisiones. Vimos una herramienta que se paga sola cada día, una tienda
+      rica en datos que no encuentra el momento de usarlos, y una libreta de papel detrás
+      de un negocio que funciona muy bien. Tener más herramientas, por sí solo, no explica
+      el resultado.
     </p>
     <p class="section-intro en">
       The eight shops spread across the whole spectrum, and position does not predict who
-      makes better decisions. We saw a data-rich shop that can't use its data, and a
-      paper notebook behind a business that works very well.
+      makes better decisions. We saw a tool that pays for itself every day, a data-rich
+      shop that never finds the moment to use its data, and a paper notebook behind
+      a business that works very well. Having more tools, by itself, does not explain
+      the outcome.
     </p>
     <div class="spectrum">
       <div class="spectrum-inner">
         <div class="spec-track">
           <div class="spec-stage">
             <h4><span class="es">Memoria y papel</span><span class="en">Memory and paper</span></h4>
-            <div class="who"><span class="chip" style="--accent: var(--c-ananda)"><span class="es">Alimentación</span><span class="en">Health food</span></span><span class="chip" style="--accent: var(--c-indo)"><span class="es">Café y brunch</span><span class="en">Café &amp; brunch</span></span></div>
+            <div class="who"><span class="chip" style="--accent: var(--c-ananda)"><span class="es">Alimentación</span><span class="en">Health food</span></span></div>
           </div>
           <div class="spec-stage">
             <h4><span class="es">WhatsApp y listas</span><span class="en">WhatsApp and lists</span></h4>
@@ -612,7 +736,7 @@
           </div>
           <div class="spec-stage">
             <h4><span class="es">Una herramienta puntual</span><span class="en">One specific tool</span></h4>
-            <div class="who"><span class="chip" style="--accent: var(--c-todalinda)"><span class="es">Estética</span><span class="en">Beauty</span></span><span class="chip" style="--accent: var(--c-meatboss)"><span class="es">Carnicería</span><span class="en">Butcher</span></span></div>
+            <div class="who"><span class="chip" style="--accent: var(--c-todalinda)"><span class="es">Estética</span><span class="en">Beauty</span></span><span class="chip" style="--accent: var(--c-meatboss)"><span class="es">Carnicería</span><span class="en">Butcher</span></span><span class="chip" style="--accent: var(--c-indo)"><span class="es">Café y brunch</span><span class="en">Café &amp; brunch</span></span></div>
           </div>
           <div class="spec-stage">
             <h4><span class="es">TPV con datos que nadie mira</span><span class="en">A POS full of unread data</span></h4>
@@ -628,11 +752,21 @@
     </div>
     <p class="fineprint es">
       Colocación cualitativa a partir de lo observado en cada entrevista, no una medición.
-      La tienda del extremo derecho tiene una desarrolladora en el equipo fundador: es la excepción que confirma lo difícil que es llegar ahí.
+      El extremo izquierdo no significa ir «atrasado»: hay memoria y papel detrás de negocios que funcionan,
+      y también tiendas con TPV y sistemas reales que, por pura confianza, siguen recurriendo al papel y a la
+      memoria para ciertas cosas (el café, por ejemplo, revisa sus facturas de memoria aunque su sistema podría hacerlo).
+      En el centro, la app de reservas del salón de estética es el ejemplo más claro de la muestra de una herramienta
+      que se ha ganado su sitio sin discusión. Y la tienda del extremo derecho tiene una desarrolladora en el equipo
+      fundador: la excepción que confirma lo difícil que es llegar ahí.
     </p>
     <p class="fineprint en">
       Qualitative placement based on what we observed in each interview, not a measurement.
-      The shop on the far right has a developer on the founding team: the exception that confirms how hard it is to get there.
+      The far left does not mean "behind": there is memory and paper behind businesses that work,
+      and there are also shops with real POS systems that still fall back on paper and memory for
+      certain things, purely out of trust (the café, for instance, audits its invoices from memory even though its system could do it).
+      In the middle, the beauty salon's booking app is the sample's clearest example of a tool
+      that has earned its place beyond argument. And the shop on the far right has a developer on the
+      founding team: the exception that confirms how hard it is to get there.
     </p>
   </div>
 </section>
@@ -640,14 +774,14 @@
 <section id="tensiones">
   <div class="wrap">
     <p class="kicker"><span class="es">Lo que NO encontramos</span><span class="en">What we did NOT find</span></p>
-    <h2 class="es">Cuatro cosas que este informe no puede decirte</h2>
-    <h2 class="en">Four things this report cannot tell you</h2>
+    <h2 class="es">Seis cosas que este informe no puede decirte</h2>
+    <h2 class="en">Six things this report cannot tell you</h2>
     <p class="section-intro es">
-      Un buen informe también cuenta lo que rompe el relato. Estas cuatro tensiones nos
+      Un buen informe también cuenta lo que rompe el relato. Estas seis tensiones nos
       obligan a seguir escuchando antes de sacar conclusiones.
     </p>
     <p class="section-intro en">
-      A good report also tells you what breaks the story. These four tensions force us
+      A good report also tells you what breaks the story. These six tensions force us
       to keep listening before drawing conclusions.
     </p>
     <div class="tensions">
@@ -670,10 +804,22 @@
         <p class="en">The shop with the most data was not the best decision-maker. The difference seems to lie in the operator's skill and workflow, not the software.</p>
       </div>
       <div class="tension">
-        <h4 class="es">WhatsApp no es infraestructura universal</h4>
-        <h4 class="en">WhatsApp is not universal infrastructure</h4>
-        <p class="es">Domina el contacto con clientes, pero con proveedores conviven WhatsApp, email formal y portales propios. No todo cabe en un mismo chat.</p>
-        <p class="en">It dominates customer contact, but supplier work mixes WhatsApp, formal email and bespoke portals. Not everything fits in one chat.</p>
+        <h4 class="es">No todo el mundo quiere lo mismo de su tienda</h4>
+        <h4 class="en">Not everyone wants the same thing from their shop</h4>
+        <p class="es">En la muestra conviven el agotamiento, la media jornada elegida a propósito y las ganas de crecer. No podemos decirte qué significa «que le vaya bien» a una tienda: cada dueña lo define distinto.</p>
+        <p class="en">The sample holds exhaustion, deliberately part-time setups, and real growth ambition side by side. We can't tell you what "doing well" means for a shop: every owner defines it differently.</p>
+      </div>
+      <div class="tension">
+        <h4 class="es">Que Hacienda preocupe no dice qué compraría nadie</h4>
+        <h4 class="en">Worrying about the tax office doesn't say what anyone would buy</h4>
+        <p class="es">VeriFactu salió solo en las conversaciones, pero que algo preocupe no significa que alguien vaya a pagar por una solución concreta. Sabemos que el tema está vivo; no sabemos qué haría nadie al respecto.</p>
+        <p class="en">VeriFactu came up on its own, but salience is not willingness to pay for any specific solution. We know the topic is live; we don't know what anyone would actually do about it.</p>
+      </div>
+      <div class="tension">
+        <h4 class="es">Quizá el patrón sea nuestro, no del sector</h4>
+        <h4 class="en">The pattern might be ours, not the sector's</h4>
+        <p class="es">Las ocho tiendas llegaron por redes de confianza. Puede que estos patrones describan a comercios con dueños presentes y bien conectados, no al comercio local en general. Todavía no podemos separar una cosa de la otra.</p>
+        <p class="en">All eight shops came through networks of trust. These patterns may describe shops with present, well-connected owners, not local retail at large. We can't yet tell one from the other.</p>
       </div>
     </div>
   </div>
@@ -693,8 +839,8 @@
         <li class="en"><b>A directional look, not a census:</b> we reached these eight shops through people we trust, so these patterns may describe shops with very present, well-connected owners. That's why we keep widening the map.</li>
         <li class="es"><b>Esto son hipótesis, no conclusiones.</b> Con ocho conversaciones nadie puede afirmar «el comercio de barrio es así». Seguimos escuchando: la meta es llegar a doce.</li>
         <li class="en"><b>These are hypotheses, not conclusions.</b> With eight conversations nobody can claim "this is what local retail is like". We keep listening: the goal is twelve.</li>
-        <li class="es"><b>Todas las citas son literales</b>, dichas en entrevista y anonimizadas por categoría de tienda.</li>
-        <li class="en"><b>All quotes are verbatim</b>, said in interview and anonymised by shop category. English versions are our translations.</li>
+        <li class="es"><b>Las citas son muy cercanas a lo que nos dijeron:</b> dichas en entrevista, retocadas solo lo mínimo para leerse bien por escrito, y anonimizadas por categoría de tienda.</li>
+        <li class="en"><b>The quotes stay very close to what we were told:</b> said in interview, lightly edited only so they read well in writing, and anonymised by shop category. English versions are our translations.</li>
       </ul>
     </div>
   </div>
@@ -740,9 +886,9 @@
   <div class="wrap">
     <p class="es"><b>A pie de mostrador</b> es una investigación independiente de José, fundador colombiano radicado en Barcelona, que construye en público un proyecto para ayudar al comercio de barrio a competir en la era de la IA.</p>
     <p class="en"><b>A pie de mostrador</b> ("at the counter") is independent research by José, a Colombian founder based in Barcelona, building in public a project to help neighbourhood retail compete in the AI era.</p>
-    <p class="es">Gracias, de corazón, a las ocho tiendas que abrieron su mostrador y su tiempo. Cada color de esta página es un guiño a una de ellas.</p>
-    <p class="en">Heartfelt thanks to the eight shops that opened their counters and their time. Every colour on this page is a nod to one of them.</p>
-    <p><span class="es">Edición 1 · n=8 · Julio 2026 · Documento elaborado con apoyo de IA sobre entrevistas y análisis propios; todas las citas son literales.</span><span class="en">Edition 1 · n=8 · July 2026 · Produced with AI assistance from our own interviews and analysis; all quotes are verbatim.</span></p>
+    <p class="es">Gracias, de corazón, a las ocho tiendas que abrieron su mostrador y su tiempo. Cada color de esta página es un guiño a una de ellas: su fachada, su logo, su mundo. Sin nombres; ellas se reconocerán.</p>
+    <p class="en">Heartfelt thanks to the eight shops that opened their counters and their time. Every colour on this page is a nod to one of them: their storefront, their logo, their world. No names; they will recognise themselves.</p>
+    <p><span class="es">Edición 1 · n=8 · Julio 2026 · Documento elaborado con apoyo de IA sobre entrevistas y análisis propios; las citas se mantienen muy cercanas a lo dicho en entrevista.</span><span class="en">Edition 1 · n=8 · July 2026 · Produced with AI assistance from our own interviews and analysis; quotes stay very close to what was said in interview.</span></p>
     <div class="dots" aria-hidden="true">
       <span class="dot" style="background: var(--c-ananda)"></span><span class="dot" style="background: var(--c-marenna)"></span><span class="dot" style="background: var(--c-todalinda)"></span><span class="dot" style="background: var(--c-espiga)"></span><span class="dot" style="background: var(--c-ixeta)"></span><span class="dot" style="background: var(--c-meatboss)"></span><span class="dot" style="background: var(--c-indo)"></span><span class="dot" style="background: var(--c-mostaza)"></span>
     </div>
