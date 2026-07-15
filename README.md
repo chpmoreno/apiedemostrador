@@ -13,6 +13,8 @@ This repo is the dev-marketing MVP for the research series:
 - **`flyer.html`** — a one-page, A4-printable flyer with the four themes and a QR code that
   points at the live report. For WhatsApp, email and paper.
 - **`privacy.html`** — the Spanish, Catalan and English second-layer privacy notice for the contact form.
+- **`social/linkedin/`** — publish-ready LinkedIn carousels and their editable source files,
+  organised by campaign and date.
 
 ## Live
 
