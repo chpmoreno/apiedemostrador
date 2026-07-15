@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">El trabajo invisible de llevar una tienda</title>
+  <desc id="desc">Tarjeta social del informe A pie de mostrador, con fondo papel y toldo verde.</desc>
+  <rect width="1200" height="630" fill="#f8f2e7"/>
+  <g aria-hidden="true">
+    <rect x="0" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="150" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="300" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="450" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="600" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="750" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="900" y="0" width="75" height="22" fill="#1f684e"/>
+    <rect x="1050" y="0" width="75" height="22" fill="#1f684e"/>
+    <line x1="0" y1="22" x2="1200" y2="22" stroke="#d5ccb9"/>
+  </g>
+  <text x="76" y="92" fill="#1f684e" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1">A PIE DE MOSTRADOR · INFORME DE ESCUCHA 01</text>
+  <text x="76" y="205" fill="#20231d" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">
+    <tspan x="76" dy="0">El trabajo invisible</tspan>
+    <tspan x="76" dy="82">de llevar una tienda</tspan>
+  </text>
+  <text x="76" y="425" fill="#555b50" font-family="Arial, Helvetica, sans-serif" font-size="31">
+    <tspan x="76" dy="0">Ocho comercios describen dónde se acumulan</tspan>
+    <tspan x="76" dy="43">el trabajo, la incertidumbre y la dependencia.</tspan>
+  </text>
+  <line x1="76" y1="535" x2="1124" y2="535" stroke="#d5ccb9" stroke-width="2"/>
+  <text x="76" y="582" fill="#1f684e" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Barcelona y Santa Coloma · mayo–julio de 2026</text>
+  <g transform="translate(930 566)" aria-hidden="true">
+    <rect x="0" y="0" width="20" height="4" fill="#27743d"/><rect x="28" y="0" width="20" height="4" fill="#385b95"/><rect x="56" y="0" width="20" height="4" fill="#9a5360"/><rect x="84" y="0" width="20" height="4" fill="#076d8b"/><rect x="112" y="0" width="20" height="4" fill="#5f7418"/><rect x="140" y="0" width="20" height="4" fill="#9b3939"/><rect x="168" y="0" width="20" height="4" fill="#75470c"/><rect x="196" y="0" width="20" height="4" fill="#7f5c00"/>
+  </g>
+</svg>

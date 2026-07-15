@@ -7,9 +7,11 @@ This repo is the dev-marketing MVP for the research series:
 
 - **`index.html`** — the interactive report (Edition 1, n=8, May–July 2026). Spanish first,
   EN toggle. Six recurring signals, verbatim anonymised quotes, an honest-limits note, and a
-  "¿Te suena?" tally that turns recognition into conversation requests.
+  "¿Te suena?" tally that turns recognition into conversation requests. The final CTA uses a
+  low-friction email/phone contact form.
 - **`flyer.html`** — a one-page, A4-printable flyer with the six signals and a QR code that
   points at the live report. For WhatsApp, email and paper.
+- **`privacy.html`** — the bilingual, second-layer privacy notice for the contact form.
 
 ## Live
 
@@ -17,6 +19,51 @@ Published with GitHub Pages from the root of `main`:
 **https://chpmoreno.github.io/apiedemostrador/**
 
 To update: edit, commit, push. Pages redeploys automatically.
+
+## Contact form setup
+
+The site is static, so form submissions go through
+[Formspark](https://formspark.io/). The production endpoint is configured in `index.html` as
+`https://submit-form.com/hMkS3NNqL`.
+
+If the form is replaced or migrated:
+
+1. Copy the new endpoint shown by Formspark. It should look like
+   `https://submit-form.com/your-form-id`.
+2. In `index.html`, replace the complete URL in the `contact-form-endpoint` meta tag's
+   `content` attribute. The JavaScript accepts only HTTPS endpoints on `submit-form.com`.
+3. Send one clearly labelled test submission, check that the notification and dashboard entry
+   arrive, then delete the test record.
+
+Run the deterministic form-core tests with:
+
+```sh
+node --test tests/contact-form-core.test.cjs
+```
+
+The endpoint/form ID is public by design; it is not a password. Never add account credentials,
+API keys or inbox secrets to this repository.
+
+Each submission contains only the contact channel(s) supplied by the visitor plus `intent`,
+`consent`, `consent_version`, `consent_language`, `submitted_at` and `source`. A `_gotcha`
+honeypot is included for spam protection. There is no free-text field, analytics or marketing
+opt-in.
+
+### Operational privacy checklist
+
+The interface supports GDPR compliance, but code alone cannot guarantee compliance. Before
+enabling the production form:
+
+- review and accept Formspark's processor terms/DPA and current subprocessors;
+- secure the Formspark account and notification inbox, limiting access to José;
+- delete contact requests no later than six months after the last contact, as promised in the
+  notice, and document that recurring process;
+- keep a simple record of processing and a procedure for access, correction, deletion and
+  consent-withdrawal requests sent to `chpmoreno@gmail.com`;
+- provide separate privacy information before collecting interview notes, recordings or any
+  data beyond this initial contact request;
+- update both the visible notice and `CONSENT_VERSION` in `contact-form-core.js` whenever the
+  purpose, provider or privacy wording changes.
 
 ## Identity
 

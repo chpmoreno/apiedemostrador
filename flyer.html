@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A pie de mostrador — Flyer</title>
-<meta name="description" content="Las seis señales de 8 conversaciones con comercios de barrio en Barcelona, en una página. Con QR al informe completo.">
+<title>A pie de mostrador — Hoja de invitación</title>
+<meta name="description" content="Cuatro temas del informe A pie de mostrador y una invitación a conversar con comercios independientes.">
+<link rel="canonical" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=es">
+<link rel="alternate" hreflang="es" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=es">
+<link rel="alternate" hreflang="en" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=en">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A pie de mostrador — Flyer">
-<meta property="og:description" content="Las seis señales de 8 conversaciones con comercios de barrio en Barcelona, en una página. Con QR al informe completo.">
+<meta property="og:title" content="El trabajo invisible de llevar una tienda">
+<meta property="og:description" content="Cuatro temas de ocho conversaciones con comercios independientes.">
 <meta property="og:url" content="https://chpmoreno.github.io/apiedemostrador/flyer.html">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://chpmoreno.github.io/apiedemostrador/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chpmoreno.github.io/apiedemostrador/og-image.png">
 </head>
 <body>
 <style>
   :root, :root[data-theme="dark"], :root[data-theme="light"] {
-    --paper: #faf6ee; --paper-2: #f2ecdd; --ink: #26251f; --ink-2: #5b584c; --ink-3: #8b8779;
+    --paper: #faf6ee; --paper-2: #f2ecdd; --ink: #26251f; --ink-2: #5b584c; --ink-3: #5e6258;
     --brand: #1e6b4f; --brand-soft: #e3ede6; --line: #e3dcc9; --slip: #fffdf6;
     --c-ananda: #2e8b4a; --c-marenna: #3e63a8; --c-todalinda: #c4707e; --c-espiga: #0a86a8;
     --c-ixeta: #6f8a1a; --c-meatboss: #c04141; --c-indo: #8a5510; --c-mostaza: #a1770a;
@@ -79,6 +84,11 @@
   }
   .nota b { color: var(--ink); }
 
+  .flyer-quote { margin: 2mm 0 7mm; max-width: 150mm; }
+  .flyer-quote blockquote { margin: 0; font: italic 18pt/1.35 Georgia, "Times New Roman", serif; color: var(--ink); }
+  body[data-lang="en"] .flyer-quote blockquote.en { display: block; }
+  .flyer-quote figcaption { margin-top: 3mm; color: var(--ink-3); font-size: 9.5pt; letter-spacing: .08em; text-transform: uppercase; }
+
   .bottom {
     margin-top: auto; display: flex; gap: 22px; align-items: center;
     background: var(--brand-soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px;
@@ -100,76 +110,117 @@
     .langs { display: none; }
     @page { size: A4; margin: 0; }
   }
+
+  /* Editorial A4 edition: dimensions are physical, not approximate screen pixels. */
+  body { font-family: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif; background-image: radial-gradient(rgba(30,107,79,.09) .6px, transparent .6px); background-size: 16px 16px; }
+  .page { width: 210mm; min-height: 297mm; position: relative; overflow: hidden; }
+  .page::after { content: ""; position: absolute; width: 90mm; height: 90mm; right: -48mm; top: 18mm; border: .3mm solid rgba(30,107,79,.18); border-radius: 50%; box-shadow: 0 0 0 10mm rgba(30,107,79,.035), 0 0 0 20mm rgba(30,107,79,.025); pointer-events: none; }
+  .inner { position: relative; z-index: 1; }
+  .inner { padding: 14mm 16mm 12mm; }
+  .top { margin-bottom: 8mm; }
+  .wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; }
+  .eyebrow { font-size: 8.5pt; }
+  h1 { font-family: Arial, Helvetica, sans-serif; font-size: 31pt; margin-bottom: 4mm; }
+  .subq { font-family: Arial, Helvetica, sans-serif; font-size: 16.5pt; max-width: 150mm; }
+  .lede { font-size: 11pt; max-width: 162mm; margin-bottom: 8mm; }
+  .senales { gap: 4mm 5mm; margin-bottom: 7mm; }
+  .senal { background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 10%, var(--slip)), var(--slip)); border: .25mm solid color-mix(in srgb, var(--accent) 42%, var(--line)); border-top: 1.4mm solid var(--accent, var(--brand)); border-radius: 1.5mm; padding: 3.2mm 3.5mm 2.6mm; box-shadow: 1.3mm 1.5mm 0 color-mix(in srgb, var(--accent) 13%, transparent); }
+  .senal h4 { font-family: Arial, Helvetica, sans-serif; font-size: 12pt; margin-bottom: 2mm; }
+  .senal p { font-size: 10pt; line-height: 1.45; }
+  .nota { background: var(--slip); border: .25mm dashed var(--c-mostaza); border-left: 1.2mm solid var(--c-mostaza); border-radius: 1mm; padding: 3mm 4mm; font-size: 9.8pt; margin-bottom: 6mm; transform: rotate(-.25deg); box-shadow: 1mm 1mm 0 rgba(161,119,10,.12); }
+  .flyer-quote { position: relative; margin: 1mm 0 4mm; padding: 2mm 4mm; background: var(--slip); border-top: 1.2mm solid var(--c-ananda); box-shadow: 1.5mm 1.6mm 0 rgba(46,139,74,.12); }
+  .flyer-quote::before { content: ""; position: absolute; width: 16mm; height: 4mm; top: -2.5mm; left: 50%; transform: translateX(-50%) rotate(-2deg); background: rgba(232,214,167,.7); }
+  .bottom { gap: 7mm; border: .25mm solid var(--line); border-top: 1.2mm solid var(--brand); border-radius: 1.5mm; padding: 4mm; background: var(--brand-soft); align-items: flex-start; }
+  .qr { width: 34mm; height: 34mm; padding: 3.3mm; border: 0; border-radius: 0; color: #000; background: #fff; }
+  .cta h4 { font-family: Arial, Helvetica, sans-serif; font-size: 14pt; }
+  .cta p { font-size: 10pt; line-height: 1.45; }
+  .cta .mail { font-size: 10pt; }
+  .cta .url { font-size: 9.5pt; color: var(--ink); overflow-wrap: anywhere; }
+  .footline { font-size: 9.5pt; margin-top: 6mm; }
+  .dots { display: flex; gap: 1.2mm; }
+  .dots span { width: 5mm; height: 1.8mm; border-radius: 0; }
+  @media (max-width: 700px) {
+    body { padding: 0; }
+    .page { width: 100%; min-height: 100vh; box-shadow: none; }
+    .inner { padding: 8vw 7vw; }
+    .senales { grid-template-columns: 1fr; }
+    .bottom { align-items: flex-start; }
+  }
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    html, body { width: 210mm; height: 297mm; }
+    body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { width: 210mm; height: 297mm; min-height: 297mm; overflow: hidden; }
+    .inner { height: calc(297mm - 14px); }
+    .senal, .bottom, .nota { break-inside: avoid; }
+    .footline { font-size: 9.5pt; }
+  }
 </style>
 
 <div class="page">
   <div class="awning" aria-hidden="true"></div>
   <div class="inner">
     <div class="top">
-      <div class="wordmark">A pie de mostrador <span class="tagline">· <span class="es">primer vistazo</span><span class="en">a first look</span></span></div>
+      <div class="wordmark">A pie de mostrador <span class="tagline">· <span class="es">informe de escucha 01</span><span class="en">listening report 01</span></span></div>
       <div class="langs" role="group" aria-label="Idioma / Language">
         <button type="button" data-setlang="es" aria-pressed="true">ES</button>
         <button type="button" data-setlang="en" aria-pressed="false">EN</button>
       </div>
     </div>
 
-    <p class="eyebrow"><span class="es">8 conversaciones · Barcelona · mayo – julio 2026</span><span class="en">8 conversations · Barcelona · May – July 2026</span></p>
+    <p class="eyebrow"><span class="es">8 entrevistas presenciales · Barcelona y Santa Coloma · mayo–julio 2026</span><span class="en">8 in-person interviews · Barcelona and Santa Coloma · May–July 2026</span></p>
     <h1>A pie de mostrador</h1>
-    <p class="subq es">¿Con qué están lidiando, <em>en serio</em>, los comercios locales?</p>
-    <p class="subq en">What are local shops <em>really</em> dealing with?</p>
-    <p class="lede es">Escuchamos a 8 comercios de barrio: dietética, modista, estética, cervecera, granel, carnicería, café y artesanía. Sin pitch y sin encuesta. Seis cosas se repitieron. ¿Te suenan?</p>
-    <p class="lede en">We listened to 8 neighbourhood shops: health food, dressmaking, beauty, brewery, refill, butcher, café and craft. No pitch, no survey. Six things kept coming up. Sound familiar?</p>
+    <p class="subq es">El trabajo invisible de llevar una tienda.</p>
+    <p class="subq en">The invisible work of running a shop.</p>
+    <p class="lede es">Ocho comercios describen dónde se acumulan el trabajo, la incertidumbre y la dependencia. Son hipótesis direccionales de una muestra pequeña, no un diagnóstico del sector.</p>
+    <p class="lede en">Eight independent shops describe where work, uncertainty and dependence accumulate. These are directional hypotheses from a small sample, not a diagnosis of the sector.</p>
 
     <div class="senales">
       <div class="senal" style="--accent: var(--c-ananda)">
-        <h4 class="es">01 · El negocio vive en tu cabeza</h4><h4 class="en">01 · The business lives in your head</h4>
-        <p class="es">Precios, clientes y criterio los llevas tú. Delegas tareas, no el juicio.</p>
-        <p class="en">Prices, customers and judgement travel with you. You delegate tasks, not judgement.</p>
+        <h4 class="es">01 · Conocimiento y dependencia</h4><h4 class="en">01 · Knowledge and dependence</h4>
+        <p class="es">Precios, clientela, excepciones y criterio siguen concentrados en quien lleva la tienda.</p>
+        <p class="en">Pricing knowledge, customer context, exceptions and judgement remain concentrated in the person running the shop.</p>
       </div>
       <div class="senal" style="--accent: var(--c-espiga)">
-        <h4 class="es">02 · Datos tienes. Falta la conclusión</h4><h4 class="en">02 · You have data. The conclusion is missing</h4>
-        <p class="es">El TPV acumula cifras; nadie tiene una tarde para convertirlas en decisión.</p>
-        <p class="en">The till piles up numbers; nobody has an afternoon to turn them into a decision.</p>
+        <h4 class="es">02 · Inventario, márgenes y decisión</h4><h4 class="en">02 · Inventory, margins and decisions</h4>
+        <p class="es">Saber qué hay no siempre equivale a tener inventario fiable; el margen se conoce más en general que producto a producto.</p>
+        <p class="en">Knowing what is there is not always reliable inventory; margins are understood more broadly than product by product.</p>
       </div>
       <div class="senal" style="--accent: var(--c-indo)">
-        <h4 class="es">03 · A tus proveedores los persigues tú</h4><h4 class="en">03 · You are the one chasing suppliers</h4>
-        <p class="es">Pedidos por WhatsApp, facturas línea a línea, precios que cambian sin aviso.</p>
-        <p class="en">WhatsApp orders, line-by-line invoices, prices that change without notice.</p>
+        <h4 class="es">03 · Proveedores, datos y coordinación</h4><h4 class="en">03 · Suppliers, data and coordination</h4>
+        <p class="es">WhatsApp resuelve la urgencia; no resuelve el sistema. Pedidos, precios y facturas siguen dispersos.</p>
+        <p class="en">WhatsApp solves urgency; it does not solve the system. Orders, prices and invoices remain fragmented.</p>
       </div>
       <div class="senal" style="--accent: var(--c-marenna)">
-        <h4 class="es">04 · Vuelven por ti. Y eso te ata</h4><h4 class="en">04 · They come back for you. And that ties you</h4>
-        <p class="es">La confianza es tu ventaja frente a cualquier gigante, y tu cadena al mostrador.</p>
-        <p class="en">Trust is your edge over any giant, and your chain to the counter.</p>
-      </div>
-      <div class="senal" style="--accent: var(--c-todalinda)">
-        <h4 class="es">05 · La tecnología se gana el sitio, o sobra</h4><h4 class="en">05 · Tech earns its place, or it's clutter</h4>
-        <p class="es">Pagáis sin quejaros por lo que ahorra trabajo hoy. Lo genérico, fuera.</p>
-        <p class="en">You gladly pay for what saves work today. Generic solutions are out.</p>
-      </div>
-      <div class="senal" style="--accent: var(--c-ixeta)">
-        <h4 class="es">06 · Hacienda ya está en la conversación</h4><h4 class="en">06 · The tax office is in the conversation</h4>
-        <p class="es">VeriFactu salió sin que preguntáramos. Nadie sabe aún a quién creerle.</p>
-        <p class="en">VeriFactu came up unprompted. Nobody knows yet who to believe.</p>
+        <h4 class="es">04 · Herramientas, normativa y confianza</h4><h4 class="en">04 · Tools, regulation and trust</h4>
+        <p class="es">Una herramienta se queda si reduce trabajo visible. La normativa añade decisiones cuando todavía falta una explicación fiable.</p>
+        <p class="en">A tool stays when it visibly reduces work. Regulation adds decisions while reliable explanations are still hard to find.</p>
       </div>
     </div>
 
     <div class="nota">
-      <span class="es"><b>Nota honesta:</b> esto no es una encuesta ni un diagnóstico del sector. Son ocho conversaciones abiertas, una mirada direccional. Son hipótesis, no conclusiones, y seguimos escuchando. Cada color de esta hoja es un guiño a una de las ocho tiendas.</span>
-      <span class="en"><b>Honest note:</b> this is not a survey or a sector diagnosis. It is eight open conversations, a directional first look. These are hypotheses, not conclusions, and we are still listening. Every colour on this sheet is a nod to one of the eight shops.</span>
+      <span class="es"><b>Qué sostiene a estas tiendas:</b> oficio, memoria de clientela, criterio para comprar y recomendar, capacidad de reconstruirse y apoyo entre pares. No son activos sentimentales: son parte del funcionamiento del negocio.</span>
+      <span class="en"><b>What sustains these shops:</b> craft, customer memory, buying and recommendation judgement, the ability to rebuild and peer support. These are not sentimental assets; they are part of how the business works.</span>
     </div>
+
+    <figure class="flyer-quote">
+      <blockquote class="es">«Todo está en mi cabeza. No tengo nada de sistema.»</blockquote>
+      <blockquote class="en">“It is all in my head. I do not have any system at all.”</blockquote>
+      <figcaption><span class="es">Propietaria · tienda de alimentación</span><span class="en">Owner · health-food shop</span></figcaption>
+    </figure>
 
     <div class="bottom">
       <div class="qr" aria-label="QR: apiedemostrador"><svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><path d="M0 0h7v1H0zM9 0h3v1H9zM18 0h1v1H18zM26 0h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM8 1h2v1H8zM13 1h2v1H13zM16 1h2v1H16zM21 1h2v1H21zM26 1h1v1H26zM32 1h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM10 2h2v1H10zM13 2h1v1H13zM15 2h1v1H15zM17 2h2v1H17zM20 2h1v1H20zM23 2h1v1H23zM26 2h1v1H26zM28 2h3v1H28zM32 2h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h2v1H8zM11 3h1v1H11zM23 3h2v1H23zM26 3h1v1H26zM28 3h3v1H28zM32 3h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM9 4h1v1H9zM11 4h1v1H11zM15 4h1v1H15zM17 4h2v1H17zM21 4h1v1H21zM24 4h1v1H24zM26 4h1v1H26zM28 4h3v1H28zM32 4h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM9 5h4v1H9zM16 5h1v1H16zM18 5h1v1H18zM20 5h2v1H20zM26 5h1v1H26zM32 5h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h7v1H26zM8 7h1v1H8zM11 7h1v1H11zM18 7h1v1H18zM23 7h1v1H23zM0 8h1v1H0zM6 8h1v1H6zM8 8h4v1H8zM13 8h3v1H13zM17 8h1v1H17zM20 8h1v1H20zM22 8h5v1H22zM29 8h3v1H29zM0 9h1v1H0zM2 9h2v1H2zM5 9h1v1H5zM7 9h6v1H7zM14 9h2v1H14zM19 9h1v1H19zM22 9h2v1H22zM28 9h3v1H28zM0 10h1v1H0zM2 10h1v1H2zM4 10h4v1H4zM10 10h1v1H10zM15 10h2v1H15zM18 10h1v1H18zM20 10h2v1H20zM28 10h1v1H28zM30 10h2v1H30zM1 11h1v1H1zM7 11h2v1H7zM11 11h1v1H11zM14 11h3v1H14zM22 11h1v1H22zM26 11h5v1H26zM0 12h2v1H0zM3 12h1v1H3zM6 12h5v1H6zM13 12h2v1H13zM16 12h3v1H16zM20 12h3v1H20zM24 12h1v1H24zM26 12h1v1H26zM32 12h1v1H32zM0 13h1v1H0zM5 13h1v1H5zM9 13h1v1H9zM11 13h4v1H11zM16 13h1v1H16zM20 13h1v1H20zM22 13h3v1H22zM26 13h2v1H26zM29 13h4v1H29zM1 14h2v1H1zM4 14h3v1H4zM8 14h2v1H8zM12 14h1v1H12zM19 14h1v1H19zM21 14h2v1H21zM24 14h4v1H24zM29 14h3v1H29zM1 15h1v1H1zM4 15h1v1H4zM9 15h5v1H9zM15 15h1v1H15zM19 15h1v1H19zM23 15h3v1H23zM27 15h4v1H27zM32 15h1v1H32zM0 16h1v1H0zM3 16h2v1H3zM6 16h2v1H6zM10 16h1v1H10zM12 16h2v1H12zM17 16h1v1H17zM19 16h1v1H19zM22 16h1v1H22zM24 16h2v1H24zM27 16h2v1H27zM32 16h1v1H32zM3 17h3v1H3zM8 17h1v1H8zM11 17h1v1H11zM15 17h1v1H15zM17 17h5v1H17zM23 17h1v1H23zM26 17h1v1H26zM29 17h2v1H29zM32 17h1v1H32zM0 18h1v1H0zM3 18h5v1H3zM12 18h2v1H12zM15 18h1v1H15zM19 18h1v1H19zM23 18h5v1H23zM29 18h2v1H29zM32 18h1v1H32zM13 19h1v1H13zM15 19h7v1H15zM24 19h2v1H24zM28 19h4v1H28zM4 20h4v1H4zM9 20h1v1H9zM11 20h1v1H11zM16 20h1v1H16zM20 20h3v1H20zM25 20h1v1H25zM28 20h2v1H28zM31 20h1v1H31zM0 21h3v1H0zM5 21h1v1H5zM8 21h1v1H8zM10 21h1v1H10zM13 21h1v1H13zM16 21h1v1H16zM18 21h1v1H18zM20 21h4v1H20zM27 21h3v1H27zM0 22h1v1H0zM3 22h4v1H3zM13 22h1v1H13zM15 22h4v1H15zM20 22h1v1H20zM22 22h1v1H22zM28 22h4v1H28zM0 23h1v1H0zM2 23h2v1H2zM9 23h2v1H9zM12 23h2v1H12zM18 23h1v1H18zM23 23h1v1H23zM25 23h2v1H25zM29 23h2v1H29zM0 24h3v1H0zM4 24h3v1H4zM8 24h1v1H8zM10 24h1v1H10zM12 24h1v1H12zM15 24h2v1H15zM18 24h3v1H18zM24 24h6v1H24zM8 25h4v1H8zM13 25h4v1H13zM18 25h3v1H18zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM32 25h1v1H32zM0 26h7v1H0zM9 26h3v1H9zM14 26h3v1H14zM18 26h1v1H18zM21 26h1v1H21zM23 26h2v1H23zM26 26h1v1H26zM28 26h1v1H28zM30 26h2v1H30zM0 27h1v1H0zM6 27h1v1H6zM9 27h1v1H9zM12 27h2v1H12zM16 27h1v1H16zM19 27h1v1H19zM23 27h2v1H23zM28 27h5v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM9 28h2v1H9zM12 28h3v1H12zM18 28h2v1H18zM21 28h1v1H21zM24 28h6v1H24zM32 28h1v1H32zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM12 29h2v1H12zM16 29h2v1H16zM20 29h3v1H20zM24 29h2v1H24zM27 29h3v1H27zM32 29h1v1H32zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h1v1H10zM14 30h1v1H14zM16 30h1v1H16zM20 30h1v1H20zM23 30h1v1H23zM25 30h1v1H25zM27 30h2v1H27zM31 30h2v1H31zM0 31h1v1H0zM6 31h1v1H6zM9 31h5v1H9zM15 31h2v1H15zM18 31h3v1H18zM22 31h1v1H22zM25 31h1v1H25zM27 31h4v1H27zM0 32h7v1H0zM8 32h1v1H8zM12 32h1v1H12zM17 32h1v1H17zM19 32h1v1H19zM23 32h2v1H23zM27 32h1v1H27zM29 32h1v1H29zM31 32h1v1H31z" fill="currentColor"/></svg></div>
       <div class="cta">
-        <h4><span class="es">¿Tienes una tienda? Queremos escucharte</span><span class="en">Do you run a shop? We want to hear you</span></h4>
-        <p><span class="es">25 minutos, en tu tienda, sin pitch y sin compromiso. Si algo te sonó (o crees que tu caso lo contradice, mejor aún), escríbenos. El informe completo, con citas y matices, está en el QR.</span><span class="en">25 minutes, at your shop, no pitch, no strings. If something rang true (or you think your case contradicts it, even better), write to us. The full report, with quotes and nuance, is behind the QR.</span></p>
-        <div class="mail">chpmoreno@gmail.com</div>
-        <div class="url">chpmoreno.github.io/apiedemostrador</div>
+        <h4><span class="es">¿Llevas una tienda? Déjame un contacto.</span><span class="en">Do you run a shop? Leave your details.</span></h4>
+        <p><span class="es">Escanea el QR, deja email o teléfono y yo doy el siguiente paso. 25 minutos, sin preparación.</span><span class="en">Scan the QR, leave an email or phone number and I will take the next step. 25 minutes, no preparation.</span></p>
+        <div class="mail"><span class="es">Formulario breve · sin spam</span><span class="en">Short form · no spam</span></div>
+        <div class="url"><a data-report-url href="https://chpmoreno.github.io/apiedemostrador/">chpmoreno.github.io/apiedemostrador</a></div>
       </div>
     </div>
 
     <div class="footline">
-      <span><span class="es">A pie de mostrador · Edición 1 · n=8 · Julio 2026 · Investigación independiente</span><span class="en">A pie de mostrador · Edition 1 · n=8 · July 2026 · Independent research</span></span>
+      <span><span class="es">A pie de mostrador · Edición 1 · 8 entrevistas · julio de 2026 · Investigación independiente</span><span class="en">A pie de mostrador · Edition 1 · 8 interviews · July 2026 · Independent research</span></span>
       <div class="dots" aria-hidden="true">
         <span style="background: var(--c-ananda)"></span><span style="background: var(--c-marenna)"></span><span style="background: var(--c-todalinda)"></span><span style="background: var(--c-espiga)"></span><span style="background: var(--c-ixeta)"></span><span style="background: var(--c-meatboss)"></span><span style="background: var(--c-indo)"></span><span style="background: var(--c-mostaza)"></span>
       </div>
@@ -178,12 +229,25 @@
 </div>
 
 <script>
+  const REPORT_URL = "https://chpmoreno.github.io/apiedemostrador/";
+  function setLanguage(lang, updateUrl) {
+    const selected = lang === "en" ? "en" : "es";
+    document.body.setAttribute("data-lang", selected);
+    document.documentElement.lang = selected;
+    document.querySelectorAll("[data-setlang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-setlang") === selected)); });
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", selected);
+      history.replaceState({}, "", url);
+    }
+  }
+  document.querySelectorAll("[data-report-url]").forEach(function (link) { link.href = REPORT_URL; });
   document.querySelectorAll("[data-setlang]").forEach(function (b) {
     b.addEventListener("click", function () {
-      document.body.setAttribute("data-lang", b.getAttribute("data-setlang"));
-      document.querySelectorAll("[data-setlang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      setLanguage(b.getAttribute("data-setlang"), true);
     });
   });
+  setLanguage(new URLSearchParams(window.location.search).get("lang"), false);
 </script>
 
 </body>
