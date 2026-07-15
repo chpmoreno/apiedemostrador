@@ -7,6 +7,7 @@
   <meta name="description" content="Ocho comercios explican dónde se concentra el trabajo invisible de llevar una tienda. Informe de escucha independiente en Barcelona y Santa Coloma.">
   <link rel="canonical" href="https://chpmoreno.github.io/apiedemostrador/">
   <link rel="alternate" hreflang="es" href="https://chpmoreno.github.io/apiedemostrador/?lang=es">
+  <link rel="alternate" hreflang="ca" href="https://chpmoreno.github.io/apiedemostrador/?lang=ca">
   <link rel="alternate" hreflang="en" href="https://chpmoreno.github.io/apiedemostrador/?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://chpmoreno.github.io/apiedemostrador/">
   <meta property="og:type" content="article">
@@ -63,9 +64,10 @@
     :focus-visible { outline: 3px solid var(--mustard); outline-offset: 3px; }
     .skip-link { position: fixed; top: 10px; left: 10px; z-index: 20; transform: translateY(-160%); background: var(--ink); color: white; padding: 10px 14px; }
     .skip-link:focus { transform: none; }
-    .en { display: none !important; }
-    body[data-lang="en"] .es { display: none !important; }
+    .en, .ca { display: none !important; }
+    body[data-lang="en"] .es, body[data-lang="ca"] .es { display: none !important; }
     body[data-lang="en"] .en { display: revert !important; }
+    body[data-lang="ca"] .ca { display: revert !important; }
     .awning { height: 14px; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(90deg, var(--green) 0 44px, var(--paper) 44px 88px); }
     .wrap { width: min(100% - 40px, 1120px); margin-inline: auto; }
     .narrow { width: min(100%, 780px); }
@@ -91,6 +93,20 @@
     .themes { margin: 42px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 42px; list-style: none; counter-reset: themes; }
     .themes li { counter-increment: themes; display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 18px 0 20px; border-top: 2px solid var(--ink); font-weight: 800; font-size: 20px; }
     .themes li::before { content: "0" counter(themes); color: var(--green); font-size: 13px; letter-spacing: .08em; padding-top: 4px; }
+    .quick-capture { padding: 20px 0 78px; border-top: 0; }
+    .quick-capture-card { position: relative; display: grid; grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr); gap: clamp(30px, 6vw, 70px); align-items: center; padding: clamp(28px, 5vw, 54px); background: var(--ink); color: white; border: 1px solid var(--ink); box-shadow: 12px 13px 0 #ddc77d; overflow: hidden; }
+    .quick-capture-card::before { content: ""; position: absolute; width: 150px; height: 150px; right: -68px; top: -68px; border: 26px solid rgba(242,217,142,.13); border-radius: 50%; }
+    .quick-copy { position: relative; z-index: 1; }
+    .quick-copy .kicker { color: #f2d98e; }
+    .quick-copy h2 { max-width: 640px; font-size: clamp(34px, 4.5vw, 54px); }
+    .quick-copy > p:not(.kicker) { max-width: 570px; margin: 20px 0 0; color: #d9d8d0; font-size: 18px; line-height: 1.55; }
+    .quick-signals { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .quick-signals li { padding: 6px 10px; border: 1px solid rgba(255,255,255,.35); color: #f7f2e7; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+    .quick-form-shell { position: relative; z-index: 1; padding: clamp(22px, 3vw, 32px); background: var(--receipt); color: var(--ink); box-shadow: 7px 8px 0 rgba(255,255,255,.12); }
+    .quick-form-shell h3 { font-size: clamp(25px, 3vw, 34px); }
+    .quick-success { padding: 8px 0; }
+    .quick-success h3 { color: var(--green); }
+    .quick-success p { margin: 12px 0 0; color: var(--muted); }
     .scope-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 58px; margin-top: 44px; align-items: start; }
     .scope-list { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--ink); }
     .scope-list li { display: grid; grid-template-columns: 148px 1fr; gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--line); }
@@ -210,6 +226,7 @@
     .field-note b { display: block; font-size: clamp(28px, 4vw, 46px); line-height: 1; color: var(--green); }
     .field-note span { display: block; margin-top: 9px; font-weight: 800; line-height: 1.35; }
     .field-note small { display: block; margin-top: 8px; color: var(--quiet); line-height: 1.45; }
+    body[data-lang="es"] .field-note .es, body[data-lang="ca"] .field-note .ca, body[data-lang="en"] .field-note .en { display: block !important; }
 
     #idea { background: var(--green); color: #fffdf7; }
     #idea .kicker, #idea .themes li::before { color: #f2d98e; }
@@ -271,7 +288,7 @@
     .cta { background: linear-gradient(120deg, var(--green-soft), #f1dfaa); }
     @media (max-width: 760px) {
       .wrap { width: min(100% - 28px, 1120px); }
-      .hero-grid, .themes, .scope-grid, .works-flow, .cta-layout { grid-template-columns: 1fr; }
+      .hero-grid, .themes, .scope-grid, .works-flow, .cta-layout, .quick-capture-card { grid-template-columns: 1fr; }
       .field-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; min-height: auto; margin-top: 12px; }
       .field-note { position: relative; inset: auto !important; width: auto; min-height: 150px; transform: none !important; padding: 17px; }
       .themes li { min-height: 0; }
@@ -310,7 +327,7 @@
       .awning { height: 4mm; }
       .wrap { width: auto; }
       .topbar { padding: 5mm 0; }
-      .langs, .skip-link, .recognize, .recognition-dock { display: none !important; }
+      .langs, .skip-link, .recognize, .recognition-dock, .quick-capture { display: none !important; }
       header { padding: 20mm 0 14mm; }
       h1 { font-size: 42pt; }
       .subtitle { font-size: 20pt; }
@@ -329,12 +346,13 @@
   </style>
 </head>
 <body data-lang="es">
-  <a class="skip-link" href="#contenido"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+  <a class="skip-link" href="#contenido"><span class="es">Saltar al contenido</span><span class="ca">Salta al contingut</span><span class="en">Skip to content</span></a>
   <div class="awning" aria-hidden="true"></div>
   <div class="wrap topbar">
-    <div class="wordmark">A pie de mostrador <span class="edition">· <span class="es">edición 1</span><span class="en">edition 1</span></span></div>
-    <div class="langs" role="group" aria-label="Idioma / Language">
+    <div class="wordmark">A pie de mostrador <span class="edition">· <span class="es">edición 1</span><span class="ca">edició 1</span><span class="en">edition 1</span></span></div>
+    <div class="langs" role="group" aria-label="Idioma / Llengua / Language">
       <button type="button" data-lang="es" aria-pressed="true">Español</button>
+      <button type="button" data-lang="ca" aria-pressed="false">Català</button>
       <button type="button" data-lang="en" aria-pressed="false">English</button>
     </div>
   </div>
@@ -344,64 +362,148 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
         <p class="eyebrow es">Informe de escucha 01 · Barcelona y Santa Coloma · mayo–julio de 2026</p>
+        <p class="eyebrow ca">Informe d'escolta 01 · Barcelona i Santa Coloma · maig–juliol de 2026</p>
         <p class="eyebrow en">Listening report 01 · Barcelona and Santa Coloma · May–July 2026</p>
         <h1>A pie de mostrador</h1>
         <p class="subtitle es">Ocho comercios explican dónde se concentra el trabajo invisible de llevar una tienda.</p>
+        <p class="subtitle ca">Vuit comerços expliquen on es concentra la feina invisible de portar una botiga.</p>
         <p class="subtitle en">Eight independent shops describe where the invisible work of running a business accumulates.</p>
         <div class="narrow">
           <p class="lede es">Hablamos en persona con comercios de alimentación, confección, estética, hostelería, artesanía y comercio especializado. No les presentamos una solución ni les pedimos validar una idea: preguntamos cómo trabajan, qué decisiones les cuestan y dónde se acumula la incertidumbre.</p>
           <p class="lede es">De esas conversaciones surgen hipótesis de trabajo. Son hallazgos direccionales de una muestra pequeña, no afirmaciones sobre todo el sector.</p>
+          <p class="lede ca">Vam parlar en persona amb comerços d'alimentació, confecció, estètica, hostaleria, artesania i comerç especialitzat. No els vam presentar cap solució ni els vam demanar que validessin una idea: vam preguntar com treballen, quines decisions els costen i on s'acumula la incertesa.</p>
+          <p class="lede ca">D'aquestes converses en sorgeixen hipòtesis de treball. Són troballes orientatives d'una mostra petita, no afirmacions sobre tot el sector.</p>
           <p class="lede en">We spoke in person with businesses across food retail, dressmaking, beauty, hospitality, craft and specialist retail. We did not present a solution or ask anyone to validate an idea. We asked how the work gets done, which decisions are difficult and where uncertainty builds up.</p>
           <p class="lede en">The conversations produced working hypotheses: directional findings from a small sample, not claims about independent retail as a whole.</p>
         </div>
-          <p class="byline"><span class="es">José · investigación independiente · Barcelona · julio de 2026</span><span class="en">José · independent research · Barcelona · July 2026</span></p>
+          <p class="byline"><span class="es">José · investigación independiente · Barcelona · julio de 2026</span><span class="ca">José · recerca independent · Barcelona · juliol de 2026</span><span class="en">José · independent research · Barcelona · July 2026</span></p>
         </div>
-        <aside class="field-notes" aria-label="Claves del trabajo de campo">
-          <div class="field-note"><b>8</b><span class="es">conversaciones presenciales</span><span class="en">in-person conversations</span><small class="es">Una muestra pequeña y situada.</small><small class="en">A small, situated sample.</small></div>
-          <div class="field-note"><b>6</b><span class="es">ámbitos de actividad</span><span class="en">areas of activity</span><small class="es">Del comercio alimentario a la artesanía.</small><small class="en">From food retail to local craft.</small></div>
-          <div class="field-note"><b>4</b><span class="es">temas para explorar</span><span class="en">themes to explore</span><small class="es">Hipótesis cualitativas, no prevalencias.</small><small class="en">Qualitative hypotheses, not prevalence.</small></div>
+        <aside class="field-notes" aria-label="Claves del trabajo de campo / Claus del treball de camp / Fieldwork highlights">
+          <div class="field-note"><b>8</b><span class="es">conversaciones presenciales</span><span class="ca">converses presencials</span><span class="en">in-person conversations</span><small class="es">Una muestra pequeña y situada.</small><small class="ca">Una mostra petita i situada.</small><small class="en">A small, situated sample.</small></div>
+          <div class="field-note"><b>6</b><span class="es">ámbitos de actividad</span><span class="ca">àmbits d'activitat</span><span class="en">areas of activity</span><small class="es">Del comercio alimentario a la artesanía.</small><small class="ca">Del comerç alimentari a l'artesania.</small><small class="en">From food retail to local craft.</small></div>
+          <div class="field-note"><b>4</b><span class="es">temas para explorar</span><span class="ca">temes per explorar</span><span class="en">themes to explore</span><small class="es">Hipótesis cualitativas, no prevalencias.</small><small class="ca">Hipòtesis qualitatives, no prevalences.</small><small class="en">Qualitative hypotheses, not prevalence.</small></div>
         </aside>
       </div>
     </header>
 
     <section id="idea">
       <div class="wrap">
-        <p class="kicker es">Resumen en un minuto</p><p class="kicker en">The one-minute read</p>
-        <h2 class="es">La idea central</h2><h2 class="en">The central idea</h2>
+        <p class="kicker es">Resumen en un minuto</p><p class="kicker ca">Resum en un minut</p><p class="kicker en">The one-minute read</p>
+        <h2 class="es">La idea central</h2><h2 class="ca">La idea central</h2><h2 class="en">The central idea</h2>
         <p class="section-intro es">En esta muestra, el problema no fue la ausencia de tecnología. Fue la distancia entre las herramientas disponibles y las decisiones que una tienda necesita tomar en contexto. El conocimiento sigue concentrado en la persona propietaria; el inventario y los márgenes rara vez están del todo a la vista; y cualquier herramienta nueva tiene que demostrar valor dentro de un día de trabajo ya saturado.</p>
+        <p class="section-intro ca">En aquesta mostra, el problema no va ser l'absència de tecnologia. Va ser la distància entre les eines disponibles i les decisions que una botiga necessita prendre en context. El coneixement continua concentrat en la persona propietària; l'inventari i els marges poques vegades són del tot visibles; i qualsevol eina nova ha de demostrar valor dins d'una jornada de treball ja saturada.</p>
         <p class="section-intro en">In this sample, the problem was not a lack of technology. It was the gap between the tools available and the decisions a shop needs to make in context. Knowledge remains concentrated in the owner; inventory and margins are rarely fully visible; and any new tool has to prove its value inside a working day that is already full.</p>
         <ol class="themes">
-          <li><a href="#conocimiento"><span class="es">Conocimiento y dependencia</span><span class="en">Knowledge and dependence</span></a></li>
-          <li><a href="#inventario"><span class="es">Inventario, márgenes y decisión</span><span class="en">Inventory, margins and decisions</span></a></li>
-          <li><a href="#proveedores"><span class="es">Proveedores, datos y coordinación</span><span class="en">Suppliers, data and coordination</span></a></li>
-          <li><a href="#herramientas"><span class="es">Herramientas, normativa y confianza</span><span class="en">Tools, regulation and trust</span></a></li>
+          <li><a href="#conocimiento"><span class="es">Conocimiento y dependencia</span><span class="ca">Coneixement i dependència</span><span class="en">Knowledge and dependence</span></a></li>
+          <li><a href="#inventario"><span class="es">Inventario, márgenes y decisión</span><span class="ca">Inventari, marges i decisió</span><span class="en">Inventory, margins and decisions</span></a></li>
+          <li><a href="#proveedores"><span class="es">Proveedores, datos y coordinación</span><span class="ca">Proveïdors, dades i coordinació</span><span class="en">Suppliers, data and coordination</span></a></li>
+          <li><a href="#herramientas"><span class="es">Herramientas, normativa y confianza</span><span class="ca">Eines, normativa i confiança</span><span class="en">Tools, regulation and trust</span></a></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="quick-capture" id="contacto-rapido" aria-labelledby="quickCaptureHeading">
+      <div class="wrap">
+        <div class="quick-capture-card">
+          <div class="quick-copy">
+            <p class="kicker es">Un atajo para participar</p><p class="kicker ca">Una drecera per participar</p><p class="kicker en">A shortcut to take part</p>
+            <h2 id="quickCaptureHeading"><span class="es">No hace falta que leas todo.</span><span class="ca">No cal que ho llegeixis tot.</span><span class="en">You do not have to read everything.</span></h2>
+            <p class="es">Si llevas una tienda —o conoces una que debería estar aquí— déjame un contacto. Te escribiré personalmente y buscaremos 25 minutos que te vayan bien, sin preparación.</p>
+            <p class="ca">Si portes una botiga —o en coneixes una que hauria de ser aquí— deixa'm un contacte. T'escriuré personalment i buscarem 25 minuts que et vagin bé, sense preparació.</p>
+            <p class="en">If you run a shop—or know one that should be heard—leave one contact detail. I will write personally and find 25 minutes that work for you, with no preparation.</p>
+            <ul class="quick-signals" aria-label="Condiciones de contacto / Condicions de contacte / Contact conditions">
+              <li><span class="es">Email y/o teléfono</span><span class="ca">Correu i/o telèfon</span><span class="en">Email and/or phone</span></li>
+              <li><span class="es">Sin listas comerciales</span><span class="ca">Sense llistes comercials</span><span class="en">No marketing lists</span></li>
+              <li><span class="es">Respuesta personal</span><span class="ca">Resposta personal</span><span class="en">A personal reply</span></li>
+            </ul>
+          </div>
+
+          <div class="quick-form-shell">
+            <div id="quickFormIntro">
+              <p class="form-kicker es">Menos de 30 segundos</p><p class="form-kicker ca">Menys de 30 segons</p><p class="form-kicker en">Less than 30 seconds</p>
+              <h3><span class="es">¿Cómo te contacto?</span><span class="ca">Com et contacto?</span><span class="en">How should I contact you?</span></h3>
+            </div>
+            <form class="contact-form" id="quickContactForm" method="post" novalidate aria-describedby="quickPrivacySummary">
+              <fieldset class="intent-fieldset">
+                <legend><span class="es">¿Qué te trae por aquí?</span><span class="ca">Què et porta per aquí?</span><span class="en">What brings you here?</span></legend>
+                <div class="intent-options">
+                  <label class="intent-option"><input type="radio" name="intent" value="shop_owner" checked><span class="es">Llevo una tienda</span><span class="ca">Porto una botiga</span><span class="en">I run a shop</span></label>
+                  <label class="intent-option"><input type="radio" name="intent" value="introduction"><span class="es">Quiero presentar una tienda</span><span class="ca">Vull presentar una botiga</span><span class="en">I can introduce a shop</span></label>
+                  <label class="intent-option"><input type="radio" name="intent" value="report_feedback"><span class="es">Quiero matizar el informe</span><span class="ca">Vull matisar l'informe</span><span class="en">I have report feedback</span></label>
+                </div>
+              </fieldset>
+
+              <p class="contact-requirement"><span class="es">Déjame al menos un email o un teléfono.</span><span class="ca">Deixa'm almenys un correu electrònic o un telèfon.</span><span class="en">Leave at least an email address or phone number.</span></p>
+              <div class="contact-grid">
+                <div class="contact-field">
+                  <label class="contact-label" for="quickEmail"><span class="es">Email (opcional)</span><span class="ca">Correu electrònic (opcional)</span><span class="en">Email (optional)</span></label>
+                  <input id="quickEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="example@example.com" aria-describedby="quickEmailError">
+                  <small id="quickEmailError" aria-live="polite"></small>
+                </div>
+                <div class="contact-field">
+                  <label class="contact-label" for="quickPhone"><span class="es">Teléfono (opcional)</span><span class="ca">Telèfon (opcional)</span><span class="en">Phone (optional)</span></label>
+                  <input id="quickPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="+34600000000" aria-describedby="quickPhoneError">
+                  <small id="quickPhoneError" aria-live="polite"></small>
+                </div>
+              </div>
+              <p class="form-error" id="quickFieldsError" aria-live="polite"></p>
+
+              <div class="hp-field" hidden aria-hidden="true">
+                <label for="quickWebsite">Website</label>
+                <input id="quickWebsite" name="_gotcha" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+              </div>
+
+              <label class="consent-row" for="quickConsent">
+                <input id="quickConsent" name="consent" type="checkbox" value="granted" required aria-describedby="quickConsentError quickPrivacySummary">
+                <span class="es">Consiento que José Fernando Moreno Gutiérrez use el email y/o teléfono que facilito para responder a esta solicitud. Puedo retirar el consentimiento en cualquier momento.</span>
+                <span class="ca">Dono el meu consentiment perquè José Fernando Moreno Gutiérrez utilitzi el correu electrònic i/o el telèfon que facilito per respondre aquesta sol·licitud. Puc retirar el consentiment en qualsevol moment.</span>
+                <span class="en">I consent to José Fernando Moreno Gutiérrez using the email address and/or phone number I provide to respond to this request. I can withdraw consent at any time.</span>
+              </label>
+              <p class="form-error" id="quickConsentError" aria-live="polite"></p>
+
+              <p class="form-privacy-summary" id="quickPrivacySummary"><span class="es"><b>Responsable:</b> José Fernando Moreno Gutiérrez. <b>Finalidad:</b> responder y, si procede, coordinar una conversación. <b>Base:</b> tu consentimiento. <b>Proveedor:</b> Formspark, con almacenamiento en Irlanda. Conservaremos la solicitud un máximo de 6 meses desde el último contacto. Puedes ejercer tus derechos o retirar el consentimiento en chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=es">Información completa de privacidad</a>.</span><span class="ca"><b>Responsable:</b> José Fernando Moreno Gutiérrez. <b>Finalitat:</b> respondre i, si escau, coordinar una conversa. <b>Base:</b> el teu consentiment. <b>Proveïdor:</b> Formspark, amb emmagatzematge a Irlanda. Conservarem la sol·licitud un màxim de 6 mesos des de l'últim contacte. Pots exercir els teus drets o retirar el consentiment a chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=ca">Informació completa de privacitat</a>.</span><span class="en"><b>Controller:</b> José Fernando Moreno Gutiérrez. <b>Purpose:</b> to respond and, where appropriate, arrange a conversation. <b>Basis:</b> your consent. <b>Provider:</b> Formspark, with storage in Ireland. We retain the request for no more than 6 months after the last contact. You can exercise your rights or withdraw consent at chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=en">Full privacy information</a>.</span></p>
+
+              <button class="contact-submit" id="quickSubmit" type="submit"><span class="es">Sí, contáctame</span><span class="ca">Sí, contacta'm</span><span class="en">Yes, contact me</span></button>
+              <p class="contact-alternative"><span class="es">¿Prefieres escribir tú? Puedes hacerlo directamente a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span><span class="ca">Prefereixes escriure tu? Pots fer-ho directament a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span><span class="en">Would you rather write first? Email me directly at <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span></p>
+              <p class="form-status" id="quickStatus" role="status" aria-live="polite"></p>
+              <noscript><p class="form-error"><span class="es">Activa JavaScript para enviar este formulario.</span><span class="ca">Activa JavaScript per enviar aquest formulari.</span><span class="en">Enable JavaScript to submit this form.</span></p></noscript>
+            </form>
+
+            <div class="quick-success" id="quickSuccess" role="status" tabindex="-1" hidden>
+              <p class="form-kicker es">Recibido</p><p class="form-kicker ca">Rebut</p><p class="form-kicker en">Received</p>
+              <h3><span class="es">Gracias. A partir de aquí, me ocupo yo.</span><span class="ca">Gràcies. A partir d'aquí, me n'ocupo jo.</span><span class="en">Thank you. I will take it from here.</span></h3>
+              <p class="es">Te escribiré o llamaré personalmente. Si quieres añadir algo o prefieres contactar conmigo directamente, escríbeme a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. También puedes usar esa dirección para retirar tu consentimiento en cualquier momento.</p>
+              <p class="ca">T'escriuré o et trucaré personalment. Si vols afegir alguna cosa o prefereixes contactar directament amb mi, escriu-me a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. També pots utilitzar aquesta adreça per retirar el consentiment en qualsevol moment.</p>
+              <p class="en">I will email or call you personally. If you would like to add anything or contact me directly, email me at <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. You can also use that address to withdraw your consent at any time.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="muestra">
       <div class="wrap">
-        <p class="kicker es">Muestra y alcance</p><p class="kicker en">Sample and scope</p>
-        <h2 class="es">Ocho conversaciones situadas, no un retrato del sector</h2><h2 class="en">Eight situated conversations, not a portrait of the sector</h2>
+        <p class="kicker es">Muestra y alcance</p><p class="kicker ca">Mostra i abast</p><p class="kicker en">Sample and scope</p>
+        <h2 class="es">Ocho conversaciones situadas, no un retrato del sector</h2><h2 class="ca">Vuit converses situades, no un retrat del sector</h2><h2 class="en">Eight situated conversations, not a portrait of the sector</h2>
         <div class="scope-grid">
           <ul class="scope-list">
-            <li><b class="es">Conversaciones</b><b class="en">Conversations</b><span class="es">8 entrevistas semiestructuradas y presenciales</span><span class="en">8 semi-structured, in-person interviews</span></li>
-            <li><b class="es">Lugar</b><b class="en">Place</b><span>Barcelona y Santa Coloma de Gramenet</span></li>
-            <li><b class="es">Periodo</b><b class="en">Period</b><span class="es">Mayo–julio de 2026</span><span class="en">May–July 2026</span></li>
-            <li><b class="es">Selección</b><b class="en">Selection</b><span class="es">Redes de confianza</span><span class="en">Networks of trust</span></li>
-            <li><b class="es">Lectura</b><b class="en">How to read it</b><span class="es">Hipótesis cualitativas; la muestra no representa al comercio local</span><span class="en">Qualitative hypotheses; the sample is not representative of independent retail</span></li>
-            <li><b class="es">Citas</b><b class="en">Quotes</b><span class="es">Anonimizadas por categoría y editadas mínimamente para claridad</span><span class="en">Anonymised by category and lightly edited for clarity; English translated from the original</span></li>
+            <li><b class="es">Conversaciones</b><b class="ca">Converses</b><b class="en">Conversations</b><span class="es">8 entrevistas semiestructuradas y presenciales</span><span class="ca">8 entrevistes semiestructurades i presencials</span><span class="en">8 semi-structured, in-person interviews</span></li>
+            <li><b class="es">Lugar</b><b class="ca">Lloc</b><b class="en">Place</b><span class="es">Barcelona y Santa Coloma de Gramenet</span><span class="ca">Barcelona i Santa Coloma de Gramenet</span><span class="en">Barcelona and Santa Coloma de Gramenet</span></li>
+            <li><b class="es">Periodo</b><b class="ca">Període</b><b class="en">Period</b><span class="es">Mayo–julio de 2026</span><span class="ca">Maig–juliol de 2026</span><span class="en">May–July 2026</span></li>
+            <li><b class="es">Selección</b><b class="ca">Selecció</b><b class="en">Selection</b><span class="es">Redes de confianza</span><span class="ca">Xarxes de confiança</span><span class="en">Networks of trust</span></li>
+            <li><b class="es">Lectura</b><b class="ca">Lectura</b><b class="en">How to read it</b><span class="es">Hipótesis cualitativas; la muestra no representa al comercio local</span><span class="ca">Hipòtesis qualitatives; la mostra no representa el comerç local</span><span class="en">Qualitative hypotheses; the sample is not representative of independent retail</span></li>
+            <li><b class="es">Citas</b><b class="ca">Cites</b><b class="en">Quotes</b><span class="es">Anonimizadas por categoría y editadas mínimamente para claridad</span><span class="ca">Anonimitzades per categoria i editades mínimament per claredat; el català és una traducció de l'original castellà</span><span class="en">Anonymised by category and lightly edited for clarity; English translated from the original</span></li>
           </ul>
           <div class="shop-deck">
-            <p class="shop-deck-title"><span class="es">Sectores y tamaños en la muestra</span><span class="en">Sectors and sizes in the sample</span></p>
-            <article class="shop-card" style="--accent:var(--food)" data-mark="AL"><h3><span class="es">Alimentación saludable</span><span class="en">Health food</span></h3><p><span class="es">1 persona</span><span class="en">1 person</span></p></article>
-            <article class="shop-card" style="--accent:var(--dress)" data-mark="CO"><h3><span class="es">Confección y arreglos</span><span class="en">Dressmaking &amp; alterations</span></h3><p><span class="es">1 persona</span><span class="en">1 person</span></p></article>
-            <article class="shop-card" style="--accent:var(--beauty)" data-mark="ES"><h3><span class="es">Estética y belleza</span><span class="en">Beauty &amp; aesthetics</span></h3><p><span class="es">1 persona + colaboradoras</span><span class="en">1 person + collaborators</span></p></article>
-            <article class="shop-card" style="--accent:var(--brewery)" data-mark="CE"><h3><span class="es">Cervecera artesana con tiendas</span><span class="en">Craft brewery with shops</span></h3><p><span class="es">~13 empleados</span><span class="en">~13 employees</span></p></article>
-            <article class="shop-card" style="--accent:var(--refill)" data-mark="GR"><h3><span class="es">Detergentes y cosmética a granel</span><span class="en">Refill detergents &amp; cosmetics</span></h3><p><span class="es">Pareja fundadora</span><span class="en">Founding couple</span></p></article>
-            <article class="shop-card" style="--accent:var(--butcher)" data-mark="CA"><h3><span class="es">Carnicería premium</span><span class="en">Premium butcher</span></h3><p><span class="es">2 socios</span><span class="en">2 partners</span></p></article>
-            <article class="shop-card" style="--accent:var(--cafe)" data-mark="CF"><h3><span class="es">Café de especialidad y brunch</span><span class="en">Specialty café &amp; brunch</span></h3><p><span class="es">Propietaria + equipo</span><span class="en">Owner + team</span></p></article>
-            <article class="shop-card" style="--accent:var(--craft)" data-mark="AR"><h3><span class="es">Artesanía y diseño local</span><span class="en">Local craft &amp; design</span></h3><p><span class="es">Pareja fundadora · 71 artesanos</span><span class="en">Founding couple · 71 makers</span></p></article>
+            <p class="shop-deck-title"><span class="es">Sectores y tamaños en la muestra</span><span class="ca">Sectors i mides de la mostra</span><span class="en">Sectors and sizes in the sample</span></p>
+            <article class="shop-card" style="--accent:var(--food)" data-mark="AL"><h3><span class="es">Alimentación saludable</span><span class="ca">Alimentació saludable</span><span class="en">Health food</span></h3><p><span class="es">1 persona</span><span class="ca">1 persona</span><span class="en">1 person</span></p></article>
+            <article class="shop-card" style="--accent:var(--dress)" data-mark="CO"><h3><span class="es">Confección y arreglos</span><span class="ca">Confecció i arranjaments</span><span class="en">Dressmaking &amp; alterations</span></h3><p><span class="es">1 persona</span><span class="ca">1 persona</span><span class="en">1 person</span></p></article>
+            <article class="shop-card" style="--accent:var(--beauty)" data-mark="ES"><h3><span class="es">Estética y belleza</span><span class="ca">Estètica i bellesa</span><span class="en">Beauty &amp; aesthetics</span></h3><p><span class="es">1 persona + colaboradoras</span><span class="ca">1 persona + col·laboradores</span><span class="en">1 person + collaborators</span></p></article>
+            <article class="shop-card" style="--accent:var(--brewery)" data-mark="CE"><h3><span class="es">Cervecera artesana con tiendas</span><span class="ca">Cervesera artesana amb botigues</span><span class="en">Craft brewery with shops</span></h3><p><span class="es">~13 empleados</span><span class="ca">~13 persones empleades</span><span class="en">~13 employees</span></p></article>
+            <article class="shop-card" style="--accent:var(--refill)" data-mark="GR"><h3><span class="es">Detergentes y cosmética a granel</span><span class="ca">Detergents i cosmètica a granel</span><span class="en">Refill detergents &amp; cosmetics</span></h3><p><span class="es">Pareja fundadora</span><span class="ca">Parella fundadora</span><span class="en">Founding couple</span></p></article>
+            <article class="shop-card" style="--accent:var(--butcher)" data-mark="CA"><h3><span class="es">Carnicería premium</span><span class="ca">Carnisseria premium</span><span class="en">Premium butcher</span></h3><p><span class="es">2 socios</span><span class="ca">2 socis</span><span class="en">2 partners</span></p></article>
+            <article class="shop-card" style="--accent:var(--cafe)" data-mark="CF"><h3><span class="es">Café de especialidad y brunch</span><span class="ca">Cafè d'especialitat i brunch</span><span class="en">Specialty café &amp; brunch</span></h3><p><span class="es">Propietaria + equipo</span><span class="ca">Propietària + equip</span><span class="en">Owner + team</span></p></article>
+            <article class="shop-card" style="--accent:var(--craft)" data-mark="AR"><h3><span class="es">Artesanía y diseño local</span><span class="ca">Artesania i disseny local</span><span class="en">Local craft &amp; design</span></h3><p><span class="es">Pareja fundadora · 71 artesanos</span><span class="ca">Parella fundadora · 71 artesans</span><span class="en">Founding couple · 71 makers</span></p></article>
           </div>
         </div>
       </div>
@@ -409,14 +511,15 @@
 
     <section id="funciona">
       <div class="wrap">
-        <p class="kicker es">Antes de la fricción</p><p class="kicker en">Before the friction</p>
-        <h2 class="es">Lo que ya funciona no necesita ser rescatado</h2><h2 class="en">What already works does not need rescuing</h2>
+        <p class="kicker es">Antes de la fricción</p><p class="kicker ca">Abans de la fricció</p><p class="kicker en">Before the friction</p>
+        <h2 class="es">El valor de lo que ya funciona</h2><h2 class="ca">El valor del que ja funciona</h2><h2 class="en">The value of what already works</h2>
         <p class="section-intro es">Antes de hablar de fricción, conviene reconocer el trabajo que ya sostiene a estas tiendas: oficio acumulado, memoria de clientela, criterio para comprar y recomendar, capacidad de reconstruirse y relaciones que hacen que la gente vuelva. No son activos sentimentales: son parte del funcionamiento del negocio.</p>
+        <p class="section-intro ca">Abans de parlar de fricció, convé reconèixer la feina que ja sosté aquestes botigues: ofici acumulat, memòria de la clientela, criteri per comprar i recomanar, capacitat de reconstruir-se i relacions que fan que la gent torni. No són actius sentimentals: formen part del funcionament del negoci.</p>
         <p class="section-intro en">Before discussing friction, it is worth recognising what already keeps these shops going: accumulated craft, customer memory, judgement in buying and recommending, the ability to rebuild and relationships that bring people back. These are not sentimental assets. They are part of how the business works.</p>
         <div class="works-flow">
-          <article class="work-item"><h3 class="es">El oficio es criterio acumulado</h3><h3 class="en">Craft is accumulated judgement</h3><div><figure class="quote-slip" style="--accent:var(--beauty)"><blockquote class="es">«El éxito del sueño es constancia y disciplina, perseverancia.»</blockquote><blockquote class="en">“Making the dream work takes consistency, discipline and perseverance.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · salón de estética, tras reconstruir el negocio desde cero</span><span class="en">Owner · beauty salon, after rebuilding the business from scratch</span></figcaption></figure><p class="es">La experiencia aparece aquí como capacidad de sostener decisiones y reconstruir el trabajo, no como una cualidad abstracta.</p><p class="en">Experience appears here as the ability to sustain decisions and rebuild the work, not as an abstract quality.</p></div></article>
-          <article class="work-item"><h3 class="es">La relación personal es una ventaja real</h3><h3 class="en">Personal relationships are a real advantage</h3><div><figure class="quote-slip" style="--accent:var(--food)"><blockquote class="es">«Tengo clientes que vienen desde Sant Antoni por el vínculo que tienen conmigo.»</blockquote><blockquote class="en">“I have customers who come all the way from Sant Antoni because of the relationship they have with me.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda de alimentación</span><span class="en">Owner · health-food shop</span></figcaption></figure><p class="es">El vínculo no es nostalgia: sostiene recurrencia, recomendación y una forma de servicio difícil de copiar.</p><p class="en">That relationship is not nostalgia. It supports repeat visits, recommendations and a form of service that is difficult to copy.</p></div></article>
-          <article class="work-item"><h3 class="es">La comunidad funciona como infraestructura informal</h3><h3 class="en">Community acts as informal infrastructure</h3><div><figure class="quote-slip" style="--accent:var(--craft)"><blockquote class="es">«Nosotros no tenemos competencia, tenemos compañeros.»</blockquote><blockquote class="en">“We do not have competitors; we have peers.”</blockquote><figcaption class="quote-meta"><span class="es">Una de las personas fundadoras · artesanía y diseño local</span><span class="en">One of the founders · local craft and design</span></figcaption></figure><p class="es">En varias conversaciones, los pares aportan referencias, aprendizaje y apoyo práctico allí donde no hay una estructura formal.</p><p class="en">Across several conversations, peers provide referrals, learning and practical support where no formal structure exists.</p></div></article>
+          <article class="work-item"><h3 class="es">El oficio es criterio acumulado</h3><h3 class="ca">L'ofici és criteri acumulat</h3><h3 class="en">Craft is accumulated judgement</h3><div><figure class="quote-slip" style="--accent:var(--beauty)"><blockquote class="es">«El éxito del sueño es constancia y disciplina, perseverancia.»</blockquote><blockquote class="ca">«L'èxit del somni és constància i disciplina, perseverança.»</blockquote><blockquote class="en">“Making the dream work takes consistency, discipline and perseverance.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · salón de estética, tras reconstruir el negocio desde cero</span><span class="ca">Propietària · saló d'estètica, després de reconstruir el negoci des de zero</span><span class="en">Owner · beauty salon, after rebuilding the business from scratch</span></figcaption></figure><p class="es">La experiencia aparece aquí como capacidad de sostener decisiones y reconstruir el trabajo, no como una cualidad abstracta.</p><p class="ca">L'experiència apareix aquí com la capacitat de sostenir decisions i reconstruir la feina, no com una qualitat abstracta.</p><p class="en">Experience appears here as the ability to sustain decisions and rebuild the work, not as an abstract quality.</p></div></article>
+          <article class="work-item"><h3 class="es">La relación personal es una ventaja real</h3><h3 class="ca">La relació personal és un avantatge real</h3><h3 class="en">Personal relationships are a real advantage</h3><div><figure class="quote-slip" style="--accent:var(--food)"><blockquote class="es">«Tengo clientes que vienen desde Sant Antoni por el vínculo que tienen conmigo.»</blockquote><blockquote class="ca">«Tinc clients que venen des de Sant Antoni pel vincle que tenen amb mi.»</blockquote><blockquote class="en">“I have customers who come all the way from Sant Antoni because of the relationship they have with me.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda de alimentación</span><span class="ca">Propietària · botiga d'alimentació</span><span class="en">Owner · health-food shop</span></figcaption></figure><p class="es">El vínculo no es nostalgia: sostiene recurrencia, recomendación y una forma de servicio difícil de copiar.</p><p class="ca">El vincle no és nostàlgia: sosté la recurrència, la recomanació i una forma de servei difícil de copiar.</p><p class="en">That relationship is not nostalgia. It supports repeat visits, recommendations and a form of service that is difficult to copy.</p></div></article>
+          <article class="work-item"><h3 class="es">La comunidad funciona como infraestructura informal</h3><h3 class="ca">La comunitat funciona com una infraestructura informal</h3><h3 class="en">Community acts as informal infrastructure</h3><div><figure class="quote-slip" style="--accent:var(--craft)"><blockquote class="es">«Nosotros no tenemos competencia, tenemos compañeros.»</blockquote><blockquote class="ca">«Nosaltres no tenim competència, tenim companys.»</blockquote><blockquote class="en">“We do not have competitors; we have peers.”</blockquote><figcaption class="quote-meta"><span class="es">Una de las personas fundadoras · artesanía y diseño local</span><span class="ca">Una de les persones fundadores · artesania i disseny local</span><span class="en">One of the founders · local craft and design</span></figcaption></figure><p class="es">En varias conversaciones, los pares aportan referencias, aprendizaje y apoyo práctico allí donde no hay una estructura formal.</p><p class="ca">En diverses converses, els iguals aporten referències, aprenentatge i suport pràctic allà on no hi ha una estructura formal.</p><p class="en">Across several conversations, peers provide referrals, learning and practical support where no formal structure exists.</p></div></article>
         </div>
       </div>
     </section>
@@ -424,78 +527,79 @@
     <section class="finding-section" id="conocimiento" style="--chapter-soft:#dceadd">
       <div class="wrap finding" style="--chapter:var(--food)" data-chapter="01">
         <span class="finding-number">01</span>
-        <p class="kicker es">Conocimiento y dependencia</p><p class="kicker en">Knowledge and dependence</p>
-        <h2 class="es">El negocio vive en personas, no solo en sistemas</h2><h2 class="en">The business lives in people, not only in systems</h2>
-        <ul class="subheads"><li class="es">El criterio sigue en la cabeza de quien lleva la tienda.</li><li class="en">Judgement remains in the head of the person running the shop.</li><li class="es">La relación con la clientela es una fortaleza; depender de una sola persona, una fragilidad.</li><li class="en">Customer relationships are a strength; dependence on one person is a vulnerability.</li></ul>
-        <div class="prose"><p class="es">Precios, proveedores, clientes y excepciones dependen a menudo de conocimiento tácito. Delegar tareas no equivale a delegar juicio. Esa concentración sostiene la calidad cotidiana, pero dificulta ausentarse, crecer o traspasar el negocio.</p><p class="en">Prices, suppliers, customers and exceptions often rely on tacit knowledge. Delegating tasks is not the same as delegating judgement. That concentration supports day-to-day quality, but makes absence, growth and handover more difficult.</p><p class="es">No es un fallo individual de la persona propietaria: es una consecuencia del tipo de trabajo y de cómo se ha construido el negocio.</p><p class="en">This is not an individual failure on the owner’s part. It follows from the nature of the work and how the business has been built.</p></div>
-        <figure class="quote-slip" style="--accent:var(--food)"><blockquote class="es">«Todo está en mi cabeza. No tengo nada de sistema.»</blockquote><blockquote class="en">“It is all in my head. I do not have any system at all.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda de alimentación</span><span class="en">Owner · health-food shop</span></figcaption></figure>
-        <figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«Como era la dueña, ella lo tenía en la cabeza, entonces eso vale tanto... no estaba registrado en el sistema.»</blockquote><blockquote class="en">“Because she was the owner, she held it in her head—and that knowledge is worth so much. It was not recorded in the system.”</blockquote><figcaption class="quote-meta"><span class="es">Nuevo propietario · tienda a granel, sobre el traspaso</span><span class="en">New owner · refill shop, on the handover</span></figcaption></figure>
-        <p class="limit-note"><b class="es">Límite.</b><b class="en">Limit.</b> <span class="es">No toda relación personal es una carga: para algunas tiendas es una decisión deliberada y parte de su propuesta de valor.</span><span class="en">Not every personal relationship is a burden. For some shops, it is a deliberate choice and part of the value they offer.</span></p>
-        <button class="recognize" type="button" aria-pressed="false" data-topic="conocimiento"><span class="es">También me pasa</span><span class="en">I recognise this too</span></button>
+        <p class="kicker es">Conocimiento y dependencia</p><p class="kicker ca">Coneixement i dependència</p><p class="kicker en">Knowledge and dependence</p>
+        <h2 class="es">El negocio vive en personas, no solo en sistemas</h2><h2 class="ca">El negoci viu en les persones, no només en els sistemes</h2><h2 class="en">The business lives in people, not only in systems</h2>
+        <ul class="subheads"><li class="es">El criterio sigue en la cabeza de quien lleva la tienda.</li><li class="ca">El criteri continua al cap de qui porta la botiga.</li><li class="en">Judgement remains in the head of the person running the shop.</li><li class="es">La relación con la clientela es una fortaleza; depender de una sola persona, una fragilidad.</li><li class="ca">La relació amb la clientela és una fortalesa; dependre d'una sola persona, una fragilitat.</li><li class="en">Customer relationships are a strength; dependence on one person is a vulnerability.</li></ul>
+        <div class="prose"><p class="es">Precios, proveedores, clientes y excepciones dependen a menudo de conocimiento tácito. Delegar tareas no equivale a delegar juicio. Esa concentración sostiene la calidad cotidiana, pero dificulta ausentarse, crecer o traspasar el negocio.</p><p class="ca">Preus, proveïdors, clients i excepcions depenen sovint de coneixement tàcit. Delegar tasques no equival a delegar criteri. Aquesta concentració sosté la qualitat quotidiana, però dificulta absentar-se, créixer o traspassar el negoci.</p><p class="en">Prices, suppliers, customers and exceptions often rely on tacit knowledge. Delegating tasks is not the same as delegating judgement. That concentration supports day-to-day quality, but makes absence, growth and handover more difficult.</p><p class="es">No es un fallo individual de la persona propietaria: es una consecuencia del tipo de trabajo y de cómo se ha construido el negocio.</p><p class="ca">No és una errada individual de la persona propietària: és una conseqüència del tipus de feina i de com s'ha construït el negoci.</p><p class="en">This is not an individual failure on the owner’s part. It follows from the nature of the work and how the business has been built.</p></div>
+        <figure class="quote-slip" style="--accent:var(--food)"><blockquote class="es">«Todo está en mi cabeza. No tengo nada de sistema.»</blockquote><blockquote class="ca">«Tot és al meu cap. No tinc res de sistema.»</blockquote><blockquote class="en">“It is all in my head. I do not have any system at all.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda de alimentación</span><span class="ca">Propietària · botiga d'alimentació</span><span class="en">Owner · health-food shop</span></figcaption></figure>
+        <figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«Como era la dueña, ella lo tenía en la cabeza, entonces eso vale tanto... no estaba registrado en el sistema.»</blockquote><blockquote class="ca">«Com que era la propietària, ho tenia al cap; per tant, això val tant... no estava registrat al sistema.»</blockquote><blockquote class="en">“Because she was the owner, she held it in her head—and that knowledge is worth so much. It was not recorded in the system.”</blockquote><figcaption class="quote-meta"><span class="es">Nuevo propietario · tienda a granel, sobre el traspaso</span><span class="ca">Nou propietari · botiga a granel, sobre el traspàs</span><span class="en">New owner · refill shop, on the handover</span></figcaption></figure>
+        <p class="limit-note"><b class="es">Límite.</b><b class="ca">Límit.</b><b class="en">Limit.</b> <span class="es">No toda relación personal es una carga: para algunas tiendas forma parte de su propuesta de valor. La pregunta es cómo reducir la dependencia sin perder ese valor.</span><span class="ca">No tota relació personal és una càrrega: per a algunes botigues forma part de la seva proposta de valor. La pregunta és com reduir la dependència sense perdre aquest valor.</span><span class="en">Not every personal relationship is a burden: for some shops, it is part of the value they offer. The question is how to reduce dependence without losing that value.</span></p>
+        <button class="recognize" type="button" aria-pressed="false" data-topic="conocimiento"><span class="es">También me pasa</span><span class="ca">A mi també em passa</span><span class="en">I recognise this too</span></button>
       </div>
     </section>
 
     <section class="finding-section" id="inventario" style="--chapter-soft:#e4e3d2">
       <div class="wrap finding" style="--chapter:var(--refill)" data-chapter="02">
         <span class="finding-number">02</span>
-        <p class="kicker es">Inventario, márgenes y decisiones</p><p class="kicker en">Inventory, margins and decisions</p>
-        <h2 class="es">El inventario importa, pero rara vez se ve con suficiente confianza</h2><h2 class="en">Inventory matters, but it is rarely visible with enough confidence</h2>
-        <ul class="subheads"><li class="es">Saber qué hay no siempre equivale a tener inventario fiable.</li><li class="en">Knowing what is there is not the same as having reliable inventory.</li><li class="es">El margen se intuye más de lo que se puede comprobar producto a producto.</li><li class="en">Margins are often understood in broad terms rather than checked product by product.</li></ul>
-        <div class="prose"><p class="es">En varias conversaciones, inventario, reposición y margen aparecieron como asuntos conocidos pero poco consolidados. Las tiendas saben que afectan directamente a compras, precios y rentabilidad; el problema es que los datos suelen vivir entre memoria, hojas, facturas, TPV y comprobaciones manuales. Cuando la base no es fiable, decidir también cuesta más.</p><p class="en">In several conversations, inventory, replenishment and margin were familiar issues but not fully consolidated. Shops understand their direct impact on buying, pricing and profitability, yet the underlying information often lives across memory, spreadsheets, invoices, the point-of-sale system and manual checks. When the base is unreliable, the decision becomes harder too.</p></div>
-        <figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«A día de hoy tampoco tenemos un inventario... tampoco estamos en la capacidad de decirte cuál es nuestra ganancia por producto.»</blockquote><blockquote class="en">“Even now, we do not have an inventory... and we are not able to tell you what our profit is on each product.”</blockquote><figcaption class="quote-meta"><span class="es">Propietario · tienda a granel</span><span class="en">Owner · refill shop</span></figcaption></figure>
-        <p class="research-question"><b class="es">Pregunta de investigación.</b><b class="en">Research question.</b> <span class="es">¿Qué información mínima necesita una tienda para confiar en una decisión de compra o reposición?</span><span class="en">What is the minimum information a shop needs to trust a buying or replenishment decision?</span></p>
-        <button class="recognize" type="button" aria-pressed="false" data-topic="inventario"><span class="es">También me pasa</span><span class="en">I recognise this too</span></button>
+        <p class="kicker es">Inventario, márgenes y decisiones</p><p class="kicker ca">Inventari, marges i decisions</p><p class="kicker en">Inventory, margins and decisions</p>
+        <h2 class="es">El inventario importa, pero rara vez ofrece una base fiable para decidir</h2><h2 class="ca">L'inventari importa, però poques vegades ofereix una base fiable per decidir</h2><h2 class="en">Inventory matters, but it rarely provides a reliable basis for decisions</h2>
+        <ul class="subheads"><li class="es">Tener presente qué hay no siempre equivale a disponer de un inventario accionable.</li><li class="ca">Tenir present què hi ha no sempre equival a disposar d'un inventari accionable.</li><li class="en">Keeping stock in mind is not the same as having inventory you can act on.</li><li class="es">El margen se intuye más de lo que se puede comprobar producto a producto.</li><li class="ca">El marge s'intueix més del que es pot comprovar producte per producte.</li><li class="en">Margins are often understood in broad terms rather than checked product by product.</li></ul>
+        <div class="prose"><p class="es">En varias conversaciones, inventario, reposición y margen aparecieron como asuntos conocidos pero poco consolidados. Las tiendas saben que afectan directamente a compras, precios y rentabilidad; el problema es que los datos suelen vivir entre memoria, hojas, facturas, TPV y comprobaciones manuales. Cuando la información de base está fragmentada y no es fiable, decidir también cuesta más.</p><p class="ca">En diverses converses, inventari, reposició i marge van aparèixer com a qüestions conegudes però poc consolidades. Les botigues saben que afecten directament les compres, els preus i la rendibilitat; el problema és que les dades solen viure entre la memòria, els fulls de càlcul, les factures, el TPV i les comprovacions manuals. Quan la informació de base està fragmentada i no és fiable, decidir també costa més.</p><p class="en">In several conversations, inventory, replenishment and margin were familiar issues but not fully consolidated. Shops understand their direct impact on buying, pricing and profitability, yet the underlying information often lives across memory, spreadsheets, invoices, the point-of-sale system and manual checks. When that underlying information is fragmented and unreliable, decisions become harder too.</p></div>
+        <figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«A día de hoy tampoco tenemos un inventario... tampoco estamos en la capacidad de decirte cuál es nuestra ganancia por producto.»</blockquote><blockquote class="ca">«A dia d'avui tampoc tenim un inventari... tampoc estem en disposició de dir-te quin és el nostre guany per producte.»</blockquote><blockquote class="en">“Even now, we do not have an inventory... and we are not able to tell you what our profit is on each product.”</blockquote><figcaption class="quote-meta"><span class="es">Propietario · tienda a granel</span><span class="ca">Propietari · botiga a granel</span><span class="en">Owner · refill shop</span></figcaption></figure>
+        <p class="research-question"><b class="es">Pregunta de investigación.</b><b class="ca">Pregunta de recerca.</b><b class="en">Research question.</b> <span class="es">¿Qué información mínima necesita una tienda para confiar en una decisión de compra o reposición?</span><span class="ca">Quina informació mínima necessita una botiga per confiar en una decisió de compra o reposició?</span><span class="en">What is the minimum information a shop needs to trust a buying or replenishment decision?</span></p>
+        <button class="recognize" type="button" aria-pressed="false" data-topic="inventario"><span class="es">También me pasa</span><span class="ca">A mi també em passa</span><span class="en">I recognise this too</span></button>
       </div>
     </section>
 
     <section class="finding-section" id="proveedores" style="--chapter-soft:#d8e8ec">
       <div class="wrap finding" style="--chapter:var(--brewery)" data-chapter="03">
         <span class="finding-number">03</span>
-        <p class="kicker es">Proveedores, datos y coordinación</p><p class="kicker en">Suppliers, data and coordination</p>
-        <h2 class="es">Gestionar varios proveedores sigue siendo trabajo manual</h2><h2 class="en">Managing multiple suppliers remains manual work</h2>
-        <ul class="subheads"><li class="es">Pedidos, cambios de precio y facturas llegan por canales distintos.</li><li class="en">Orders, price changes and invoices arrive through different channels.</li><li class="es">Los datos existen; convertirlos en una decisión sigue requiriendo tiempo y criterio.</li><li class="en">The data exists; turning it into a decision still takes time and judgement.</li></ul>
-        <div class="prose"><p class="es">WhatsApp, llamadas, facturas, TPV y memoria forman capas dispersas. Los cambios de precio pueden pasar desapercibidos; revisar exige ir línea por línea; y la información que existe no siempre se puede consultar en el momento de decidir.</p><p class="en">WhatsApp, calls, invoices, the point-of-sale system and memory form a fragmented set of layers. Price changes can go unnoticed, checking means working line by line, and existing information is not always available at the moment of decision.</p><p><strong class="es">WhatsApp resuelve la urgencia; no resuelve el sistema.</strong><strong class="en">WhatsApp solves urgency; it does not solve the system.</strong> <span class="es">Es común porque encaja en el día a día, no porque permita ver con claridad pedidos, precios, inventario o margen.</span><span class="en">It is common because it fits the working day, not because it gives a clear view of orders, prices, inventory or margin.</span></p></div>
-        <figure class="quote-slip" style="--accent:var(--cafe)"><blockquote class="es">«Me entero seis meses después de que me cambiaron el precio de la leche: yo la guardo, la paso y la pago.»</blockquote><blockquote class="en">“I find out six months later that the price of my milk changed. I file the invoice, process it and pay it.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · hostelería, citando a una colega</span><span class="en">Owner · hospitality, quoting a colleague</span></figcaption></figure>
-        <div class="decision-flow" aria-label="Datos, interpretación y acción">
-          <div class="step"><b class="es">Datos</b><b class="en">Data</b><span class="es">TPV, facturas, pedidos, inventario y margen</span><span class="en">Point of sale, invoices, orders, inventory and margin</span></div><div class="arrow" aria-hidden="true">→</div>
-          <div class="step"><b class="es">Interpretación</b><b class="en">Interpretation</b><span class="es">Tiempo, confianza y contexto</span><span class="en">Time, confidence and context</span></div><div class="arrow" aria-hidden="true">→</div>
-          <div class="step"><b class="es">Acción</b><b class="en">Action</b><span class="es">Comprar, reponer, cambiar precios o dejar un producto</span><span class="en">Buy, replenish, change a price or stop carrying a product</span></div>
+        <p class="kicker es">Proveedores, datos y coordinación</p><p class="kicker ca">Proveïdors, dades i coordinació</p><p class="kicker en">Suppliers, data and coordination</p>
+        <h2 class="es">Gestionar varios proveedores sigue siendo trabajo manual</h2><h2 class="ca">Gestionar diversos proveïdors continua sent una feina manual</h2><h2 class="en">Managing multiple suppliers remains manual work</h2>
+        <ul class="subheads"><li class="es">Pedidos, cambios de precio y facturas llegan por canales distintos.</li><li class="ca">Les comandes, els canvis de preu i les factures arriben per canals diferents.</li><li class="en">Orders, price changes and invoices arrive through different channels.</li><li class="es">Los datos existen; convertirlos en una decisión sigue requiriendo tiempo y criterio.</li><li class="ca">Les dades existeixen; convertir-les en una decisió continua requerint temps i criteri.</li><li class="en">The data exists; turning it into a decision still takes time and judgement.</li></ul>
+        <div class="prose"><p class="es">WhatsApp, llamadas, facturas, TPV y memoria forman capas dispersas. Los cambios de precio pueden pasar desapercibidos; revisar exige ir línea por línea; y la información que existe no siempre se puede consultar en el momento de decidir.</p><p class="ca">WhatsApp, trucades, factures, TPV i memòria formen capes disperses. Els canvis de preu poden passar desapercebuts; revisar exigeix anar línia per línia; i la informació existent no sempre es pot consultar en el moment de decidir.</p><p class="en">WhatsApp, calls, invoices, the point-of-sale system and memory form a fragmented set of layers. Price changes can go unnoticed, checking means working line by line, and existing information is not always available at the moment of decision.</p><p><strong class="es">WhatsApp resuelve la urgencia; no resuelve el sistema.</strong><strong class="ca">WhatsApp resol la urgència; no resol el sistema.</strong><strong class="en">WhatsApp solves urgency; it does not solve the system.</strong> <span class="es">Es común porque encaja en el día a día, no porque permita ver con claridad pedidos, precios, inventario o margen.</span><span class="ca">És habitual perquè encaixa en el dia a dia, no perquè permeti veure amb claredat comandes, preus, inventari o marge.</span><span class="en">It is common because it fits the working day, not because it gives a clear view of orders, prices, inventory or margin.</span></p></div>
+        <figure class="quote-slip" style="--accent:var(--cafe)"><blockquote class="es">«Me entero seis meses después de que me cambiaron el precio de la leche: yo la guardo, la paso y la pago.»</blockquote><blockquote class="ca">«M'assabento sis mesos després que m'han canviat el preu de la llet: jo la guardo, la passo i la pago.»</blockquote><blockquote class="en">“I find out six months later that the price of my milk changed. I file the invoice, process it and pay it.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · hostelería, citando a una colega</span><span class="ca">Propietària · hostaleria, citant una col·lega</span><span class="en">Owner · hospitality, quoting a colleague</span></figcaption></figure>
+        <p class="context-note"><span class="es"><b>Lectura.</b> La factura se archiva, se procesa y se paga sin revisar cada variación de precio.</span><span class="ca"><b>Lectura.</b> La factura s'arxiva, es processa i es paga sense revisar cada variació de preu.</span><span class="en"><b>Interpretation.</b> The invoice is filed, processed and paid without checking every price change.</span></p>
+        <div class="decision-flow" aria-label="Datos, interpretación y acción / Dades, interpretació i acció / Data, interpretation and action">
+          <div class="step"><b class="es">Datos</b><b class="ca">Dades</b><b class="en">Data</b><span class="es">TPV, facturas, pedidos, inventario y margen</span><span class="ca">TPV, factures, comandes, inventari i marge</span><span class="en">Point of sale, invoices, orders, inventory and margin</span></div><div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><b class="es">Interpretación</b><b class="ca">Interpretació</b><b class="en">Interpretation</b><span class="es">Tiempo, confianza y contexto</span><span class="ca">Temps, confiança i context</span><span class="en">Time, confidence and context</span></div><div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><b class="es">Acción</b><b class="ca">Acció</b><b class="en">Action</b><span class="es">Comprar, reponer, cambiar precios o dejar un producto</span><span class="ca">Comprar, reposar, canviar preus o deixar un producte</span><span class="en">Buy, replenish, change a price or stop carrying a product</span></div>
         </div>
-        <figure class="quote-slip" style="--accent:var(--brewery)"><blockquote class="es">«Aquí tienes un montón de información, pero hay que encontrar el tiempo de sacarla y de llegar a las conclusiones para tomar decisiones que son difíciles de tomar. Esa información la tienes que dar masticada.»</blockquote><blockquote class="en">“You have a great deal of information here, but you have to find the time to extract it and reach the conclusions needed for difficult decisions. That information needs to arrive already interpreted.”</blockquote><figcaption class="quote-meta"><span class="es">Fundador · cervecera artesana</span><span class="en">Founder · craft brewery</span></figcaption></figure>
-        <button class="recognize" type="button" aria-pressed="false" data-topic="proveedores"><span class="es">También me pasa</span><span class="en">I recognise this too</span></button>
+        <figure class="quote-slip" style="--accent:var(--brewery)"><blockquote class="es">«Aquí tienes un montón de información, pero hay que encontrar el tiempo de sacarla y de llegar a las conclusiones para tomar decisiones que son difíciles de tomar. Esa información la tienes que dar masticada.»</blockquote><blockquote class="ca">«Aquí tens un munt d'informació, però cal trobar el temps per extreure-la i arribar a les conclusions per prendre decisions que són difícils. Aquesta informació l'has de donar mastegada.»</blockquote><blockquote class="en">“You have a great deal of information here, but you have to find the time to extract it and reach the conclusions needed for difficult decisions. That information needs to arrive already interpreted.”</blockquote><figcaption class="quote-meta"><span class="es">Fundador · cervecera artesana</span><span class="ca">Fundador · cervesera artesana</span><span class="en">Founder · craft brewery</span></figcaption></figure>
+        <button class="recognize" type="button" aria-pressed="false" data-topic="proveedores"><span class="es">También me pasa</span><span class="ca">A mi també em passa</span><span class="en">I recognise this too</span></button>
       </div>
     </section>
 
     <section class="finding-section" id="herramientas" style="--chapter-soft:#eadde0">
       <div class="wrap finding" style="--chapter:var(--beauty)" data-chapter="04">
         <span class="finding-number">04</span>
-        <p class="kicker es">Herramientas, normativa y confianza</p><p class="kicker en">Tools, regulation and trust</p>
-        <h2 class="es">Las herramientas se quedan cuando reducen trabajo; la incertidumbre se queda cuando nadie sabe en quién confiar</h2><h2 class="en">Tools stay when they reduce work; uncertainty stays when nobody knows whom to trust</h2>
-        <ul class="subheads"><li class="es">Una herramienta útil encaja en el flujo real.</li><li class="en">A useful tool fits the real workflow.</li><li class="es">La normativa ya consume atención antes de convertirse en una decisión clara.</li><li class="en">Regulation consumes attention before it becomes a clear decision.</li></ul>
-        <div class="prose"><p class="es">En esta muestra, la aceptación no dependió de ser más o menos «digital», sino de si una herramienta ahorraba trabajo visible, funcionaba en el momento correcto y no añadía complejidad. Conviene separar las herramientas que generan valor de las que se toleran por necesidad.</p><p class="en">In this sample, acceptance did not depend on being more or less “digital”. It depended on whether a tool saved visible work, worked at the right moment and avoided adding complexity. Tools that create value should be distinguished from tools tolerated out of necessity.</p></div>
-        <figure class="quote-slip" style="--accent:var(--beauty)"><blockquote class="es">«Yo me ahorro mucho trabajo con eso, porque si no aquí estuviera yo, mira.»</blockquote><blockquote class="en">“That saves me a great deal of work. Otherwise I would be stuck here doing it myself.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · salón de estética, sobre su app de reservas</span><span class="en">Owner · beauty salon, on her booking app</span></figcaption></figure>
+        <p class="kicker es">Herramientas, normativa y confianza</p><p class="kicker ca">Eines, normativa i confiança</p><p class="kicker en">Tools, regulation and trust</p>
+        <h2 class="es">Las herramientas se quedan cuando reducen trabajo; la incertidumbre se queda cuando nadie sabe en quién confiar</h2><h2 class="ca">Les eines es queden quan redueixen feina; la incertesa es queda quan ningú sap en qui confiar</h2><h2 class="en">Tools stay when they reduce work; uncertainty stays when nobody knows whom to trust</h2>
+        <ul class="subheads"><li class="es">Una herramienta útil encaja en el flujo real.</li><li class="ca">Una eina útil encaixa en el flux real.</li><li class="en">A useful tool fits the real workflow.</li><li class="es">La normativa ya consume atención antes de convertirse en una decisión clara.</li><li class="ca">La normativa ja consumeix atenció abans de convertir-se en una decisió clara.</li><li class="en">Regulation consumes attention before it becomes a clear decision.</li></ul>
+        <div class="prose"><p class="es">En esta muestra, la aceptación no dependió de ser más o menos «digital», sino de si una herramienta ahorraba trabajo visible, funcionaba en el momento correcto y no añadía complejidad. Conviene separar las herramientas que generan valor de las que se toleran por necesidad. La fragmentación y la saturación de herramientas también limitan su adopción. En estas conversaciones, además, apareció una oferta tecnológica poco visible o poco cercana a las tiendas.</p><p class="ca">En aquesta mostra, l'acceptació no va dependre de ser més o menys «digital», sinó de si una eina estalviava feina visible, funcionava en el moment adequat i no afegia complexitat. Convé separar les eines que generen valor de les que es toleren per necessitat. La fragmentació i la saturació d'eines també en limiten l'adopció. En aquestes converses, a més, va aparèixer una oferta tecnològica poc visible o poc propera a les botigues.</p><p class="en">In this sample, acceptance did not depend on being more or less “digital”. It depended on whether a tool saved visible work, worked at the right moment and avoided adding complexity. Tools that create value should be distinguished from tools tolerated out of necessity. Fragmentation and tool saturation also limit adoption. These conversations also pointed to technology suppliers being relatively invisible or distant from the shops.</p></div>
+        <figure class="quote-slip" style="--accent:var(--beauty)"><blockquote class="es">«Yo me ahorro mucho trabajo con eso, porque si no aquí estuviera yo, mira.»</blockquote><blockquote class="ca">«Jo m'estalvio molta feina amb això, perquè si no seria aquí jo, mira.»</blockquote><blockquote class="en">“That saves me a great deal of work. Otherwise I would be stuck here doing it myself.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · salón de estética, sobre su app de reservas</span><span class="ca">Propietària · saló d'estètica, sobre la seva aplicació de reserves</span><span class="en">Owner · beauty salon, on her booking app</span></figcaption></figure>
         <div class="verifactu">
-          <h3><span class="es">VeriFactu ya genera decisiones e incertidumbre</span><span class="en">VeriFactu is already creating decisions and uncertainty</span></h3>
-          <div class="verifactu-block"><h4 class="es">Lo que escuchamos</h4><h4 class="en">What we heard</h4><p class="es">En algunas conversaciones apareció la necesidad de cambiar o revisar el sistema de facturación, acompañada de dudas sobre compatibilidad, responsabilidad y a quién pedir una explicación fiable.</p><p class="en">Some conversations raised the need to change or review invoicing systems, alongside questions about compatibility, responsibility and where to obtain a reliable explanation.</p><figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«Nos toca conseguir un sistema que sea avalado por Hacienda.»</blockquote><blockquote class="en">“We need to find a system that is accepted by the tax authority.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda a granel</span><span class="en">Owner · refill shop</span></figcaption></figure><p><small><span class="es">Las citas reflejan percepciones de las personas entrevistadas; no constituyen asesoramiento fiscal.</span><span class="en">The quotes reflect participants’ perceptions and do not constitute tax advice.</span></small></p></div>
-          <div class="verifactu-block"><h4 class="es">Contexto a julio de 2026</h4><h4 class="en">Context as of July 2026</h4><p class="es">Según la Agencia Tributaria, las entidades que presentan el Impuesto sobre Sociedades deben tener adaptados sus sistemas informáticos de facturación antes del <strong>1 de enero de 2027</strong>. El resto de obligados incluidos debe tenerlos operativos antes del <strong>1 de julio de 2027</strong>.</p><p class="en">According to the Spanish Tax Agency, entities filing Corporate Income Tax returns must adapt their computerised invoicing systems before <strong>1 January 2027</strong>. The remaining taxpayers in scope must have compliant systems operating before <strong>1 July 2027</strong>.</p><p><a href="https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/nota-informativa-ampliacion-plazo-adaptacion-facturacion.html" rel="external"><span class="es">Nota informativa oficial de la AEAT sobre los plazos</span><span class="en">Official Spanish Tax Agency note on the deadlines</span></a></p></div>
+          <h3><span class="es">VeriFactu ya genera decisiones e incertidumbre</span><span class="ca">VeriFactu ja genera decisions i incertesa</span><span class="en">VeriFactu is already creating decisions and uncertainty</span></h3>
+          <div class="verifactu-block"><h4 class="es">Lo que escuchamos</h4><h4 class="ca">El que vam escoltar</h4><h4 class="en">What we heard</h4><p class="es">En algunas conversaciones apareció la necesidad de cambiar o revisar el sistema de facturación, acompañada de dudas sobre compatibilidad, responsabilidad y a quién pedir una explicación fiable.</p><p class="ca">En algunes converses va aparèixer la necessitat de canviar o revisar el sistema de facturació, acompanyada de dubtes sobre compatibilitat, responsabilitat i a qui demanar una explicació fiable.</p><p class="en">Some conversations raised the need to change or review invoicing systems, alongside questions about compatibility, responsibility and where to obtain a reliable explanation.</p><figure class="quote-slip" style="--accent:var(--refill)"><blockquote class="es">«Nos toca conseguir un sistema que sea avalado por Hacienda.»</blockquote><blockquote class="ca">«Ens toca aconseguir un sistema avalat per Hisenda.»</blockquote><blockquote class="en">“We need to find a system that is accepted by the tax authority.”</blockquote><figcaption class="quote-meta"><span class="es">Propietaria · tienda a granel</span><span class="ca">Propietària · botiga a granel</span><span class="en">Owner · refill shop</span></figcaption></figure><p><small><span class="es">Las citas reflejan percepciones de las personas entrevistadas; no constituyen asesoramiento fiscal.</span><span class="ca">Les cites reflecteixen percepcions de les persones entrevistades; no constitueixen assessorament fiscal.</span><span class="en">The quotes reflect participants’ perceptions and do not constitute tax advice.</span></small></p></div>
+          <div class="verifactu-block"><h4 class="es">Contexto a julio de 2026</h4><h4 class="ca">Context a juliol de 2026</h4><h4 class="en">Context as of July 2026</h4><p class="es">Según la Agencia Tributaria, las entidades que presentan el Impuesto sobre Sociedades deben tener adaptados sus sistemas informáticos de facturación antes del <strong>1 de enero de 2027</strong>. El resto de obligados incluidos debe tenerlos operativos antes del <strong>1 de julio de 2027</strong>.</p><p class="ca">Segons l'Agència Tributària, les entitats que presenten l'impost sobre societats han de tenir adaptats els sistemes informàtics de facturació abans de l'<strong>1 de gener de 2027</strong>. La resta d'obligats inclosos els han de tenir operatius abans de l'<strong>1 de juliol de 2027</strong>.</p><p class="en">According to the Spanish Tax Agency, entities filing Corporate Income Tax returns must adapt their computerised invoicing systems before <strong>1 January 2027</strong>. The remaining taxpayers in scope must have compliant systems operating before <strong>1 July 2027</strong>.</p><p><a href="https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/nota-informativa-ampliacion-plazo-adaptacion-facturacion.html" rel="external"><span class="es">Nota informativa oficial de la AEAT sobre los plazos</span><span class="ca">Nota informativa oficial de l'AEAT sobre els terminis</span><span class="en">Official Spanish Tax Agency note on the deadlines</span></a></p></div>
         </div>
-        <button class="recognize" type="button" aria-pressed="false" data-topic="herramientas"><span class="es">También me pasa</span><span class="en">I recognise this too</span></button>
+        <button class="recognize" type="button" aria-pressed="false" data-topic="herramientas"><span class="es">También me pasa</span><span class="ca">A mi també em passa</span><span class="en">I recognise this too</span></button>
       </div>
     </section>
 
     <section id="tareas">
       <div class="wrap">
-        <p class="kicker es">Una lectura por tareas</p><p class="kicker en">A task-by-task view</p>
-        <h2 class="es">Una tienda no es digital o analógica: resuelve cada tarea de una manera distinta</h2><h2 class="en">A shop is not digital or analogue: it handles each task in a different way</h2>
+        <p class="kicker es">Una lectura por tareas</p><p class="kicker ca">Una lectura per tasques</p><p class="kicker en">A task-by-task view</p>
+        <h2 class="es">Una tienda no es digital o analógica: resuelve cada tarea de una manera distinta</h2><h2 class="ca">Una botiga no és digital o analògica: resol cada tasca d'una manera diferent</h2><h2 class="en">A shop is not digital or analogue: it handles each task in a different way</h2>
         <div class="qual-wrap">
           <table class="qual-table">
-            <thead><tr><th><span class="es">Tarea</span><span class="en">Task</span></th><th><span class="es">Lo que suele ocurrir</span><span class="en">What tends to happen</span></th><th><span class="es">Riesgo operativo</span><span class="en">Operational risk</span></th></tr></thead>
+            <thead><tr><th><span class="es">Tarea</span><span class="ca">Tasca</span><span class="en">Task</span></th><th><span class="es">Lo que suele ocurrir</span><span class="ca">El que sol passar</span><span class="en">What tends to happen</span></th><th><span class="es">Riesgo operativo</span><span class="ca">Risc operatiu</span><span class="en">Operational risk</span></th></tr></thead>
             <tbody>
-              <tr><td data-label="Tarea / Task"><span class="es">Compras y proveedores</span><span class="en">Buying and suppliers</span></td><td data-label="Lo que suele ocurrir / What tends to happen"><span class="es">Canales dispersos y seguimiento manual</span><span class="en">Fragmented channels and manual follow-up</span></td><td data-label="Riesgo / Risk"><span class="es">Cambios de precio, pedidos incompletos</span><span class="en">Price changes, incomplete orders</span></td></tr>
-              <tr><td data-label="Tarea / Task"><span class="es">Inventario</span><span class="en">Inventory</span></td><td data-label="Lo que suele ocurrir / What tends to happen"><span class="es">Combinación de sistema, memoria y comprobación física</span><span class="en">A mix of systems, memory and physical checks</span></td><td data-label="Riesgo / Risk"><span class="es">Reposición y fiabilidad</span><span class="en">Replenishment and reliability</span></td></tr>
-              <tr><td data-label="Tarea / Task"><span class="es">Márgenes</span><span class="en">Margins</span></td><td data-label="Lo que suele ocurrir / What tends to happen"><span class="es">Conocimiento general, poco detalle por producto</span><span class="en">Broad understanding, limited product-level detail</span></td><td data-label="Riesgo / Risk"><span class="es">Decisiones de precio y rentabilidad</span><span class="en">Pricing and profitability decisions</span></td></tr>
-              <tr><td data-label="Tarea / Task"><span class="es">Relación con clientes</span><span class="en">Customer relationships</span></td><td data-label="Lo que suele ocurrir / What tends to happen"><span class="es">Muy personal y útil</span><span class="en">Highly personal and useful</span></td><td data-label="Riesgo / Risk"><span class="es">Dependencia de una persona</span><span class="en">Dependence on one person</span></td></tr>
-              <tr><td data-label="Tarea / Task"><span class="es">Datos y decisiones</span><span class="en">Data and decisions</span></td><td data-label="Lo que suele ocurrir / What tends to happen"><span class="es">Información disponible, interpretación escasa</span><span class="en">Information is available, interpretation is limited</span></td><td data-label="Riesgo / Risk"><span class="es">Tiempo, retraso, falta de acción</span><span class="en">Time, delay, lack of action</span></td></tr>
+              <tr><td data-label="Tarea / Tasca / Task"><span class="es">Compras y proveedores</span><span class="ca">Compres i proveïdors</span><span class="en">Buying and suppliers</span></td><td data-label="Lo que suele ocurrir / El que sol passar / What tends to happen"><span class="es">Canales dispersos y seguimiento manual</span><span class="ca">Canals dispersos i seguiment manual</span><span class="en">Fragmented channels and manual follow-up</span></td><td data-label="Riesgo / Risc / Risk"><span class="es">Cambios de precio, pedidos incompletos</span><span class="ca">Canvis de preu, comandes incompletes</span><span class="en">Price changes, incomplete orders</span></td></tr>
+              <tr><td data-label="Tarea / Tasca / Task"><span class="es">Inventario</span><span class="ca">Inventari</span><span class="en">Inventory</span></td><td data-label="Lo que suele ocurrir / El que sol passar / What tends to happen"><span class="es">Combinación de sistema, memoria y comprobación física</span><span class="ca">Combinació de sistema, memòria i comprovació física</span><span class="en">A mix of systems, memory and physical checks</span></td><td data-label="Riesgo / Risc / Risk"><span class="es">Reposición y fiabilidad</span><span class="ca">Reposició i fiabilitat</span><span class="en">Replenishment and reliability</span></td></tr>
+              <tr><td data-label="Tarea / Tasca / Task"><span class="es">Márgenes</span><span class="ca">Marges</span><span class="en">Margins</span></td><td data-label="Lo que suele ocurrir / El que sol passar / What tends to happen"><span class="es">Conocimiento general, poco detalle por producto</span><span class="ca">Coneixement general, poc detall per producte</span><span class="en">Broad understanding, limited product-level detail</span></td><td data-label="Riesgo / Risc / Risk"><span class="es">Decisiones de precio y rentabilidad</span><span class="ca">Decisions de preu i rendibilitat</span><span class="en">Pricing and profitability decisions</span></td></tr>
+              <tr><td data-label="Tarea / Tasca / Task"><span class="es">Relación con clientes</span><span class="ca">Relació amb clients</span><span class="en">Customer relationships</span></td><td data-label="Lo que suele ocurrir / El que sol passar / What tends to happen"><span class="es">Muy personal y útil</span><span class="ca">Molt personal i útil</span><span class="en">Highly personal and useful</span></td><td data-label="Riesgo / Risc / Risk"><span class="es">Dependencia de una persona</span><span class="ca">Dependència d'una persona</span><span class="en">Dependence on one person</span></td></tr>
+              <tr><td data-label="Tarea / Tasca / Task"><span class="es">Datos y decisiones</span><span class="ca">Dades i decisions</span><span class="en">Data and decisions</span></td><td data-label="Lo que suele ocurrir / El que sol passar / What tends to happen"><span class="es">Información disponible, interpretación escasa</span><span class="ca">Informació disponible, interpretació escassa</span><span class="en">Information is available, interpretation is limited</span></td><td data-label="Riesgo / Risc / Risk"><span class="es">Tiempo, retraso, falta de acción</span><span class="ca">Temps, retard, manca d'acció</span><span class="en">Time, delay, lack of action</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -504,24 +608,24 @@
 
     <section id="abierto">
       <div class="wrap">
-        <p class="kicker es">Lo que permanece abierto</p><p class="kicker en">What remains open</p>
-        <h2 class="es">Tres límites que cambian cómo debe leerse este informe</h2><h2 class="en">Three limits that change how this report should be read</h2>
-        <ol class="limits"><li><span class="es">Esta muestra no representa al comercio local.</span><span class="en">This sample is not representative of independent retail.</span></li><li><span class="es">No todas las tiendas definen igual qué significa que les vaya bien.</span><span class="en">Not every shop defines success in the same way.</span></li><li><span class="es">Una preocupación operativa no demuestra por sí sola disposición a pagar por una solución.</span><span class="en">An operational concern does not, on its own, demonstrate willingness to pay for a solution.</span></li></ol>
-        <p class="section-intro es">Estas hipótesis necesitan más conversaciones, casos que las contradigan y observación más detallada de cómo se toman decisiones en la práctica.</p><p class="section-intro en">These hypotheses need more conversations, cases that contradict them and closer observation of how decisions are made in practice.</p>
+        <p class="kicker es">Lo que permanece abierto</p><p class="kicker ca">El que continua obert</p><p class="kicker en">What remains open</p>
+        <h2 class="es">Tres límites que cambian cómo debe leerse este informe</h2><h2 class="ca">Tres límits que canvien com s'ha de llegir aquest informe</h2><h2 class="en">Three limits that change how this report should be read</h2>
+        <ol class="limits"><li><span class="es">Esta muestra no representa al comercio local.</span><span class="ca">Aquesta mostra no representa el comerç local.</span><span class="en">This sample is not representative of independent retail.</span></li><li><span class="es">No todas las tiendas definen igual qué significa que les vaya bien.</span><span class="ca">No totes les botigues defineixen igual què vol dir que els vagi bé.</span><span class="en">Not every shop defines success in the same way.</span></li><li><span class="es">Una preocupación operativa no demuestra por sí sola disposición a adoptar una solución tecnológica.</span><span class="ca">Una preocupació operativa no demostra per si sola disposició a adoptar una solució tecnològica.</span><span class="en">An operational concern does not, on its own, demonstrate readiness to adopt a technology solution.</span></li></ol>
+        <p class="section-intro es">Estas hipótesis necesitan más conversaciones, casos que las contradigan y observación más detallada de cómo se toman decisiones en la práctica.</p><p class="section-intro ca">Aquestes hipòtesis necessiten més converses, casos que les contradiguin i una observació més detallada de com es prenen decisions a la pràctica.</p><p class="section-intro en">These hypotheses need more conversations, cases that contradict them and closer observation of how decisions are made in practice.</p>
       </div>
     </section>
 
     <section id="metodo">
       <div class="wrap">
         <div class="method-panel">
-          <h2 class="es">Alcance, método y procedencia</h2><h2 class="en">Scope, method and provenance</h2>
+          <h2 class="es">Alcance, método y procedencia</h2><h2 class="ca">Abast, mètode i procedència</h2><h2 class="en">Scope, method and provenance</h2>
           <ul>
-            <li class="es"><b>Ocho entrevistas</b> presenciales y semiestructuradas, realizadas entre mayo y julio de 2026 en Barcelona y Santa Coloma de Gramenet.</li><li class="en"><b>Eight interviews</b>, semi-structured and in person, conducted between May and July 2026 in Barcelona and Santa Coloma de Gramenet.</li>
-            <li class="es"><b>Selección mediante redes de confianza.</b> La muestra no representa al comercio local en general.</li><li class="en"><b>Selection through networks of trust.</b> The sample is not representative of independent retail as a whole.</li>
-            <li class="es"><b>No se presentó un producto ni se pidió validar una solución.</b> Se preguntó por prácticas, decisiones y experiencias recientes.</li><li class="en"><b>No product was presented and nobody was asked to validate a solution.</b> The interviews focused on practices, decisions and recent experiences.</li>
-            <li class="es"><b>Las señales son hipótesis cualitativas;</b> no miden prevalencia.</li><li class="en"><b>The signals are qualitative hypotheses;</b> they do not measure prevalence.</li>
-            <li class="es"><b>Las citas están anonimizadas por categoría</b> y editadas mínimamente para claridad. La edición inglesa traduce el original español.</li><li class="en"><b>Quotes are anonymised by category</b> and lightly edited for clarity. The English edition is translated from the Spanish original.</li>
-            <li class="es"><b>Apoyo de IA.</b> El análisis y la edición contaron con apoyo de IA. La interpretación de las entrevistas, las afirmaciones y las decisiones de publicación son responsabilidad del autor.</li><li class="en"><b>AI assistance.</b> AI supported the analysis and editing. The author remains responsible for interpreting the interviews, making claims and deciding what to publish.</li>
+            <li class="es"><b>Ocho entrevistas</b> presenciales y semiestructuradas, realizadas entre mayo y julio de 2026 en Barcelona y Santa Coloma de Gramenet.</li><li class="ca"><b>Vuit entrevistes</b> presencials i semiestructurades, fetes entre maig i juliol de 2026 a Barcelona i Santa Coloma de Gramenet.</li><li class="en"><b>Eight interviews</b>, semi-structured and in person, conducted between May and July 2026 in Barcelona and Santa Coloma de Gramenet.</li>
+            <li class="es"><b>Selección mediante redes de confianza.</b> La muestra no representa al comercio local en general.</li><li class="ca"><b>Selecció mitjançant xarxes de confiança.</b> La mostra no representa el comerç local en general.</li><li class="en"><b>Selection through networks of trust.</b> The sample is not representative of independent retail as a whole.</li>
+            <li class="es"><b>No se presentó un producto ni se pidió validar una solución.</b> Se preguntó por prácticas, decisiones y experiencias recientes.</li><li class="ca"><b>No es va presentar cap producte ni es va demanar validar cap solució.</b> Es va preguntar per pràctiques, decisions i experiències recents.</li><li class="en"><b>No product was presented and nobody was asked to validate a solution.</b> The interviews focused on practices, decisions and recent experiences.</li>
+            <li class="es"><b>Las señales son hipótesis cualitativas;</b> no miden prevalencia.</li><li class="ca"><b>Els senyals són hipòtesis qualitatives;</b> no mesuren prevalença.</li><li class="en"><b>The signals are qualitative hypotheses;</b> they do not measure prevalence.</li>
+            <li class="es"><b>Las citas están anonimizadas por categoría</b> y editadas mínimamente para claridad. La edición inglesa traduce el original español.</li><li class="ca"><b>Les cites estan anonimitzades per categoria</b> i editades mínimament per claredat. Les edicions catalana i anglesa tradueixen l'original castellà.</li><li class="en"><b>Quotes are anonymised by category</b> and lightly edited for clarity. The English edition is translated from the Spanish original.</li>
+            <li class="es"><b>Apoyo de IA.</b> El análisis y la edición contaron con apoyo de IA. La interpretación de las entrevistas, las afirmaciones y las decisiones de publicación son responsabilidad del autor.</li><li class="ca"><b>Suport d'IA.</b> L'anàlisi i l'edició van comptar amb suport d'IA. La interpretació de les entrevistes, les afirmacions i les decisions de publicació són responsabilitat de l'autor.</li><li class="en"><b>AI assistance.</b> AI supported the analysis and editing. The author remains responsible for interpreting the interviews, making claims and deciding what to publish.</li>
           </ul>
         </div>
       </div>
@@ -530,37 +634,37 @@
     <section class="cta" id="conversar">
       <div class="wrap cta-layout">
         <div class="cta-copy">
-          <p class="kicker es">La investigación sigue abierta</p><p class="kicker en">The research remains open</p>
-          <h2 class="es">Tú dejas el contacto. Yo doy el siguiente paso.</h2><h2 class="en">Leave your details. I will take the next step.</h2>
-          <p class="section-intro es">Busco comercios que confirmen, contradigan o compliquen estas hipótesis. La conversación dura unos 25 minutos, puede hacerse en tu tienda y no requiere preparación.</p><p class="section-intro en">I am looking for shops that confirm, contradict or complicate these hypotheses. The conversation takes about 25 minutes, can happen in your shop and requires no preparation.</p>
-          <p class="cta-promise"><b class="es">25 minutos · sin preparación · sin listas comerciales</b><b class="en">25 minutes · no preparation · no marketing lists</b><span class="es">Te contactaré personalmente para encontrar un momento que te vaya bien.</span><span class="en">I will contact you personally to find a time that works for you.</span></p>
-          <p class="print-meta"><span class="es">José · julio de 2026 · chpmoreno.github.io/apiedemostrador · Contacto: chpmoreno@gmail.com</span><span class="en">José · July 2026 · chpmoreno.github.io/apiedemostrador · Contact: chpmoreno@gmail.com</span></p>
+          <p class="kicker es">La investigación sigue abierta</p><p class="kicker ca">La recerca continua oberta</p><p class="kicker en">The research remains open</p>
+          <h2 class="es">Tú dejas el contacto. Yo doy el siguiente paso.</h2><h2 class="ca">Tu deixes el contacte. Jo faig el pas següent.</h2><h2 class="en">Leave your details. I will take the next step.</h2>
+          <p class="section-intro es">Busco comercios que confirmen, contradigan o compliquen estas hipótesis. La conversación dura unos 25 minutos, puede hacerse en tu tienda y no requiere preparación.</p><p class="section-intro ca">Busco comerços que confirmin, contradiguin o compliquin aquestes hipòtesis. La conversa dura uns 25 minuts, es pot fer a la teva botiga i no requereix preparació.</p><p class="section-intro en">I am looking for shops that confirm, contradict or complicate these hypotheses. The conversation takes about 25 minutes, can happen in your shop and requires no preparation.</p>
+          <p class="cta-promise"><b class="es">25 minutos · sin preparación · sin listas comerciales</b><b class="ca">25 minuts · sense preparació · sense llistes comercials</b><b class="en">25 minutes · no preparation · no marketing lists</b><span class="es">Te contactaré personalmente para encontrar un momento que te vaya bien.</span><span class="ca">Et contactaré personalment per trobar un moment que et vagi bé.</span><span class="en">I will contact you personally to find a time that works for you.</span></p>
+          <p class="print-meta"><span class="es">José · julio de 2026 · chpmoreno.github.io/apiedemostrador · Contacto: chpmoreno@gmail.com</span><span class="ca">José · juliol de 2026 · chpmoreno.github.io/apiedemostrador · Contacte: chpmoreno@gmail.com</span><span class="en">José · July 2026 · chpmoreno.github.io/apiedemostrador · Contact: chpmoreno@gmail.com</span></p>
         </div>
 
         <div class="contact-card">
           <div id="contactFormIntro">
-            <p class="form-kicker es">Menos de 30 segundos</p><p class="form-kicker en">Less than 30 seconds</p>
-            <h3 class="es">¿Cómo te contacto?</h3><h3 class="en">How should I contact you?</h3>
+            <p class="form-kicker es">Menos de 30 segundos</p><p class="form-kicker ca">Menys de 30 segons</p><p class="form-kicker en">Less than 30 seconds</p>
+            <h3 class="es">¿Cómo te contacto?</h3><h3 class="ca">Com et contacto?</h3><h3 class="en">How should I contact you?</h3>
           </div>
           <form class="contact-form" id="contactForm" method="post" novalidate aria-describedby="contactPrivacySummary">
             <fieldset class="intent-fieldset">
-              <legend><span class="es">¿Qué te trae por aquí?</span><span class="en">What brings you here?</span></legend>
+              <legend><span class="es">¿Qué te trae por aquí?</span><span class="ca">Què et porta per aquí?</span><span class="en">What brings you here?</span></legend>
               <div class="intent-options">
-                <label class="intent-option"><input type="radio" name="intent" value="shop_owner" checked><span class="es">Llevo una tienda</span><span class="en">I run a shop</span></label>
-                <label class="intent-option"><input type="radio" name="intent" value="introduction"><span class="es">Quiero presentar una tienda</span><span class="en">I can introduce a shop</span></label>
-                <label class="intent-option"><input type="radio" name="intent" value="report_feedback"><span class="es">Quiero matizar el informe</span><span class="en">I have report feedback</span></label>
+                <label class="intent-option"><input type="radio" name="intent" value="shop_owner" checked><span class="es">Llevo una tienda</span><span class="ca">Porto una botiga</span><span class="en">I run a shop</span></label>
+                <label class="intent-option"><input type="radio" name="intent" value="introduction"><span class="es">Quiero presentar una tienda</span><span class="ca">Vull presentar una botiga</span><span class="en">I can introduce a shop</span></label>
+                <label class="intent-option"><input type="radio" name="intent" value="report_feedback"><span class="es">Quiero matizar el informe</span><span class="ca">Vull matisar l'informe</span><span class="en">I have report feedback</span></label>
               </div>
             </fieldset>
 
-            <p class="contact-requirement" id="contactRequirement"><span class="es">Déjame al menos un email o un teléfono.</span><span class="en">Leave at least an email address or phone number.</span></p>
+            <p class="contact-requirement" id="contactRequirement"><span class="es">Déjame al menos un email o un teléfono.</span><span class="ca">Deixa'm almenys un correu electrònic o un telèfon.</span><span class="en">Leave at least an email address or phone number.</span></p>
             <div class="contact-grid">
               <div class="contact-field">
-                <label class="contact-label" for="contactEmail">Email <span class="es">(opcional)</span><span class="en">(optional)</span></label>
+                <label class="contact-label" for="contactEmail"><span class="es">Email (opcional)</span><span class="ca">Correu electrònic (opcional)</span><span class="en">Email (optional)</span></label>
                 <input id="contactEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="example@example.com" aria-describedby="emailError">
                 <small id="emailError" aria-live="polite"></small>
               </div>
               <div class="contact-field">
-                <label class="contact-label" for="contactPhone"><span class="es">Teléfono (opcional)</span><span class="en">Phone (optional)</span></label>
+                <label class="contact-label" for="contactPhone"><span class="es">Teléfono (opcional)</span><span class="ca">Telèfon (opcional)</span><span class="en">Phone (optional)</span></label>
                 <input id="contactPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="+34600000000" aria-describedby="phoneError">
                 <small id="phoneError" aria-live="polite"></small>
               </div>
@@ -575,25 +679,28 @@
             <label class="consent-row" for="contactConsent">
               <input id="contactConsent" name="consent" type="checkbox" value="granted" required aria-describedby="consentError contactPrivacySummary">
               <span class="es">Consiento que José Fernando Moreno Gutiérrez use el email y/o teléfono que facilito para responder a esta solicitud. Puedo retirar el consentimiento en cualquier momento.</span>
+              <span class="ca">Dono el meu consentiment perquè José Fernando Moreno Gutiérrez utilitzi el correu electrònic i/o el telèfon que facilito per respondre aquesta sol·licitud. Puc retirar el consentiment en qualsevol moment.</span>
               <span class="en">I consent to José Fernando Moreno Gutiérrez using the email address and/or phone number I provide to respond to this request. I can withdraw consent at any time.</span>
             </label>
             <p class="form-error" id="consentError" aria-live="polite"></p>
 
             <p class="form-privacy-summary" id="contactPrivacySummary">
               <span class="es"><b>Responsable:</b> José Fernando Moreno Gutiérrez. <b>Finalidad:</b> responder y, si procede, coordinar una conversación. <b>Base:</b> tu consentimiento. <b>Proveedor:</b> Formspark, con almacenamiento en Irlanda. Conservaremos la solicitud un máximo de 6 meses desde el último contacto. Puedes ejercer tus derechos o retirar el consentimiento en chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=es">Información completa de privacidad</a>.</span>
+              <span class="ca"><b>Responsable:</b> José Fernando Moreno Gutiérrez. <b>Finalitat:</b> respondre i, si escau, coordinar una conversa. <b>Base:</b> el teu consentiment. <b>Proveïdor:</b> Formspark, amb emmagatzematge a Irlanda. Conservarem la sol·licitud un màxim de 6 mesos des de l'últim contacte. Pots exercir els teus drets o retirar el consentiment a chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=ca">Informació completa de privacitat</a>.</span>
               <span class="en"><b>Controller:</b> José Fernando Moreno Gutiérrez. <b>Purpose:</b> to respond and, where appropriate, arrange a conversation. <b>Basis:</b> your consent. <b>Provider:</b> Formspark, with storage in Ireland. We retain the request for no more than 6 months after the last contact. You can exercise your rights or withdraw consent at chpmoreno@gmail.com. <a class="privacy-link" href="privacy.html?lang=en">Full privacy information</a>.</span>
             </p>
 
-            <button class="contact-submit" id="contactSubmit" type="submit"><span class="es">Sí, contáctame</span><span class="en">Yes, contact me</span></button>
-            <p class="contact-alternative"><span class="es">¿Prefieres escribir tú? Puedes hacerlo directamente a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span><span class="en">Would you rather write first? Email me directly at <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span></p>
+            <button class="contact-submit" id="contactSubmit" type="submit"><span class="es">Sí, contáctame</span><span class="ca">Sí, contacta'm</span><span class="en">Yes, contact me</span></button>
+            <p class="contact-alternative"><span class="es">¿Prefieres escribir tú? Puedes hacerlo directamente a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span><span class="ca">Prefereixes escriure tu? Pots fer-ho directament a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span><span class="en">Would you rather write first? Email me directly at <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>.</span></p>
             <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
-            <noscript><p class="form-error"><span class="es">Activa JavaScript para enviar este formulario.</span><span class="en">Enable JavaScript to submit this form.</span></p></noscript>
+            <noscript><p class="form-error"><span class="es">Activa JavaScript para enviar este formulario.</span><span class="ca">Activa JavaScript per enviar aquest formulari.</span><span class="en">Enable JavaScript to submit this form.</span></p></noscript>
           </form>
 
           <div class="contact-success" id="contactSuccess" role="status" tabindex="-1" hidden>
-            <p class="form-kicker es">Recibido</p><p class="form-kicker en">Received</p>
-            <h3 class="es">Gracias. A partir de aquí, me ocupo yo.</h3><h3 class="en">Thank you. I will take it from here.</h3>
+            <p class="form-kicker es">Recibido</p><p class="form-kicker ca">Rebut</p><p class="form-kicker en">Received</p>
+            <h3 class="es">Gracias. A partir de aquí, me ocupo yo.</h3><h3 class="ca">Gràcies. A partir d'aquí, me n'ocupo jo.</h3><h3 class="en">Thank you. I will take it from here.</h3>
             <p class="es">Te escribiré o llamaré personalmente. Si quieres añadir algo o prefieres contactar conmigo directamente, escríbeme a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. También puedes usar esa dirección para retirar tu consentimiento en cualquier momento.</p>
+            <p class="ca">T'escriuré o et trucaré personalment. Si vols afegir alguna cosa o prefereixes contactar directament amb mi, escriu-me a <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. També pots utilitzar aquesta adreça per retirar el consentiment en qualsevol moment.</p>
             <p class="en">I will email or call you personally. If you would like to add anything or contact me directly, email me at <a href="mailto:chpmoreno@gmail.com?subject=A%20pie%20de%20mostrador">chpmoreno@gmail.com</a>. You can also use that address to withdraw your consent at any time.</p>
           </div>
         </div>
@@ -602,19 +709,20 @@
   </main>
 
   <aside class="recognition-dock" id="recognitionDock" aria-live="polite" aria-atomic="true">
-    <p><b id="recognitionCount">0 de 4</b><br><span class="es">temas reconocidos. No es un diagnóstico: solo una guía para tu propia lectura.</span><span class="en">themes recognised. This is not a diagnosis, only a guide for your own reading.</span></p>
+    <p><b id="recognitionCount">0 de 4</b><br><span class="es">temas reconocidos. No es un diagnóstico: solo una guía para tu propia lectura.</span><span class="ca">temes reconeguts. No és un diagnòstic: només una guia per a la teva pròpia lectura.</span><span class="en">themes recognised. This is not a diagnosis, only a guide for your own reading.</span></p>
   </aside>
 
   <footer>
     <div class="wrap">
       <p class="es"><b>A pie de mostrador</b> es una investigación cualitativa independiente dirigida por José en Barcelona. Su objetivo es entender dónde se acumulan el trabajo, la incertidumbre y la dependencia en el comercio local antes de proponer soluciones.</p>
+      <p class="ca"><b>A pie de mostrador</b> és una recerca qualitativa independent dirigida per José a Barcelona. El seu objectiu és entendre on s'acumulen la feina, la incertesa i la dependència en el comerç local abans de proposar solucions.</p>
       <p class="en"><b>A pie de mostrador</b> is an independent qualitative research project led by José in Barcelona. Its purpose is to understand where work, uncertainty and dependence accumulate in independent retail before proposing solutions.</p>
-      <p><span class="es">Edición 1 · 8 entrevistas · julio de 2026 · Español original; versión inglesa traducida del original · Análisis y edición con apoyo de IA.</span><span class="en">Edition 1 · 8 interviews · July 2026 · Spanish original; English translated from the original · Analysis and editing with AI assistance.</span></p>
-      <p><a class="privacy-link" href="privacy.html?lang=es"><span class="es">Privacidad del formulario de contacto</span><span class="en">Contact form privacy</span></a></p>
+      <p><span class="es">Edición 1 · 8 entrevistas · julio de 2026 · Español original; versiones catalana e inglesa traducidas del original · Análisis y edición con apoyo de IA.</span><span class="ca">Edició 1 · 8 entrevistes · juliol de 2026 · Original en castellà; versió catalana traduïda de l'original · Anàlisi i edició amb suport d'IA.</span><span class="en">Edition 1 · 8 interviews · July 2026 · Spanish original; English translated from the original · Analysis and editing with AI assistance.</span></p>
+      <p><a class="privacy-link" href="privacy.html?lang=es"><span class="es">Privacidad del formulario de contacto</span><span class="ca">Privacitat del formulari de contacte</span><span class="en">Contact form privacy</span></a></p>
     </div>
   </footer>
 
-  <script src="contact-form-core.js?v=20260714-1"></script>
+  <script src="contact-form-core.js?v=20260715-2"></script>
   <script>
     (function () {
       const copy = {
@@ -622,6 +730,11 @@
           lang: "es",
           title: "A pie de mostrador — El trabajo invisible de llevar una tienda",
           description: "Ocho comercios explican dónde se concentra el trabajo invisible de llevar una tienda. Informe de escucha independiente en Barcelona y Santa Coloma."
+        },
+        ca: {
+          lang: "ca",
+          title: "A pie de mostrador — La feina invisible de portar una botiga",
+          description: "Vuit comerços expliquen on es concentra la feina invisible de portar una botiga. Informe d'escolta independent a Barcelona i Santa Coloma."
         },
         en: {
           lang: "en",
@@ -644,6 +757,17 @@
       const emailError = document.getElementById("emailError");
       const phoneError = document.getElementById("phoneError");
       const consentError = document.getElementById("consentError");
+      const quickContactForm = document.getElementById("quickContactForm");
+      const quickEmail = document.getElementById("quickEmail");
+      const quickPhone = document.getElementById("quickPhone");
+      const quickConsent = document.getElementById("quickConsent");
+      const quickSubmit = document.getElementById("quickSubmit");
+      const quickFieldsError = document.getElementById("quickFieldsError");
+      const quickEmailError = document.getElementById("quickEmailError");
+      const quickPhoneError = document.getElementById("quickPhoneError");
+      const quickConsentError = document.getElementById("quickConsentError");
+      const quickStatus = document.getElementById("quickStatus");
+      const quickSuccess = document.getElementById("quickSuccess");
       const configuredEndpoint = document.querySelector('meta[name="contact-form-endpoint"]').content.trim();
       const validEndpoint = ContactFormCore.isValidEndpoint(configuredEndpoint);
       const formCopy = {
@@ -656,6 +780,16 @@
           sending: "Enviando…",
           submit: "Sí, contáctame",
           failed: "No se ha enviado nada. Inténtalo de nuevo o contacta con chpmoreno@gmail.com."
+        },
+        ca: {
+          contactRequired: "Indica almenys un correu electrònic o un telèfon.",
+          emailInvalid: "Revisa el format del correu electrònic.",
+          phoneInvalid: "Revisa el telèfon: ha de contenir almenys 6 xifres.",
+          consentRequired: "Necessito el teu consentiment per poder contactar-te.",
+          configuring: "El formulari encara no està connectat. No s'ha enviat cap dada. Configura l'endpoint de Formspark indicat al README.",
+          sending: "Enviant…",
+          submit: "Sí, contacta'm",
+          failed: "No s'ha enviat res. Torna-ho a provar o contacta amb chpmoreno@gmail.com."
         },
         en: {
           contactRequired: "Enter at least an email address or phone number.",
@@ -670,7 +804,7 @@
       };
 
       function activeLanguage() {
-        return document.body.dataset.lang === "en" ? "en" : "es";
+        return ["es", "ca", "en"].includes(document.body.dataset.lang) ? document.body.dataset.lang : "es";
       }
       function clearFormErrors() {
         [contactEmail, contactPhone, contactConsent].forEach(function (field) { field.removeAttribute("aria-invalid"); });
@@ -679,6 +813,14 @@
         phoneError.textContent = "";
         consentError.textContent = "";
         contactStatus.textContent = "";
+      }
+      function clearQuickFormErrors() {
+        [quickEmail, quickPhone, quickConsent].forEach(function (field) { field.removeAttribute("aria-invalid"); });
+        quickFieldsError.textContent = "";
+        quickEmailError.textContent = "";
+        quickPhoneError.textContent = "";
+        quickConsentError.textContent = "";
+        quickStatus.textContent = "";
       }
       function validateContactForm() {
         clearFormErrors();
@@ -713,14 +855,47 @@
         }
         return true;
       }
+      function validateQuickForm() {
+        clearQuickFormErrors();
+        const messages = formCopy[activeLanguage()];
+        const email = quickEmail.value.trim();
+        const phone = quickPhone.value.trim();
+        let firstInvalid = null;
+        if (!email && !phone) {
+          quickFieldsError.textContent = messages.contactRequired;
+          quickEmail.setAttribute("aria-invalid", "true");
+          quickPhone.setAttribute("aria-invalid", "true");
+          firstInvalid = quickEmail;
+        }
+        if (email && !quickEmail.validity.valid) {
+          quickEmailError.textContent = messages.emailInvalid;
+          quickEmail.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || quickEmail;
+        }
+        if (phone && !ContactFormCore.isValidPhone(phone)) {
+          quickPhoneError.textContent = messages.phoneInvalid;
+          quickPhone.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || quickPhone;
+        }
+        if (!quickConsent.checked) {
+          quickConsentError.textContent = messages.consentRequired;
+          quickConsent.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || quickConsent;
+        }
+        if (firstInvalid) {
+          firstInvalid.focus();
+          return false;
+        }
+        return true;
+      }
       function updateRecognition() {
         const count = recognizeButtons.filter(function (button) { return button.getAttribute("aria-pressed") === "true"; }).length;
-        const lang = document.body.dataset.lang === "en" ? "en" : "es";
+        const lang = activeLanguage();
         recognitionCount.textContent = lang === "en" ? count + " of 4" : count + " de 4";
         recognitionDock.classList.toggle("is-active", count > 0);
       }
       function setLanguage(lang, updateUrl) {
-        const selected = lang === "en" ? "en" : "es";
+        const selected = ["es", "ca", "en"].includes(lang) ? lang : "es";
         document.body.dataset.lang = selected;
         document.documentElement.lang = copy[selected].lang;
         document.title = copy[selected].title;
@@ -728,6 +903,7 @@
         buttons.forEach(function (button) { button.setAttribute("aria-pressed", String(button.dataset.lang === selected)); });
         document.querySelectorAll(".privacy-link").forEach(function (link) { link.href = "privacy.html?lang=" + selected; });
         clearFormErrors();
+        clearQuickFormErrors();
         updateRecognition();
         if (updateUrl) {
           const url = new URL(window.location.href);
@@ -751,6 +927,65 @@
           if (field === contactPhone) phoneError.textContent = "";
           if (field === contactConsent) consentError.textContent = "";
         });
+      });
+
+      [quickEmail, quickPhone, quickConsent].forEach(function (field) {
+        field.addEventListener("input", function () {
+          field.removeAttribute("aria-invalid");
+          quickFieldsError.textContent = "";
+          quickStatus.textContent = "";
+          if (field === quickEmail) quickEmailError.textContent = "";
+          if (field === quickPhone) quickPhoneError.textContent = "";
+          if (field === quickConsent) quickConsentError.textContent = "";
+        });
+      });
+
+      quickContactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!validateQuickForm()) return;
+        const lang = activeLanguage();
+        const messages = formCopy[lang];
+        if (!validEndpoint) {
+          quickStatus.textContent = messages.configuring;
+          return;
+        }
+
+        const submitLabel = quickSubmit.querySelector("." + lang);
+        quickSubmit.disabled = true;
+        quickSubmit.setAttribute("aria-busy", "true");
+        submitLabel.textContent = messages.sending;
+
+        const payload = ContactFormCore.buildPayload({
+          intent: new FormData(quickContactForm).get("intent"),
+          email: quickEmail.value,
+          phone: quickPhone.value,
+          honeypot: document.getElementById("quickWebsite").value,
+          language: lang,
+          source: "early_contact_form"
+        });
+
+        try {
+          const response = await fetch(configuredEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (!response.ok) throw new Error("Submission failed with status " + response.status);
+          quickContactForm.reset();
+          quickContactForm.hidden = true;
+          document.getElementById("quickFormIntro").hidden = true;
+          quickSuccess.hidden = false;
+          quickSuccess.focus();
+          contactForm.hidden = true;
+          document.getElementById("contactFormIntro").hidden = true;
+          contactSuccess.hidden = false;
+        } catch (error) {
+          quickStatus.textContent = messages.failed;
+        } finally {
+          quickSubmit.disabled = false;
+          quickSubmit.removeAttribute("aria-busy");
+          submitLabel.textContent = messages.submit;
+        }
       });
 
       contactForm.addEventListener("submit", async function (event) {

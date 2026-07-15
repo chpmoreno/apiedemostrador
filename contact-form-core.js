@@ -7,6 +7,7 @@
 
   const CONSENT_VERSION = "2026-07-14-v1";
   const INTENTS = ["shop_owner", "introduction", "report_feedback"];
+  const SOURCES = ["report_contact_form", "early_contact_form"];
   const ENDPOINT_PATTERN = /^https:\/\/submit-form\.com\/[A-Za-z0-9_-]+$/;
 
   function isValidEndpoint(endpoint) {
@@ -24,7 +25,8 @@
     const phone = String(input.phone || "").trim();
     const honeypot = String(input.honeypot || "");
     const intent = INTENTS.includes(input.intent) ? input.intent : "shop_owner";
-    const language = input.language === "en" ? "en" : "es";
+    const language = ["es", "ca", "en"].includes(input.language) ? input.language : "es";
+    const source = SOURCES.includes(input.source) ? input.source : "report_contact_form";
     const submittedAt = input.submittedAt || new Date().toISOString();
     const payload = {
       intent: intent,
@@ -32,7 +34,7 @@
       consent_version: CONSENT_VERSION,
       consent_language: language,
       submitted_at: submittedAt,
-      source: "report_contact_form"
+      source: source
     };
     if (email) payload.email = email;
     if (phone) payload.phone = phone;

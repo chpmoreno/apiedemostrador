@@ -66,3 +66,15 @@ test("normalises unexpected intent and language values", () => {
   assert.equal(payload.intent, "shop_owner");
   assert.equal(payload.consent_language, "es");
 });
+
+test("preserves Catalan as the consent language", () => {
+  const payload = core.buildPayload({ intent: "shop_owner", email: "botiga@example.com", language: "ca", source: "early_contact_form" });
+  assert.equal(payload.consent_language, "ca");
+  assert.equal(payload.source, "early_contact_form");
+  assert.equal(payload.intent, "shop_owner");
+});
+
+test("normalises an unknown submission source", () => {
+  const payload = core.buildPayload({ email: "owner@example.com", source: "unknown" });
+  assert.equal(payload.source, "report_contact_form");
+});

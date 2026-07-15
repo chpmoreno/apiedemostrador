@@ -7,6 +7,7 @@
 <meta name="description" content="Cuatro temas del informe A pie de mostrador y una invitación a conversar con comercios independientes.">
 <link rel="canonical" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=es">
 <link rel="alternate" hreflang="es" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=es">
+<link rel="alternate" hreflang="ca" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=ca">
 <link rel="alternate" hreflang="en" href="https://chpmoreno.github.io/apiedemostrador/flyer.html?lang=en">
 <meta property="og:type" content="article">
 <meta property="og:title" content="El trabajo invisible de llevar una tienda">
@@ -50,11 +51,13 @@
   }
   .langs button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
 
-  .en { display: none; }
-  body[data-lang="en"] .es { display: none; }
+  .en, .ca { display: none; }
+  body[data-lang="en"] .es, body[data-lang="ca"] .es { display: none; }
   body[data-lang="en"] .en { display: inline; }
-  body[data-lang="en"] p.en, body[data-lang="en"] h1.en, body[data-lang="en"] h4.en, body[data-lang="en"] div.en { display: block; }
-  p.en, h1.en, h4.en, div.en { display: none; }
+  body[data-lang="ca"] .ca { display: inline; }
+  body[data-lang="en"] p.en, body[data-lang="en"] h1.en, body[data-lang="en"] h4.en, body[data-lang="en"] div.en,
+  body[data-lang="ca"] p.ca, body[data-lang="ca"] h1.ca, body[data-lang="ca"] h4.ca, body[data-lang="ca"] div.ca { display: block; }
+  p.en, h1.en, h4.en, div.en, p.ca, h1.ca, h4.ca, div.ca { display: none; }
 
   .eyebrow { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand); font-weight: 700; margin: 0 0 10px; }
   h1 {
@@ -87,6 +90,7 @@
   .flyer-quote { margin: 2mm 0 7mm; max-width: 150mm; }
   .flyer-quote blockquote { margin: 0; font: italic 18pt/1.35 Georgia, "Times New Roman", serif; color: var(--ink); }
   body[data-lang="en"] .flyer-quote blockquote.en { display: block; }
+  body[data-lang="ca"] .flyer-quote blockquote.ca { display: block; }
   .flyer-quote figcaption { margin-top: 3mm; color: var(--ink-3); font-size: 9.5pt; letter-spacing: .08em; text-transform: uppercase; }
 
   .bottom {
@@ -161,66 +165,75 @@
   <div class="awning" aria-hidden="true"></div>
   <div class="inner">
     <div class="top">
-      <div class="wordmark">A pie de mostrador <span class="tagline">· <span class="es">informe de escucha 01</span><span class="en">listening report 01</span></span></div>
-      <div class="langs" role="group" aria-label="Idioma / Language">
+      <div class="wordmark">A pie de mostrador <span class="tagline">· <span class="es">informe de escucha 01</span><span class="ca">informe d'escolta 01</span><span class="en">listening report 01</span></span></div>
+      <div class="langs" role="group" aria-label="Idioma / Llengua / Language">
         <button type="button" data-setlang="es" aria-pressed="true">ES</button>
+        <button type="button" data-setlang="ca" aria-pressed="false">CA</button>
         <button type="button" data-setlang="en" aria-pressed="false">EN</button>
       </div>
     </div>
 
-    <p class="eyebrow"><span class="es">8 entrevistas presenciales · Barcelona y Santa Coloma · mayo–julio 2026</span><span class="en">8 in-person interviews · Barcelona and Santa Coloma · May–July 2026</span></p>
+    <p class="eyebrow"><span class="es">8 entrevistas presenciales · Barcelona y Santa Coloma · mayo–julio 2026</span><span class="ca">8 entrevistes presencials · Barcelona i Santa Coloma · maig–juliol 2026</span><span class="en">8 in-person interviews · Barcelona and Santa Coloma · May–July 2026</span></p>
     <h1>A pie de mostrador</h1>
     <p class="subq es">El trabajo invisible de llevar una tienda.</p>
+    <p class="subq ca">La feina invisible de portar una botiga.</p>
     <p class="subq en">The invisible work of running a shop.</p>
     <p class="lede es">Ocho comercios describen dónde se acumulan el trabajo, la incertidumbre y la dependencia. Son hipótesis direccionales de una muestra pequeña, no un diagnóstico del sector.</p>
+    <p class="lede ca">Vuit comerços descriuen on s'acumulen la feina, la incertesa i la dependència. Són hipòtesis orientatives d'una mostra petita, no un diagnòstic del sector.</p>
     <p class="lede en">Eight independent shops describe where work, uncertainty and dependence accumulate. These are directional hypotheses from a small sample, not a diagnosis of the sector.</p>
 
     <div class="senales">
       <div class="senal" style="--accent: var(--c-ananda)">
-        <h4 class="es">01 · Conocimiento y dependencia</h4><h4 class="en">01 · Knowledge and dependence</h4>
+        <h4 class="es">01 · Conocimiento y dependencia</h4><h4 class="ca">01 · Coneixement i dependència</h4><h4 class="en">01 · Knowledge and dependence</h4>
         <p class="es">Precios, clientela, excepciones y criterio siguen concentrados en quien lleva la tienda.</p>
+        <p class="ca">Preus, clientela, excepcions i criteri continuen concentrats en qui porta la botiga.</p>
         <p class="en">Pricing knowledge, customer context, exceptions and judgement remain concentrated in the person running the shop.</p>
       </div>
       <div class="senal" style="--accent: var(--c-espiga)">
-        <h4 class="es">02 · Inventario, márgenes y decisión</h4><h4 class="en">02 · Inventory, margins and decisions</h4>
-        <p class="es">Saber qué hay no siempre equivale a tener inventario fiable; el margen se conoce más en general que producto a producto.</p>
-        <p class="en">Knowing what is there is not always reliable inventory; margins are understood more broadly than product by product.</p>
+        <h4 class="es">02 · Inventario, márgenes y decisión</h4><h4 class="ca">02 · Inventari, marges i decisió</h4><h4 class="en">02 · Inventory, margins and decisions</h4>
+        <p class="es">Tener presente qué hay no siempre equivale a disponer de un inventario accionable; el margen se conoce más en general que producto a producto.</p>
+        <p class="ca">Tenir present què hi ha no sempre equival a disposar d'un inventari accionable; el marge es coneix més en general que producte per producte.</p>
+        <p class="en">Keeping stock in mind is not the same as having inventory you can act on; margins are understood more broadly than product by product.</p>
       </div>
       <div class="senal" style="--accent: var(--c-indo)">
-        <h4 class="es">03 · Proveedores, datos y coordinación</h4><h4 class="en">03 · Suppliers, data and coordination</h4>
+        <h4 class="es">03 · Proveedores, datos y coordinación</h4><h4 class="ca">03 · Proveïdors, dades i coordinació</h4><h4 class="en">03 · Suppliers, data and coordination</h4>
         <p class="es">WhatsApp resuelve la urgencia; no resuelve el sistema. Pedidos, precios y facturas siguen dispersos.</p>
+        <p class="ca">WhatsApp resol la urgència; no resol el sistema. Comandes, preus i factures continuen dispersos.</p>
         <p class="en">WhatsApp solves urgency; it does not solve the system. Orders, prices and invoices remain fragmented.</p>
       </div>
       <div class="senal" style="--accent: var(--c-marenna)">
-        <h4 class="es">04 · Herramientas, normativa y confianza</h4><h4 class="en">04 · Tools, regulation and trust</h4>
+        <h4 class="es">04 · Herramientas, normativa y confianza</h4><h4 class="ca">04 · Eines, normativa i confiança</h4><h4 class="en">04 · Tools, regulation and trust</h4>
         <p class="es">Una herramienta se queda si reduce trabajo visible. La normativa añade decisiones cuando todavía falta una explicación fiable.</p>
+        <p class="ca">Una eina es queda si redueix feina visible. La normativa afegeix decisions quan encara falta una explicació fiable.</p>
         <p class="en">A tool stays when it visibly reduces work. Regulation adds decisions while reliable explanations are still hard to find.</p>
       </div>
     </div>
 
     <div class="nota">
       <span class="es"><b>Qué sostiene a estas tiendas:</b> oficio, memoria de clientela, criterio para comprar y recomendar, capacidad de reconstruirse y apoyo entre pares. No son activos sentimentales: son parte del funcionamiento del negocio.</span>
+      <span class="ca"><b>Què sosté aquestes botigues:</b> ofici, memòria de la clientela, criteri per comprar i recomanar, capacitat de reconstruir-se i suport entre iguals. No són actius sentimentals: formen part del funcionament del negoci.</span>
       <span class="en"><b>What sustains these shops:</b> craft, customer memory, buying and recommendation judgement, the ability to rebuild and peer support. These are not sentimental assets; they are part of how the business works.</span>
     </div>
 
     <figure class="flyer-quote">
       <blockquote class="es">«Todo está en mi cabeza. No tengo nada de sistema.»</blockquote>
+      <blockquote class="ca">«Tot és al meu cap. No tinc res de sistema.»</blockquote>
       <blockquote class="en">“It is all in my head. I do not have any system at all.”</blockquote>
-      <figcaption><span class="es">Propietaria · tienda de alimentación</span><span class="en">Owner · health-food shop</span></figcaption>
+      <figcaption><span class="es">Propietaria · tienda de alimentación</span><span class="ca">Propietària · botiga d'alimentació</span><span class="en">Owner · health-food shop</span></figcaption>
     </figure>
 
     <div class="bottom">
       <div class="qr" aria-label="QR: apiedemostrador"><svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><path d="M0 0h7v1H0zM9 0h3v1H9zM18 0h1v1H18zM26 0h7v1H26zM0 1h1v1H0zM6 1h1v1H6zM8 1h2v1H8zM13 1h2v1H13zM16 1h2v1H16zM21 1h2v1H21zM26 1h1v1H26zM32 1h1v1H32zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM10 2h2v1H10zM13 2h1v1H13zM15 2h1v1H15zM17 2h2v1H17zM20 2h1v1H20zM23 2h1v1H23zM26 2h1v1H26zM28 2h3v1H28zM32 2h1v1H32zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h2v1H8zM11 3h1v1H11zM23 3h2v1H23zM26 3h1v1H26zM28 3h3v1H28zM32 3h1v1H32zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM9 4h1v1H9zM11 4h1v1H11zM15 4h1v1H15zM17 4h2v1H17zM21 4h1v1H21zM24 4h1v1H24zM26 4h1v1H26zM28 4h3v1H28zM32 4h1v1H32zM0 5h1v1H0zM6 5h1v1H6zM9 5h4v1H9zM16 5h1v1H16zM18 5h1v1H18zM20 5h2v1H20zM26 5h1v1H26zM32 5h1v1H32zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h7v1H26zM8 7h1v1H8zM11 7h1v1H11zM18 7h1v1H18zM23 7h1v1H23zM0 8h1v1H0zM6 8h1v1H6zM8 8h4v1H8zM13 8h3v1H13zM17 8h1v1H17zM20 8h1v1H20zM22 8h5v1H22zM29 8h3v1H29zM0 9h1v1H0zM2 9h2v1H2zM5 9h1v1H5zM7 9h6v1H7zM14 9h2v1H14zM19 9h1v1H19zM22 9h2v1H22zM28 9h3v1H28zM0 10h1v1H0zM2 10h1v1H2zM4 10h4v1H4zM10 10h1v1H10zM15 10h2v1H15zM18 10h1v1H18zM20 10h2v1H20zM28 10h1v1H28zM30 10h2v1H30zM1 11h1v1H1zM7 11h2v1H7zM11 11h1v1H11zM14 11h3v1H14zM22 11h1v1H22zM26 11h5v1H26zM0 12h2v1H0zM3 12h1v1H3zM6 12h5v1H6zM13 12h2v1H13zM16 12h3v1H16zM20 12h3v1H20zM24 12h1v1H24zM26 12h1v1H26zM32 12h1v1H32zM0 13h1v1H0zM5 13h1v1H5zM9 13h1v1H9zM11 13h4v1H11zM16 13h1v1H16zM20 13h1v1H20zM22 13h3v1H22zM26 13h2v1H26zM29 13h4v1H29zM1 14h2v1H1zM4 14h3v1H4zM8 14h2v1H8zM12 14h1v1H12zM19 14h1v1H19zM21 14h2v1H21zM24 14h4v1H24zM29 14h3v1H29zM1 15h1v1H1zM4 15h1v1H4zM9 15h5v1H9zM15 15h1v1H15zM19 15h1v1H19zM23 15h3v1H23zM27 15h4v1H27zM32 15h1v1H32zM0 16h1v1H0zM3 16h2v1H3zM6 16h2v1H6zM10 16h1v1H10zM12 16h2v1H12zM17 16h1v1H17zM19 16h1v1H19zM22 16h1v1H22zM24 16h2v1H24zM27 16h2v1H27zM32 16h1v1H32zM3 17h3v1H3zM8 17h1v1H8zM11 17h1v1H11zM15 17h1v1H15zM17 17h5v1H17zM23 17h1v1H23zM26 17h1v1H26zM29 17h2v1H29zM32 17h1v1H32zM0 18h1v1H0zM3 18h5v1H3zM12 18h2v1H12zM15 18h1v1H15zM19 18h1v1H19zM23 18h5v1H23zM29 18h2v1H29zM32 18h1v1H32zM13 19h1v1H13zM15 19h7v1H15zM24 19h2v1H24zM28 19h4v1H28zM4 20h4v1H4zM9 20h1v1H9zM11 20h1v1H11zM16 20h1v1H16zM20 20h3v1H20zM25 20h1v1H25zM28 20h2v1H28zM31 20h1v1H31zM0 21h3v1H0zM5 21h1v1H5zM8 21h1v1H8zM10 21h1v1H10zM13 21h1v1H13zM16 21h1v1H16zM18 21h1v1H18zM20 21h4v1H20zM27 21h3v1H27zM0 22h1v1H0zM3 22h4v1H3zM13 22h1v1H13zM15 22h4v1H15zM20 22h1v1H20zM22 22h1v1H22zM28 22h4v1H28zM0 23h1v1H0zM2 23h2v1H2zM9 23h2v1H9zM12 23h2v1H12zM18 23h1v1H18zM23 23h1v1H23zM25 23h2v1H25zM29 23h2v1H29zM0 24h3v1H0zM4 24h3v1H4zM8 24h1v1H8zM10 24h1v1H10zM12 24h1v1H12zM15 24h2v1H15zM18 24h3v1H18zM24 24h6v1H24zM8 25h4v1H8zM13 25h4v1H13zM18 25h3v1H18zM23 25h2v1H23zM28 25h1v1H28zM30 25h1v1H30zM32 25h1v1H32zM0 26h7v1H0zM9 26h3v1H9zM14 26h3v1H14zM18 26h1v1H18zM21 26h1v1H21zM23 26h2v1H23zM26 26h1v1H26zM28 26h1v1H28zM30 26h2v1H30zM0 27h1v1H0zM6 27h1v1H6zM9 27h1v1H9zM12 27h2v1H12zM16 27h1v1H16zM19 27h1v1H19zM23 27h2v1H23zM28 27h5v1H28zM0 28h1v1H0zM2 28h3v1H2zM6 28h1v1H6zM9 28h2v1H9zM12 28h3v1H12zM18 28h2v1H18zM21 28h1v1H21zM24 28h6v1H24zM32 28h1v1H32zM0 29h1v1H0zM2 29h3v1H2zM6 29h1v1H6zM9 29h2v1H9zM12 29h2v1H12zM16 29h2v1H16zM20 29h3v1H20zM24 29h2v1H24zM27 29h3v1H27zM32 29h1v1H32zM0 30h1v1H0zM2 30h3v1H2zM6 30h1v1H6zM10 30h1v1H10zM14 30h1v1H14zM16 30h1v1H16zM20 30h1v1H20zM23 30h1v1H23zM25 30h1v1H25zM27 30h2v1H27zM31 30h2v1H31zM0 31h1v1H0zM6 31h1v1H6zM9 31h5v1H9zM15 31h2v1H15zM18 31h3v1H18zM22 31h1v1H22zM25 31h1v1H25zM27 31h4v1H27zM0 32h7v1H0zM8 32h1v1H8zM12 32h1v1H12zM17 32h1v1H17zM19 32h1v1H19zM23 32h2v1H23zM27 32h1v1H27zM29 32h1v1H29zM31 32h1v1H31z" fill="currentColor"/></svg></div>
       <div class="cta">
-        <h4><span class="es">¿Llevas una tienda? Déjame un contacto.</span><span class="en">Do you run a shop? Leave your details.</span></h4>
-        <p><span class="es">Escanea el QR, deja email o teléfono y yo doy el siguiente paso. 25 minutos, sin preparación.</span><span class="en">Scan the QR, leave an email or phone number and I will take the next step. 25 minutes, no preparation.</span></p>
-        <div class="mail"><span class="es">Formulario breve · sin spam</span><span class="en">Short form · no spam</span></div>
+        <h4><span class="es">¿Llevas una tienda? Déjame un contacto.</span><span class="ca">Portes una botiga? Deixa'm un contacte.</span><span class="en">Do you run a shop? Leave your details.</span></h4>
+        <p><span class="es">Escanea el QR, deja email o teléfono y yo doy el siguiente paso. 25 minutos, sin preparación.</span><span class="ca">Escaneja el QR, deixa un correu electrònic o un telèfon i jo faig el pas següent. 25 minuts, sense preparació.</span><span class="en">Scan the QR, leave an email or phone number and I will take the next step. 25 minutes, no preparation.</span></p>
+        <div class="mail"><span class="es">Formulario breve · sin spam</span><span class="ca">Formulari breu · sense correu brossa</span><span class="en">Short form · no spam</span></div>
         <div class="url"><a data-report-url href="https://chpmoreno.github.io/apiedemostrador/">chpmoreno.github.io/apiedemostrador</a></div>
       </div>
     </div>
 
     <div class="footline">
-      <span><span class="es">A pie de mostrador · Edición 1 · 8 entrevistas · julio de 2026 · Investigación independiente</span><span class="en">A pie de mostrador · Edition 1 · 8 interviews · July 2026 · Independent research</span></span>
+      <span><span class="es">A pie de mostrador · Edición 1 · 8 entrevistas · julio de 2026 · Investigación independiente</span><span class="ca">A pie de mostrador · Edició 1 · 8 entrevistes · juliol de 2026 · Recerca independent</span><span class="en">A pie de mostrador · Edition 1 · 8 interviews · July 2026 · Independent research</span></span>
       <div class="dots" aria-hidden="true">
         <span style="background: var(--c-ananda)"></span><span style="background: var(--c-marenna)"></span><span style="background: var(--c-todalinda)"></span><span style="background: var(--c-espiga)"></span><span style="background: var(--c-ixeta)"></span><span style="background: var(--c-meatboss)"></span><span style="background: var(--c-indo)"></span><span style="background: var(--c-mostaza)"></span>
       </div>
@@ -230,10 +243,17 @@
 
 <script>
   const REPORT_URL = "https://chpmoreno.github.io/apiedemostrador/";
+  const PAGE_COPY = {
+    es: { title: "A pie de mostrador — Hoja de invitación", description: "Cuatro temas del informe A pie de mostrador y una invitación a conversar con comercios independientes." },
+    ca: { title: "A pie de mostrador — Full d'invitació", description: "Quatre temes de l'informe A pie de mostrador i una invitació a conversar amb comerços independents." },
+    en: { title: "A pie de mostrador — Invitation handout", description: "Four themes from the A pie de mostrador report and an invitation to speak with independent shops." }
+  };
   function setLanguage(lang, updateUrl) {
-    const selected = lang === "en" ? "en" : "es";
+    const selected = ["es", "ca", "en"].includes(lang) ? lang : "es";
     document.body.setAttribute("data-lang", selected);
     document.documentElement.lang = selected;
+    document.title = PAGE_COPY[selected].title;
+    document.querySelector('meta[name="description"]').content = PAGE_COPY[selected].description;
     document.querySelectorAll("[data-setlang]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-setlang") === selected)); });
     if (updateUrl) {
       const url = new URL(window.location.href);

@@ -6,12 +6,13 @@ independent shops are really dealing with, told back to them in their own words.
 This repo is the dev-marketing MVP for the research series:
 
 - **`index.html`** — the interactive report (Edition 1, n=8, May–July 2026). Spanish first,
-  EN toggle. Six recurring signals, verbatim anonymised quotes, an honest-limits note, and a
-  "¿Te suena?" tally that turns recognition into conversation requests. The final CTA uses a
-  low-friction email/phone contact form.
-- **`flyer.html`** — a one-page, A4-printable flyer with the six signals and a QR code that
+  with Catalan and English versions. Four recurring themes, verbatim anonymised quotes, an honest-limits note, and a
+  "¿Te suena?" tally that turns recognition into conversation requests. The contact form appears
+  once after the one-minute summary and again at the end, so visitors can respond early or after
+  reading the full report.
+- **`flyer.html`** — a one-page, A4-printable flyer with the four themes and a QR code that
   points at the live report. For WhatsApp, email and paper.
-- **`privacy.html`** — the bilingual, second-layer privacy notice for the contact form.
+- **`privacy.html`** — the Spanish, Catalan and English second-layer privacy notice for the contact form.
 
 ## Live
 
@@ -47,7 +48,8 @@ API keys or inbox secrets to this repository.
 Each submission contains only the contact channel(s) supplied by the visitor plus `intent`,
 `consent`, `consent_version`, `consent_language`, `submitted_at` and `source`. A `_gotcha`
 honeypot is included for spam protection. There is no free-text field, analytics or marketing
-opt-in.
+opt-in. The `source` value distinguishes `early_contact_form` from `report_contact_form`, so
+their relative conversion can be compared in Formspark without adding behavioural tracking.
 
 ### Operational privacy checklist
 
