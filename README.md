@@ -13,8 +13,19 @@ This repo is the dev-marketing MVP for the research series:
 - **`flyer.html`** — a one-page, A4-printable flyer with the four themes and a QR code that
   points at the live report. For WhatsApp, email and paper.
 - **`privacy.html`** — the Spanish, Catalan and English second-layer privacy notice for the contact form.
-- **`social/linkedin/`** — publish-ready LinkedIn carousels and their editable source files,
-  organised by campaign and date.
+- **`publications/`** — immutable, share-ready PDF materials, organised by year and report
+  edition. Editable presentation sources are intentionally not versioned.
+
+## Publications
+
+Edition 01 materials are stored in **`publications/2026/edition-01/`**:
+
+- **`a-pie-de-mostrador-edition-01-presentation-es.pdf`** — the complete presentation.
+- **`a-pie-de-mostrador-edition-01-linkedin-carousel-es.pdf`** — the LinkedIn carousel.
+
+Public artifact names follow this convention:
+`a-pie-de-mostrador-edition-{number}-{asset}-{language}.pdf`.
+Only final PDFs belong in `publications/`; PowerPoint files are excluded by `.gitignore`.
 
 ## Live
 
