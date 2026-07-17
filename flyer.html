@@ -126,7 +126,7 @@
   .eyebrow { font-size: 8.5pt; }
   h1 { font-family: Arial, Helvetica, sans-serif; font-size: 31pt; margin-bottom: 4mm; }
   .subq { font-family: Arial, Helvetica, sans-serif; font-size: 16.5pt; max-width: 150mm; }
-  .lede { font-size: 11pt; max-width: 162mm; margin-bottom: 8mm; }
+  .lede { font-size: 11pt; max-width: 126mm; margin-bottom: 8mm; }
   .senales { gap: 4mm 5mm; margin-bottom: 7mm; }
   .senal { background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 10%, var(--slip)), var(--slip)); border: .25mm solid color-mix(in srgb, var(--accent) 42%, var(--line)); border-top: 1.4mm solid var(--accent, var(--brand)); border-radius: 1.5mm; padding: 3.2mm 3.5mm 2.6mm; box-shadow: 1.3mm 1.5mm 0 color-mix(in srgb, var(--accent) 13%, transparent); }
   .senal h4 { font-family: Arial, Helvetica, sans-serif; font-size: 12pt; margin-bottom: 2mm; }
@@ -143,6 +143,22 @@
   .footline { font-size: 9.5pt; margin-top: 6mm; }
   .dots { display: flex; gap: 1.2mm; }
   .dots span { width: 5mm; height: 1.8mm; border-radius: 0; }
+  .flyer-image {
+    position: absolute; z-index: 2; top: 43mm; right: 14mm; width: 43mm; height: 39mm; margin: 0; padding: 3mm 3mm 5mm;
+    background: var(--slip); border: .25mm solid rgba(38,37,31,.22); border-radius: 1mm;
+    box-shadow: 2.3mm 2.7mm 0 rgba(30,107,79,.12), 0 4mm 8mm rgba(60,55,40,.12); transform: rotate(3deg);
+  }
+  .flyer-image::before { content: ""; position: absolute; z-index: 3; width: 18mm; height: 5mm; top: -3mm; left: 50%; transform: translateX(-50%) rotate(-5deg); background: rgba(225,205,151,.8); }
+  .flyer-image::after { content: ""; position: absolute; right: 6mm; bottom: 1.5mm; width: 6mm; height: 2.5mm; border: .5mm solid rgba(91,88,76,.35); border-left-color: transparent; border-radius: 50%; transform: rotate(-25deg); }
+  .flyer-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; border-radius: 2.5mm; filter: saturate(.82) contrast(.96); }
+  @media (max-width: 820px) {
+    .lede { max-width: 100%; }
+    .flyer-image {
+      position: relative; inset: auto; width: min(58vw, 230px); height: min(47vw, 185px);
+      margin: 26px 4px 32px auto; padding: 10px 10px 18px; transform: rotate(2deg);
+    }
+    .flyer-image::before { width: 70px; height: 18px; top: -10px; }
+  }
   @media (max-width: 700px) {
     body { padding: 0; }
     .page { width: 100%; min-height: 100vh; box-shadow: none; }
@@ -181,6 +197,8 @@
     <p class="lede es">Ocho comercios describen dónde se acumulan el trabajo, la incertidumbre y la dependencia. Son hipótesis direccionales de una muestra pequeña, no un diagnóstico del sector.</p>
     <p class="lede ca">Vuit comerços descriuen on s'acumulen la feina, la incertesa i la dependència. Són hipòtesis orientatives d'una mostra petita, no un diagnòstic del sector.</p>
     <p class="lede en">Eight independent shops describe where work, uncertainty and dependence accumulate. These are directional hypotheses from a small sample, not a diagnosis of the sector.</p>
+
+    <figure class="flyer-image"><img src="assets/local-commerce/adjusted/convenience-store.jpg" alt="Interior de un comercio local"></figure>
 
     <div class="senales">
       <div class="senal" style="--accent: var(--c-ananda)">
