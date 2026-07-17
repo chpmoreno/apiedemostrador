@@ -5,13 +5,14 @@ independent shops are really dealing with, told back to them in their own words.
 
 This repo is the dev-marketing MVP for the research series:
 
-- **`index.html`** — the interactive report (Edition 1, n=8, May–July 2026). Spanish first,
+- **`index.html`** — the interactive report (Edition 1, n=8, May–July 2026), with
+  contextual local-commerce photography. Spanish first,
   with Catalan and English versions. Four recurring themes, verbatim anonymised quotes, an honest-limits note, and a
   "¿Te suena?" tally that turns recognition into conversation requests. The contact form appears
   once after the one-minute summary and again at the end, so visitors can respond early or after
   reading the full report.
-- **`flyer.html`** — a one-page, A4-printable flyer with the four themes and a QR code that
-  points at the live report. For WhatsApp, email and paper.
+- **`flyer.html`** — a one-page, A4-printable flyer with the four themes, contextual
+  photography and a QR code that points at the live report. For WhatsApp, email and paper.
 - **`privacy.html`** — the Spanish, Catalan and English second-layer privacy notice for the contact form.
 - **`publications/`** — immutable, share-ready PDF materials, organised by year and report
   edition. Editable presentation sources are intentionally not versioned.
@@ -20,8 +21,10 @@ This repo is the dev-marketing MVP for the research series:
 
 Edition 01 materials are stored in **`publications/2026/edition-01/`**:
 
-- **`a-pie-de-mostrador-edition-01-presentation-es.pdf`** — the complete presentation.
-- **`a-pie-de-mostrador-edition-01-linkedin-carousel-es.pdf`** — the LinkedIn carousel.
+- **`a-pie-de-mostrador-edition-01-presentation-es.pdf`** — the complete presentation with
+  contextual photography.
+- **`a-pie-de-mostrador-edition-01-linkedin-carousel-es.pdf`** — the definitive LinkedIn
+  carousel; page 4 combines the original editorial sequence with contextual photography.
 
 Public artifact names follow this convention:
 `a-pie-de-mostrador-edition-{number}-{asset}-{language}.pdf`.
